@@ -6,13 +6,10 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <link rel="stylesheet" href="/assets/lib/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/assets/lib/font-awesome/css/font-awesome.min.css">
-
     @include("elements.head")
 
     <title>
-        @yield("title")
+        @yield("title", config("app.name"))
     </title>
 </head>
 <body>
@@ -20,7 +17,7 @@
     @include("elements.navbar")
     @include("elements.header")
 
-    <div class="contaner">
+    <div class="container-fluid">
         @yield("content")
     </div>
 
