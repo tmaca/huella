@@ -17,8 +17,8 @@
 </head>
 <body>
 
-    @include("elements.header")
     @include("elements.navbar")
+    @include("elements.header")
 
     <div class="contaner">
         @yield("content")

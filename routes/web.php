@@ -12,9 +12,5 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get("/plantilla", function () {
-    return view("ejemplo");
+    return view('ejemplo');
 });
