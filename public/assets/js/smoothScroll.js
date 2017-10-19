@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 e.preventDefault();
 
                 document.querySelector("header").scrollIntoView({behavior: "smooth", inline: "start"});
-                window.history.pushState(null, document.title, "");
+                window.history.pushState(null, document.title, "/");
                 setActive(this);
             }, false);
 

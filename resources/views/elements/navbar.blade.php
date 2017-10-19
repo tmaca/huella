@@ -1,4 +1,9 @@
-<nav class="navbar navbar-default navbar-fixed-top" id="mainNavbar">
+<nav class="navbar navbar-default TMPnavbar-fixed-top" id="mainNavbar" data-spy="affix" data-offset-top="100px">
+
+    <script>
+        document.getElementById("mainNavbar").setAttribute("data-offset-top", window.innerHeight);
+    </script>
+
     <div class="container-fluid">
 
         <div class="navbar-header">
