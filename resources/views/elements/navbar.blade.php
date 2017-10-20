@@ -1,7 +1,17 @@
-<nav class="navbar navbar-default TMPnavbar-fixed-top" id="mainNavbar" data-spy="affix" data-offset-top="100px">
+<nav class="navbar navbar-default" id="mainNavbar" data-spy="affix" data-offset-top="100px">
 
     <script>
-        document.getElementById("mainNavbar").setAttribute("data-offset-top", window.innerHeight);
+        document.addEventListener("DOMContentLoaded", navTopOffset, false);
+
+        function navTopOffset() {
+            $("#mainNavbar").affix({
+                offset: {
+                    top: function () {
+                        return document.getElementsByTagName("header")[0].clientHeight;
+                    }
+                }
+            });
+        }
     </script>
 
     <div class="container-fluid">
