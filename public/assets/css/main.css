@@ -1,10 +1,9 @@
-#mainNavbar {
-    margin-bottom: 0px;
+body > header {
+    padding-top: 50px;
 }
 
-#mainNavbar.affix {
-    top:0;
-    width: 100%;
+#mainNavbar {
+    margin-bottom: 0px;
 }
 
 header {

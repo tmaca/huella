@@ -8,10 +8,17 @@
 
     <div id="superpuesto">
         <div class="vertical-aligned text-center">
+            @guest
             <a href="/register" class="btn btn-success btn-lg">
                 <i class="fa fa-user"></i>
                 Registrarse
             </a>
+            @else
+            <a href="/logout" class="btn btn-success btn-lg">
+                <i class="fa fa-sign-out"></i>
+                Cerrar Sesión
+            </a>
+            @endguest
         </div>
     </div>
 </header>

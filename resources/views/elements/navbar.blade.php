@@ -1,18 +1,4 @@
-<nav class="navbar navbar-default" id="mainNavbar" data-spy="affix" data-offset-top="100px">
-
-    <script>
-        document.addEventListener("DOMContentLoaded", navTopOffset, false);
-
-        function navTopOffset() {
-            $("#mainNavbar").affix({
-                offset: {
-                    top: function () {
-                        return document.getElementsByTagName("header")[0].clientHeight;
-                    }
-                }
-            });
-        }
-    </script>
+<nav class="navbar navbar-default navbar-fixed-top" id="mainNavbar" data-spy="affix" data-offset-top="100px">
 
     <div class="container-fluid">
 
@@ -53,6 +39,7 @@
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
+                @guest
                 <li>
                     <a href="/login">
                         <i class="fa fa-sign-in"></i>
@@ -60,11 +47,22 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/registro">
+                    <a href="/register">
                         <i class="fa fa-user-plus"></i>
                         Registro
                     </a>
                 </li>
+                @else
+                <li>
+                    <a href="http://localhost/~jesus/Authentication/public/logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        <i class="fa fa-sign-out"></i>
+                        Cerrar Sesion
+                    </a>
+                    <form id="logout-form" action="/logout" method="POST">
+                        {{ csrf_field() }}
+                    </form>
+                </li>
+                @endguest
             </ul>
         </div>
     </div>

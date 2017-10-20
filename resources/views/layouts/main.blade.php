@@ -14,8 +14,8 @@
 </head>
 <body>
 
-    @include("elements.header")
     @include("elements.navbar")
+    @include("elements.header")
 
     <div class="container-fluid">
         @yield("content")
