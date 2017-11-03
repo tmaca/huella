@@ -9,3 +9,4 @@
 
 <link rel="stylesheet" href="/assets/css/main.css">
 <script src="/assets/js/smoothScroll.js"></script>
+<script src="/assets/js/collapseNavBar.js"></script>

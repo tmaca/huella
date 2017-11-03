@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
 
     for (let i = 0; i < document.links.length; i++) {
-        let link = document.links[i]
+        let link = document.links[i];
         let href = link.href.replace(window.location.origin + "/", "");
 
         // scroll top on /
