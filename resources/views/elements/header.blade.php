@@ -5,7 +5,10 @@
             <source src="/assets/video/header.webm" type="video/webm">
         </video>
     </div>
+    <div id="texto">
 
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in velit eget metus lobortis semper id vel ante.</p>
+    </div>
     <div id="superpuesto">
         <div class="vertical-aligned text-center">
             @guest

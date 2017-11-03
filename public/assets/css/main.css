@@ -1,26 +1,43 @@
+
+
 body > header {
-    padding-top: 50px;
+    /*padding-top: 50px;*/
+    font-family: fantasy;
+
 }
+
 
 #mainNavbar {
     margin-bottom: 50px;
-
+    font-family: fantasy;
 }
 
+#texto{
+    position: absolute;
+    width:60%;
+    left: 20%;
+    top: 30%;
+    font-size: 20px;
+    color: white;
+
+}
 
 /*#BAFFDD color chachi*/
 .navbar {
-    background-color: #A0DBB3;
+    background-color: transparent;
+    border: none;
 }
 .navbar-default .navbar-nav > li > a{
-    color: #7A5635;
+    color: white;
 }
 .navbar-default .navbar-nav > li > a:hover{
-    color: white;
+    color: #C1E1A6;
+    border: none;
 }
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover{
     color: #BAFFDD;
     background-color: #7A5635;
+    border: none;
 }
 
 header {
@@ -33,7 +50,7 @@ header {
 header #superpuesto {
     width: 100%;
     height: 0px;
-    padding-top: 50px;
+    /*padding-top: 50px;*/
     padding-bottom: 56.25%;
     position: absolute;
     top: 0;
@@ -53,7 +70,7 @@ header #superpuesto .vertical-aligned {
 #contacto {
     height: calc(100vh - 50px);
     bottom: 15px;
-    /*margin:70px;*/
+
 }
 
 .bloque{
@@ -70,6 +87,8 @@ footer {
 footer p {
     line-height: 200px;
 }
+
+
 
 /*------------MEDIA QUERIES---------------*/
 
@@ -128,14 +147,3 @@ footer p {
     }
 }
 
-#quienesSomos{
-    background-color: #1b6d85;
-}
-
-#servicios{
-    background-color: #463C54;
-}
-
-#contacto{
-    background-color: #a94442;
-}
