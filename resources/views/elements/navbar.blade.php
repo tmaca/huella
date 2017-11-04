@@ -8,7 +8,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">
+            <a class="navbar-brand" href="">
                 {{ config("app.name") }}
             </a>
         </div>
@@ -17,7 +17,7 @@
 
             <ul class="nav navbar-nav">
                 <li class="active">
-                    <a href="/">
+                    <a href="">
                         Inicio
                     </a>
                 </li>
@@ -41,13 +41,13 @@
             <ul class="nav navbar-nav navbar-right">
                 @guest
                 <li>
-                    <a href="/login">
+                    <a href="login">
                         <i class="fa fa-sign-in"></i>
                         Login
                     </a>
                 </li>
                 <li>
-                    <a href="/register">
+                    <a href="register">
                         <i class="fa fa-user-plus"></i>
                         Registro
                     </a>
@@ -58,7 +58,7 @@
                         <i class="fa fa-sign-out"></i>
                         Cerrar Sesion
                     </a>
-                    <form id="logout-form" action="/logout" method="POST">
+                    <form id="logout-form" action="logout" method="POST">
                         {{ csrf_field() }}
                     </form>
                 </li>
