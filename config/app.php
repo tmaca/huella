@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Huella'),
+    'name' => env('APP_NAME', 'Laravel'),
 
     /*
     |----------------------------------------------------s----------------------
@@ -171,11 +171,11 @@ return [
         /*
          * Application Service Providers...
          */
-        Huella\Providers\AppServiceProvider::class,
-        Huella\Providers\AuthServiceProvider::class,
-        // Huella\Providers\BroadcastServiceProvider::class,
-        Huella\Providers\EventServiceProvider::class,
-        Huella\Providers\RouteServiceProvider::class,
+        App\Providers\AppServiceProvider::class,
+        App\Providers\AuthServiceProvider::class,
+        // App\Providers\BroadcastServiceProvider::class,
+        App\Providers\EventServiceProvider::class,
+        App\Providers\RouteServiceProvider::class,
 
     ],
 
