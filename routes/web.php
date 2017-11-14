@@ -23,11 +23,3 @@ Route::get("/logout", function () {
 });
 
 Route::get("/email/confim/{token}", "Auth\RegisterController@verifyEmail")->name("registerEmailConfirmation");
-
-Route::get('/mailable', function () {
-    $user = new App\User;
-    $user->email = "email@example.com";
-    $user->email_code = str_random(75);
-
-    return new App\Mail\RegisterConfirmation($user);
-});
