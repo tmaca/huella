@@ -6,6 +6,7 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -65,13 +66,26 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'nif' => $data['nif'],
             'telephone' => $data['telephone'],
             'year' => $data['year'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            "email_code" => str_random(75),
+            "verified" => false,
         ]);
+
+        $user->sendVerifyEmail();
+
+        return $user;
+    }
+
+    // public function register() {}
+
+    public function verifyEmail(Request $request, $token) {
+        User::where("email_code", $token)->firstOrFail()->verify();
+        return redirect(route("login"));
     }
 }

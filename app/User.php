@@ -5,6 +5,9 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+use Illuminate\Support\Facades\Mail;
+use App\Mail\RegisterConfirmation;
+
 class User extends Authenticatable
 {
     use Notifiable;
@@ -26,4 +29,15 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function verify() {
+        $this->verified = true;
+        $this->email_code = null;
+
+        $this->save();
+    }
+
+    public function sendVerifyEmail() {
+        Mail::to($this->email)->send(new RegisterConfirmation($this));
+    }
 }
