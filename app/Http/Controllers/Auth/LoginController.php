@@ -36,4 +36,12 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    public function login(Request $request) {
+        /*
+         * TODO user has verfied his email
+         * if not show a message asking to confirm
+        */
+
+    }
 }

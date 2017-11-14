@@ -82,10 +82,16 @@ class RegisterController extends Controller
         return $user;
     }
 
-    // public function register() {}
+    public function register() {
+        /*
+         * TODO once registered DO NOT log in the user
+         * show page asking to confirm email before log in
+         */
+    }
 
     public function verifyEmail(Request $request, $token) {
         User::where("email_code", $token)->firstOrFail()->verify();
+
         return redirect(route("login"));
     }
 }
