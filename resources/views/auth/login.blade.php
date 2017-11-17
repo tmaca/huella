@@ -45,7 +45,7 @@
                                 <div class="col-md-6 col-md-offset-4">
                                     <div class="checkbox">
                                         <label>
-                                            <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
+                                            <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }} value="remember"> Remember Me
                                         </label>
                                     </div>
                                 </div>
@@ -68,4 +68,12 @@
             </div>
         </div>
     </div>
+
+
+    @if(isset($emailVerified) && !$emailVerified)
+        <script type="text/javascript">
+            swal("Email no verificado","Tienes que verificar el correo electrónico para poder iniciar sesión.", "info");
+        </script>
+    @endif
+
 @endsection

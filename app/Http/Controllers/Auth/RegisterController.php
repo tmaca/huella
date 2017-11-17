@@ -82,11 +82,10 @@ class RegisterController extends Controller
         return $user;
     }
 
-    public function register() {
-        /*
-         * TODO once registered DO NOT log in the user
-         * show page asking to confirm email before log in
-         */
+    public function register(Request $request) {
+        $this::create($request->all());
+
+        return view("auth.register", ["postRegister" => true, "emailAddress" => $request->email]);
     }
 
     public function verifyEmail(Request $request, $token) {

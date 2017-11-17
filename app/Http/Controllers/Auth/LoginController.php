@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 class LoginController extends Controller
 {
     /*
@@ -37,11 +40,30 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+
     public function login(Request $request) {
-        /*
-         * TODO user has verfied his email
-         * if not show a message asking to confirm
-        */
+        if (isset($request->remember)) {
+            $remember = true;
+        } else {
+            $remember = false;
+        }
+
+        if (Auth::attempt(["email" => $request->email, "password" => $request->password], $remember)) {
+
+            $user = Auth::user();
+
+            // user has verified email
+            if (!empty($user->email_code) && !$user->verified) {
+                Auth::logout();
+
+                return view("auth.login", ["emailVerified" => false]);
+            }
+
+            return redirect()->intended($this::redirectTo);
+
+        } else {
+            return $this::showLoginForm();
+        }
 
     }
 }

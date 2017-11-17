@@ -120,4 +120,11 @@
             </div>
         </div>
     </div>
+
+    @if(isset($postRegister) && $postRegister)
+        <script type="text/javascript">
+            swal("Activación de cuenta", "Se ha enviado un email de confirmación a la dirección indicada, {{ $emailAddress }}, una vez confirmado el email se activará la cuenta", "info");
+        </script>
+    @endif
+
 @endsection
