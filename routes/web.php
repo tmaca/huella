@@ -17,9 +17,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get("/logout", function () {
-    Auth::logout();
-    return redirect("/");
-});
+Route::get("/logout", "LoginController@logout");
 
 Route::get("/email/confim/{token}", "Auth\RegisterController@verifyEmail")->name("registerEmailConfirmation");
