@@ -1,5 +1,9 @@
 <?php
 use Illuminate\Database\Seeder;
+
+use App\Admin;
+use App\User;
+
 class UsersTableSeeder extends Seeder
 {
     /**
@@ -9,20 +13,22 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        /*$user = [
-            'name' => 'User',
-            'nif' => '74333222P',
-            'telephone' => '943123456',
-            'year' => '2017',
-            'email' => 'user@mail.com',
-            'password' => bcrypt('password')
-        ];*/
-        $admin = [
-            'name' => 'admin',
-            'code' => '01234556789',
-            'password' => bcrypt('password')
-        ];
-        //DB::table('users')->insert($user);
-        DB::table('admins')->insert($admin);
+
+        $user = new User;
+        $user->name = "User";
+        $user->nif = "74333222";
+        $user->telephone = "123456789";
+        $user->year = "2017";
+        $user->email = "user@mail.com";
+        $user->password = bcrypt('password');
+        $user->verified = true;
+        $user->save();
+
+        $admin = new Admin;
+        $admin->name = "admin";
+        $admin->code = "0123456789";
+        $admin->password = bcrypt('password');
+        $admin->save();
+
     }
 }
