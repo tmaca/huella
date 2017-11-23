@@ -8,7 +8,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="">
+            <a class="navbar-brand" href="{{ route("landing") }}">
                 {{ config("app.name") }}
             </a>
         </div>
@@ -17,36 +17,38 @@
 
             <ul class="nav navbar-nav">
                 <li class="active">
-                    <a href="">
+                    <a href="{{ route("landing") }}">
                         Inicio
                     </a>
                 </li>
+                @if(Request::url() == route("landing"))
                 <li>
-                    <a href="#quienesSomos">
+                    <a href="{{ route("landing") }}#quienesSomos">
                         Quienes Somos
                     </a>
                 </li>
                 <li>
-                    <a href="#servicios">
+                    <a href="{{ route("landing") }}#servicios">
                         Servicios
                     </a>
                 </li>
                 <li>
-                    <a href="#contacto">
+                    <a href="{{ route("landing") }}#contacto">
                         Contacto
                     </a>
                 </li>
+                @endif
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
                 @guest
-                <li>
+                <li class="@if(Request::url() == route("login")){{ "active" }}@endif">
                     <a href="login">
                         <i class="fa fa-sign-in"></i>
                         Login
                     </a>
                 </li>
-                <li>
+                <li class="@if(Request::url() == route("register")){{ "active" }}@endif">
                     <a href="register">
                         <i class="fa fa-user-plus"></i>
                         Registro
@@ -54,7 +56,7 @@
                 </li>
                 @else
                 <li>
-                    <a href="http://localhost/~jesus/Authentication/public/logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    <a href="{{ route("logout") }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         <i class="fa fa-sign-out"></i>
                         Cerrar Sesion
                     </a>
