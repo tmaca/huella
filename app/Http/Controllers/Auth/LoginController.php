@@ -59,7 +59,7 @@ class LoginController extends Controller
                 return view("auth.login", ["emailVerified" => false]);
             }
 
-            return redirect()->intended($this::redirectTo);
+            return redirect()->intended($this::redirectPath());
 
         } else {
             return $this::showLoginForm();
