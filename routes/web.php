@@ -17,11 +17,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get("/logout", "LoginController@logout");
+Route::get("/logout", "Auth\LoginController@logout");
 
 Route::get("/email/confim/{token}", "Auth\RegisterController@verifyEmail")->name("registerEmailConfirmation");
-
-//Route::get('/home', 'HomeController@index')->name('home');
 
 Route::prefix('admin')->group(function() {
     Route::get('/', 'AdminController@index')->name('admin.home');
