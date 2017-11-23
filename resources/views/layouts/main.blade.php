@@ -15,11 +15,16 @@
 <body>
 
     @include("elements.navbar")
-    @include("elements.header")
 
-    <div class="container-fluid">
+    @if(Request::url() == route("landing"))
+        @include("elements.header")
+    @else
+        <div class="navbar navbar-default"></div>
+    @endif
+
+    <main class="container-fluid">
         @yield("content")
-    </div>
+    </main>
 
     @include("elements.footer")
 
