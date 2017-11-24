@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 use App\User;
 
@@ -42,8 +43,22 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'email' => 'required|string|email|max:255',
+            'password' => 'required|string|min:6',
+            'remember' => 'nullable'
+        ]);
+    }
+
     public function login(Request $request) {
         // TODO validar formulario y mostrar errores
+        $validator = $this::validator($request->all());
+
+        if ($validator->fails()) {
+            return redirect(route("login"))->withErrors($validator)->withInput();
+        }
 
         if (isset($request->remember)) {
             $remember = true;
