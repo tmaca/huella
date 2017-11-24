@@ -8,10 +8,12 @@ $(document).ready(function() {
     } else {
         $(window).scroll(function() {
             if ($(window).scrollTop() > $("header").height() - $("#mainNavbar").height()) {
-                $("#mainNavbar").css({"background-color": navbarColor});
+                $("#mainNavbar").removeClass("navbar-transparent");
+                $("#mainNavbar").addClass("navbar-green");
 
             } else {
-                $("#mainNavbar").css({"background-color": "transparent"});
+                $("#mainNavbar").removeClass("navbar-green");
+                $("#mainNavbar").addClass("navbar-transparent");
             }
         });
     }

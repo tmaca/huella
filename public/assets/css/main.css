@@ -13,23 +13,101 @@ main {
 
 }
 
-/*#BAFFDD color chachi*/
-.navbar {
-    background-color: transparent;
-    border: none;
+/*
+ * Navbar green and transparent
+ */
+
+/* navbar-green*/
+
+.navbar-green {
+    background-color: #5cb85c;
+    border-color: #3cb83e;
 }
-.navbar-default .navbar-nav > li > a{
+.navbar-green .navbar-brand,
+.navbar-green .navbar-text,
+.navbar-green .navbar-nav > li > a,
+.navbar-transparent .navbar-brand,
+.navbar-transparent .navbar-text,
+.navbar-transparent .navbar-nav > li > a {
     color: white;
 }
-.navbar-default .navbar-nav > li > a:hover{
-    color: #C1E1A6;
-    border: none;
+.navbar-green .navbar-nav > li > a:hover,
+.navbar-green .navbar-nav > li > a:focus {
+    color: #333;
+    background-color: transparent;
 }
-.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover{
-    color: #BAFFDD;
-    background-color: #7A5635;
-    border: none;
+.navbar-green .navbar-brand:hover,
+.navbar-green .navbar-brand:focus,
+.navbar-green .navbar-nav > .active > a,
+.navbar-green .navbar-nav > .active > a:hover,
+.navbar-green .navbar-nav > .active > a:focus {
+    color: black;
+    background-color: rgba(0, 0, 0, 0.3);
 }
+.navbar-green .navbar-toggle {
+    border-color: black;
+}
+.navbar-green .navbar-toggle:hover,
+.navbar-green .navbar-toggle:focus {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.navbar-green .navbar-toggle .icon-bar {
+    background-color: black;
+}
+.navbar-green .navbar-collapse,
+.navbar-green .navbar-form {
+    border-color: black;
+}
+.navbar-green .navbar-nav > .open > a,
+.navbar-green .navbar-nav > .open > a:hover,
+.navbar-green .navbar-nav > .open > a:focus {
+    color: #555;
+    background-color: #e7e7e7;
+}
+
+/* navbar transparent */
+
+.navbar-transparent {
+    background-color: rgba(92, 184, 92, 0.2);
+    border-color: #3cb83e;
+}
+.navbar-transparent .navbar-nav > li > a:hover,
+.navbar-transparent .navbar-nav > li > a:focus {
+    color: #333;
+    background-color: transparent;
+}
+.navbar-transparent .navbar-brand:hover,
+.navbar-transparent .navbar-brand:focus,
+.navbar-transparent .navbar-nav > .active > a,
+.navbar-transparent .navbar-nav > .active > a:hover,
+.navbar-transparent .navbar-nav > .active > a:focus {
+    color: white;
+    background-color: rgba(92, 184, 92, 0.4);
+}
+.navbar-transparent .navbar-toggle {
+    border-color: white;
+}
+.navbar-transparent .navbar-toggle:hover,
+.navbar-transparent .navbar-toggle:focus {
+    background-color: rgba(60, 184, 62, 0.2);
+}
+.navbar-transparent .navbar-toggle .icon-bar {
+    background-color: white;
+}
+.navbar-transparent .navbar-collapse,
+.navbar-transparent .navbar-form {
+    border-color: #3cb83e;
+}
+.navbar-transparent .navbar-nav > .open > a,
+.navbar-transparent .navbar-nav > .open > a:hover,
+.navbar-transparent .navbar-nav > .open > a:focus {
+    color: #555;
+    background-color: #e7e7e7;
+}
+
+/*
+ *
+ */
 
 header {
     background-image: url("/assets/img/header.jpg");
