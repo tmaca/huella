@@ -1,5 +1,3 @@
-const navbarColor = "#5cb85c";
-
 $(document).ready(function() {
 
     if (location.pathname == "/") {
