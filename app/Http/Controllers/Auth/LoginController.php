@@ -80,7 +80,7 @@ class LoginController extends Controller
             return redirect()->intended($this::redirectPath());
 
         } else {
-            return $this::showLoginForm();
+            return redirect(route("login"))->withErrors($validator)->withInput();
         }
 
     }
