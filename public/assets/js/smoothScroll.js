@@ -1,40 +1,26 @@
-document.addEventListener("DOMContentLoaded", function() {
+$(document).ready(function(){
+    // Add scrollspy to <body>
+    $('body').scrollspy({target: ".navbar", offset: 50});
 
-    for (let i = 0; i < document.links.length; i++) {
-        let link = document.links[i];
-        let href = link.href.replace(window.location.origin + "/", "");
+    // Add smooth scrolling on all links inside the navbar
+    $("#mainNavbar a").on('click', function(event) {
+        // Make sure this.hash has a value before overriding default behavior
+        if (this.hash !== "") {
+            // Prevent default anchor click behavior
+            event.preventDefault();
 
-        // scroll top on /
-        if (window.location.pathname == "/" && link.href.replace(window.location.origin, "") == "/") {
-            link.addEventListener("click", function(e) {
-                e.preventDefault();
+            // Store hash
+            var hash = this.hash;
 
-                document.querySelector("header").scrollIntoView({behavior: "smooth", inline: "start"});
-                window.history.pushState(null, document.title, "/");
-                setActive(this);
-            }, false);
+            // Using jQuery's animate() method to add smooth page scroll
+            // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+            $('html, body').animate({
+                scrollTop: $(hash).offset().top
+            }, 500, function(){
 
-        }  else if (href.charAt(0) == "#") {
-            link.addEventListener("click", scroll, false);
-        }
-    }
-
-    function scroll(e) {
-        e.preventDefault();
-
-        let id = this.href.replace(window.location.origin + "/#", "");
-
-        setActive(this);
-        document.getElementById(id).scrollIntoView({behavior: "smooth", inline: "start"});
-        window.history.pushState(null, document.title, "#" + id);
-    }
-
-    function setActive(element) {
-        let currentActive = document.getElementById("mainNavbar").querySelector(".active");
-        currentActive.className = currentActive.className.replace("active", "");
-
-        element.parentNode.className += " active";
-    }
-
-}, false);
-
+                // Add hash (#) to URL when done scrolling (default click behavior)
+                window.location.hash = hash;
+            });
+        }  // End if
+    });
+});

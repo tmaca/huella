@@ -1,5 +1,5 @@
 $(function() {
-    $(document).click(function (event) {
+    $(document).click(function () {
         $('.navbar-collapse').collapse('hide');
     });
 });

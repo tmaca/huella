@@ -17,23 +17,23 @@
 
             <ul class="nav navbar-nav">
                 <li class="@if(Request::url() == route("landing")){{ "active" }}@endif">
-                    <a href="{{ route("landing") }}">
+                    <a href="#inicio">
                         Inicio
                     </a>
                 </li>
                 @if(Request::url() == route("landing"))
                 <li>
-                    <a href="{{ route("landing") }}#quienesSomos">
+                    <a href="#quienesSomos">
                         Quienes Somos
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route("landing") }}#servicios">
+                    <a href="#servicios">
                         Servicios
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route("landing") }}#contacto">
+                    <a href="#contacto">
                         Contacto
                     </a>
                 </li>
