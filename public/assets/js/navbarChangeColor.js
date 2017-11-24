@@ -1,4 +1,4 @@
-const navbarColor = "#40a372";
+const navbarColor = "#5cb85c";
 
 $(document).ready(function() {
 
