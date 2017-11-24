@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function() {
         currentActive.className = currentActive.className.replace("active", "");
 
         element.parentNode.className += " active";
-        console.log(element);
     }
 
 }, false);
+

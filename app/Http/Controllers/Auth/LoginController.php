@@ -42,8 +42,9 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-
     public function login(Request $request) {
+        // TODO validar formulario y mostrar errores
+
         if (isset($request->remember)) {
             $remember = true;
         } else {

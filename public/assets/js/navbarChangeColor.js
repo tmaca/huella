@@ -1,17 +1,14 @@
-const navbarColor = "#40a372";
-
 $(document).ready(function() {
 
-    if (location.pathname != "/") {
-        $(".navbar").css({"background-color": navbarColor});
-
-    } else {
+    if (location.pathname == "/") {
         $(window).scroll(function() {
             if ($(window).scrollTop() > $("header").height() - $("#mainNavbar").height()) {
-                $("#mainNavbar").css({"background-color": navbarColor});
+                $("#mainNavbar").removeClass("navbar-transparent");
+                $("#mainNavbar").addClass("navbar-green");
 
             } else {
-                $("#mainNavbar").css({"background-color": "transparent"});
+                $("#mainNavbar").removeClass("navbar-green");
+                $("#mainNavbar").addClass("navbar-transparent");
             }
         });
     }

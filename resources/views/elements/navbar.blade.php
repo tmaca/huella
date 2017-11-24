@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-fixed-top" id="mainNavbar" data-spy="affix" data-offset-top="100px">
+<nav class="navbar @if(Request::url() == route("landing")){{ "navbar-transparent" }}@else{{ "navbar-green" }}@endif navbar-fixed-top" id="mainNavbar" data-spy="affix" data-offset-top="100px">
 
     <div class="container-fluid">
 
