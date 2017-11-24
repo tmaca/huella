@@ -2,10 +2,7 @@ const navbarColor = "#5cb85c";
 
 $(document).ready(function() {
 
-    if (location.pathname != "/") {
-        $(".navbar").css({"background-color": navbarColor});
-
-    } else {
+    if (location.pathname == "/") {
         $(window).scroll(function() {
             if ($(window).scrollTop() > $("header").height() - $("#mainNavbar").height()) {
                 $("#mainNavbar").removeClass("navbar-transparent");
