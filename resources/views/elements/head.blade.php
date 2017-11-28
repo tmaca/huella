@@ -11,5 +11,5 @@
 
 <link rel="stylesheet" href="{{ url("/assets/css/main.css") }}">
 <script src="{{ url("/assets/js/smoothScroll.js") }}"></script>
-<script src="{{ url("/assets/js/collapseNavBar.js") }}"></script>
+<script src="{{ url("/assets/js/collapseNavbar.js") }}"></script>
 <script src="{{ url("/assets/js/navbarChangeColor.js") }}"></script>
