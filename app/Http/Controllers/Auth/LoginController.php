@@ -53,7 +53,6 @@ class LoginController extends Controller
     }
 
     public function login(Request $request) {
-        // TODO validar formulario y mostrar errores
         $validator = $this::validator($request->all());
 
         if ($validator->fails()) {
