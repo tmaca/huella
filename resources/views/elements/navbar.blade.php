@@ -1,4 +1,4 @@
-<nav class="navbar @if(Request::url() == route("landing")){{ "navbar-transparent" }}@else{{ "navbar-green" }}@endif navbar-fixed-top" id="mainNavbar" data-spy="affix" data-offset-top="100px">
+<nav class="navbar @if(Request::url() == route("landing")){{ "navbar-transparent" }}@else{{ "navbar-green" }}@endif navbar-fixed-top" id="mainNavbar" data-offset-top="100px">
 
     <div class="container-fluid">
 
@@ -17,7 +17,7 @@
 
             <ul class="nav navbar-nav">
                 <li class="@if(Request::url() == route("landing")){{ "active" }}@endif">
-                    <a href="#inicio">
+                    <a href="@if(Request::url() == route("landing")){{ "#inicio" }}@else{{ route("landing") }}@endif">
                         Inicio
                     </a>
                 </li>

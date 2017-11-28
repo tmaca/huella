@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
-use App\User;
+use App\Models\User;
 
 class LoginController extends Controller
 {
@@ -79,7 +79,8 @@ class LoginController extends Controller
             return redirect()->intended($this::redirectPath());
 
         } else {
-            return redirect(route("login"))->withErrors($validator)->withInput();
+            $errors = [$this->username() => trans('auth.failed')];
+            return redirect(route("login"))->withErrors($errors)->withInput();
         }
 
     }
