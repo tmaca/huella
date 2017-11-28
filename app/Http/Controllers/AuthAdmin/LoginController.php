@@ -48,7 +48,7 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         $this->validate($request, [
-            'code' => 'required|min:8',
+            'code' => 'required|integer|min:10000000',
             'password' => 'required|min:6'
         ]);
 
@@ -64,7 +64,7 @@ class LoginController extends Controller
         }
 
         // If Unsuccessful, then redirect back to the login with the form data
-        return redirect()->back()->withInput($request->only('code', 'remember'));
+        return redirect()->route("admin.login")->withInput();
     }
 
     /**

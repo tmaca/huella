@@ -43,13 +43,13 @@
             <ul class="nav navbar-nav navbar-right">
                 @guest
                 <li class="@if(Request::url() == route("login")){{ "active" }}@endif">
-                    <a href="login">
+                    <a href="{{ route("login") }}">
                         <i class="fa fa-sign-in"></i>
                         Login
                     </a>
                 </li>
                 <li class="@if(Request::url() == route("register")){{ "active" }}@endif">
-                    <a href="register">
+                    <a href="{{ route("register") }}">
                         <i class="fa fa-user-plus"></i>
                         Registro
                     </a>
@@ -60,7 +60,7 @@
                         <i class="fa fa-sign-out"></i>
                         Cerrar Sesion
                     </a>
-                    <form id="logout-form" action="logout" method="POST">
+                    <form id="logout-form" action="{{ route("logout") }}" method="POST">
                         {{ csrf_field() }}
                     </form>
                 </li>
@@ -70,4 +70,3 @@
     </div>
 
 </nav>
-
