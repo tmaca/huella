@@ -113,6 +113,7 @@ header #superpuesto {
     left: 0;
     right: 0;
     text-align: center;
+    padding-bottom: 56.25%;
 }
 
 header #superpuesto::before {
