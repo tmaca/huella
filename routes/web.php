@@ -35,3 +35,5 @@ Route::prefix('admin')->group(function() {
 Route::get("/terms-of-service", function () {
     return "Terminos del servicio";
 })->name("termsOfService");
+
+Route::post('/datoscontacto', 'HomeController@datoscontacto');

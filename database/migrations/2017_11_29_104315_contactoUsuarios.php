@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddUserVerificationFields extends Migration
+class ContactoUsuarios extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class AddUserVerificationFields extends Migration
      */
     public function up()
     {
-        Schema::table("users", function (Blueprint $table) {
+        Schema::create("contactoUsuarios", function (Blueprint $table) {
+            $table->increments('id');
             $table->string("email");
-            $table->string("subject");
+            $table->string("subject")->nullable();
             $table->string("message");
         });
     }
@@ -27,6 +28,6 @@ class AddUserVerificationFields extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('contactoUsuarios');
     }
 }

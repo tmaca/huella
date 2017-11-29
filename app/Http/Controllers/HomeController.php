@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ContactMailUser;
+use App\Models\ContactoUsuario;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ContactMailAdmin;
+use Illuminate\Support\Facades\Validator;
 
 class HomeController extends Controller
 {
@@ -13,7 +18,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except('datoscontacto');
     }
 
     /**
@@ -24,5 +29,45 @@ class HomeController extends Controller
     public function index()
     {
         return view('user.home');
+    }
+    public function datoscontacto(Request $request)
+    {
+        $validator = $this::validator($request->all());
+
+        if ($validator->fails()) {
+            return redirect(route("landing"))->withErrors($validator)->withInput();
+
+        }
+
+
+        $email=$request->email;
+        $subject=$request->subject;
+        $message=$request->message;
+
+        $datoscontacto = ContactoUsuario::create([
+
+            'email' => $email,
+            'subject' => $subject,
+            'message' => $message,
+
+        ]);
+
+        Mail::to($email)->send(new ContactMailUser());
+
+        Mail::to("pruebaslaravelzubiri@gmail.com")->send(new ContactMailAdmin());
+
+        return view('mails.respuestacontacto');
+
+    }
+
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+
+            'email' => 'required|string|email|max:255',
+            'subject' => 'nullable',
+            'message' => 'required',
+
+        ]);
     }
 }
