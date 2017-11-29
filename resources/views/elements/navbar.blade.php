@@ -43,13 +43,13 @@
             <ul class="nav navbar-nav navbar-right">
                 @guest
                 <li class="@if(Request::url() == route("login")){{ "active" }}@endif">
-                    <a href="{{ route("login") }}">
+                    <a data-toggle="modal" data-target="#loginModal">
                         <i class="fa fa-sign-in"></i>
                         Login
                     </a>
                 </li>
                 <li class="@if(Request::url() == route("register")){{ "active" }}@endif">
-                    <a href="{{ route("register") }}">
+                    <a data-toggle="modal" data-target="#registerModal">
                         <i class="fa fa-user-plus"></i>
                         Registro
                     </a>

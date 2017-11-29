@@ -28,5 +28,7 @@
 
     @include("elements.footer")
 
+    @include("elements.authModals")
+
 </body>
 </html>

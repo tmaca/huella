@@ -56,7 +56,8 @@ class LoginController extends Controller
         $validator = $this::validator($request->all());
 
         if ($validator->fails()) {
-            return redirect(route("login"))->withErrors($validator)->withInput();
+            $request->session()->flash("loginFailed", true);
+            return redirect()->back()->withErrors($validator)->withInput();
         }
 
         if (isset($request->remember)) {
@@ -79,8 +80,9 @@ class LoginController extends Controller
             return redirect()->intended($this::redirectPath());
 
         } else {
+            $request->session()->flash("loginFailed", true);
             $errors = [$this->username() => trans('auth.failed')];
-            return redirect(route("login"))->withErrors($errors)->withInput();
+            return redirect()->back()->withErrors($errors)->withInput();
         }
 
     }
