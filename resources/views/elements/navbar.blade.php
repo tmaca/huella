@@ -17,19 +17,19 @@
 
             <ul class="nav navbar-nav">
                 <li class="@if(Request::url() == route("landing")){{ "active" }}@endif">
-                    <a href="#inicio">
+                    <a href="@if(Request::url() == route("landing")){{ "#inicio" }}@else{{ route("landing") }}@endif">
                         Inicio
                     </a>
                 </li>
                 @if(Request::url() == route("landing"))
                 <li>
-                    <a href="#quienesSomos">
-                        Quienes Somos
+                    <a href="#queEs">
+                        Que es la Huella de Carbono
                     </a>
                 </li>
                 <li>
-                    <a href="#servicios">
-                        Servicios
+                    <a href="#comoFunciona">
+                        Como funciona
                     </a>
                 </li>
                 <li>

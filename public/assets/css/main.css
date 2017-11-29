@@ -130,10 +130,10 @@ header #superpuesto .vertical-aligned {
     vertical-align: middle;
 }
 
-#quienesSomos,
-#servicios,
+#queEs,
+#comoFunciona,
 #contacto {
-    height: calc(100vh - 50px);
+    min-height: calc(100vh - 50px);
     bottom: 15px;
 }
 
