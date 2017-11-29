@@ -135,10 +135,7 @@ header #superpuesto .vertical-aligned {
 #contacto {
     min-height: calc(100vh - 50px);
     bottom: 15px;
-}
-
-.bloque{
-    margin-top: 70px;
+    padding-top: 70px;
 }
 
 footer {
