@@ -25,42 +25,42 @@
         </div>
     </section>
 
-    <section class="container-fluid" id="comoFunciona" style="background: green;">
+    <section class="container-fluid" id="comoFunciona" style="background: orange;">
         <div class="container">
             <h1>Como funciona</h1>
             <hr>
 
             <div class="row">
 
-                <div class="col-xs-4">
+                <div class="col-xs-12 col-sm-6 col-md-4">
                     <div class="panel panel-success">
                         <div class="panel-heading text-center">
                             <i class="fa fa-user-plus fa-4x"></i>
                         </div>
-                        <div class="panel-body">
+                        <div class="panel-body text-center">
                             Registrate y verifica tu e-mail
                         </div>
                     </div>
                 </div>
 
-                <div class="col-xs-4">
+                <div class="col-xs-12 col-sm-6 col-md-4">
                     <div class="panel panel-success">
                         <div class="panel-heading text-center">
                             <i class="fa fa-check-square-o fa-4x"></i>
                         </div>
-                        <div class="panel-body">
+                        <div class="panel-body text-center">
                             Completa los formularios
                         </div>
                     </div>
                 </div>
 
-                <div class="col-xs-4">
+                <div class="col-xs-12 col-sm-offset-3 col-sm-6 col-md-offset-0 col-md-4">
                     <div class="panel panel-success">
                         <div class="panel-heading text-center">
                             <i class="fa fa-bar-chart fa-4x"></i>
                         </div>
-                        <div class="panel-body">
-                            Ve las estadísticas de emisiones e históricos
+                        <div class="panel-body text-center">
+                            Ve estadísticas de tus emisiones e históricos
                         </div>
                     </div>
                 </div>
@@ -69,8 +69,70 @@
             </div>
 
             <p class="text-justify">
-                Tres simples pasos: registro, insercion de datos y
+                Para calcular la Huella de Carbono de tu centro debes seguir los siguientes pasos, es muy sencillo. Primero <a href="{{ route("register") }}">registras</a> el centro, una vez registrada la cuenta <a href="{{ route("login") }}">inicias sesión</a> y cumplimentas los formularios, para algunos de ellos necesitarás tener las facturas a mano. Una vez finalizado se realizará el cálculo de la emisión, estos datos serán almacenados para que puedar ir realizando comparaciones de la evolución, todos estos datos serán mostrados en gráficos.
             </p>
+            <p class="text-justify">
+                A continuación te mostramos una simulación de la evolución de la evolución del consumo durante un año.
+            </p>
+
+            <div id="example-chart">
+                <canvas width="300" height="100"></canvas>
+
+                <script>
+                var ctx = document.getElementById("example-chart").getElementsByTagName("canvas")[0].getContext('2d');
+                var myChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: [
+                            "Enero",
+                            "Febrero",
+                            "Marzo",
+                            "Abril",
+                            "Mayo",
+                            "Junio",
+                            "Julio",
+                            "Agosto",
+                            "Septiembre",
+                            "Octubre",
+                            "Noviembre",
+                            "Diciembre",
+                        ],
+                        datasets: [{
+                            data: [
+                                Math.random() *10,
+                                Math.random() *10,
+                                Math.random() *10,
+                                Math.random() *10,
+                                Math.random() *10,
+                                Math.random() *10,
+                                Math.random() *10,
+                                Math.random() *10,
+                                Math.random() *10,
+                                Math.random() *10,
+                                Math.random() *10,
+                                Math.random() *10,
+                            ],
+                            backgroundColor: "rgba(60, 184, 62, 0.3)",
+                            borderColor: "#3cb83e",
+                            borderWidth: 3,
+                        }]
+                    },
+                    options: {
+                        legend: {
+                            display: false,
+                        },
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true,
+                                }
+                            }]
+                        }
+                    }
+                });
+                </script>
+
+            </div>
         </div>
     </section>
 
