@@ -36,9 +36,6 @@
                     <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }} value="remember">
                     Mantener sesión iniciada
                 </label>
-                <div class="help-block">
-                    Marcando la siguiente casilla la sesión será conservada hasta cierres la sesión manualmente
-                </div>
             </div>
         </div>
     </div>

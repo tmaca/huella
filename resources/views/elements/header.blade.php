@@ -12,7 +12,7 @@
                     Descubre más sobre la Huella de Carbono
                 </h2>
                 @guest
-                <a href="register" class="btn btn-success btn-lg">
+                <a data-toggle="modal" data-target="#registerModal" class="btn btn-success btn-lg">
                     <i class="fa fa-user"></i>
                     Registrarse
                 </a>
