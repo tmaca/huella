@@ -2,14 +2,10 @@ main {
     min-height: calc(100vh - (1.42857143em + 20px) - 20px);
     padding: 10px 0px;
 }
-
 /*
  * Navbar green and transparent
  */
-
-
 /* navbar-green*/
-
 .navbar-green {
     background-color: #5cb85c;
     border-color: #3cb83e;
@@ -55,9 +51,7 @@ main {
     color: #555;
     background-color: #e7e7e7;
 }
-
 /* navbar transparent */
-
 .navbar-transparent {
     background-color: rgba(92, 184, 92, 0.2);
     border-color: #3cb83e;
@@ -95,18 +89,15 @@ main {
     color: #555;
     background-color: #e7e7e7;
 }
-
 /*
  *
  */
-
 header {
     background-image: url("/assets/img/header.jpg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
 }
-
 header #superpuesto {
     position: absolute;
     top: 0;
@@ -114,49 +105,50 @@ header #superpuesto {
     left: 0;
     right: 0;
     text-align: center;
-    height: 0px;
     padding-bottom: 56.25%;
 }
-
 header #superpuesto::before {
     content: " ";
     display: inline-block;
     vertical-align: middle;
     height: 50vw;
 }
-
 header #superpuesto .vertical-aligned {
     text-align: center;
     position: static;
     display: inline-block;
     vertical-align: middle;
 }
-
-#queEs,
-#comoFunciona,
+#quienesSomos,
+#servicios,
 #contacto {
-    min-height: calc(100vh - 50px);
+    height: calc(100vh - 50px);
     bottom: 15px;
-    padding-top: 70px;
 }
-
+.bloque{
+    margin-top: 70px;
+}
 footer {
     width:100%;
-    height: 250px;
+    height: 200px;
     background-color: #A0DBB3;
     color: #7A5635;
+    padding-top: 30px;
 }
-
-footer p {
-    line-height: 200px;
+footer img{
+    display: block;
+    margin: auto;
 }
-
-
-
-/*------------MEDIA QUERIES---------------*/
-
+#textofooter{
+    margin-top: 10px;
+    font-size: 20px;
+    display: inline-block;
+    text-align: center;
+    width:100%;
+    /*line-height: 150px;*/
+}
+/*---------------------MEDIA QUERIES-------------------------*/
 @media only screen and (max-width: 375px) {
-
     #quienesSomos,
     #servicios,
     #contacto {
@@ -166,90 +158,36 @@ footer p {
         padding: 15px;
         /*margin:70px;*/
     }
-
     .bloque{
         margin-top: 40px;
     }
-
     footer{
         height: 50px;
         width:100%;
     }
-
     footer p{
         line-height: 50px;
         margin:0 auto;
     }
-
 }
-
 @media only screen and (min-width: 376px) and (max-width: 600px) {
     #quienesSomos,
     #servicios,
     #contacto {
-
         font-size: 12px;
         line-height: 23px;
         padding: 15px;
         /*margin:70px;*/
     }
-
     .bloque{
         margin-top: 40px;
     }
-
     footer{
         height: 80px;
         width:100%;
     }
-
     footer p{
         line-height: 50px;
         margin-left: 50px;
-
     }
-}
-
-.modal{
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    text-align: center;
-}
-
-.modal::before{
-    content: " ";
-    display: inline-block;
-    vertical-align: middle;
-    height: 50vw;
-}
-
-#loginModal .modal-dialog{
-    text-align: left;
-    position: static;
-    display: inline-block;
-    vertical-align: middle;
-    width: 420px;
-
-}
-
-.modal-content{
-    border-radius: 0 !important;
-}
-
-#registerModal .modal-dialog{
-    text-align: left;
-    position: static;
-    display: inline-block;
-    vertical-align: middle;
-    width: 700px;
-}
-
-body .modal-open {
-    overflow: visible;
-    position: absolute;
-    width: 100%;
-    height:100%;
 }
