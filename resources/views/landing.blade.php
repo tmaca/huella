@@ -156,7 +156,7 @@
 
                         <div class="form-group">
                             <label name="message">Mensaje:</label>
-                            <textarea id="message" name="message" class="form-control">Escribe tu mensaje aqui...</textarea>
+                            <textarea id="message" name="message" class="form-control" placeholder="Escribe tu mensaje aqui..."></textarea>
                         </div>
 
                         <input type="submit" value="Enviar mensaje " class="btn btn-success">
