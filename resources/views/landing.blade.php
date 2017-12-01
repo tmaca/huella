@@ -164,7 +164,6 @@
                             <input type="submit" value="Enviar mensaje " class="btn btn-success">
                         </form>
                     </div>
-=======
             <div class="row">
                 <div class="col-md-12">
                     <h1>Contacto</h1>
@@ -188,7 +187,6 @@
 
                         <input type="submit" value="Enviar mensaje " class="btn btn-success">
                     </form>
->>>>>>> addLandingContent
                 </div>
             </div>
         </div>
