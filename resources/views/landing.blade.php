@@ -33,7 +33,7 @@
             <div class="row">
 
                 <div class="col-xs-12 col-sm-6 col-md-4">
-                    <div class="panel panel-success">
+                    <div class="panel panel-primary">
                         <div class="panel-heading text-center">
                             <i class="fa fa-user-plus fa-4x"></i>
                         </div>
@@ -44,7 +44,7 @@
                 </div>
 
                 <div class="col-xs-12 col-sm-6 col-md-4">
-                    <div class="panel panel-success">
+                    <div class="panel panel-primary">
                         <div class="panel-heading text-center">
                             <i class="fa fa-check-square-o fa-4x"></i>
                         </div>
@@ -55,7 +55,7 @@
                 </div>
 
                 <div class="col-xs-12 col-sm-offset-3 col-sm-6 col-md-offset-0 col-md-4">
-                    <div class="panel panel-success">
+                    <div class="panel panel-primary">
                         <div class="panel-heading text-center">
                             <i class="fa fa-bar-chart fa-4x"></i>
                         </div>
@@ -120,7 +120,7 @@
                     options: {
                         legend: {
                             display: false,
-                        },
+                            },
                         scales: {
                             yAxes: [{
                                 ticks: {
