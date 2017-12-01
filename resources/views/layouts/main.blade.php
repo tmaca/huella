@@ -22,7 +22,7 @@
         <div class="navbar navbar-default"></div>
     @endif
 
-    <main class="container-fluid">
+    <main class="container-fluid" style="padding:0;">
         @yield("content")
     </main>
 

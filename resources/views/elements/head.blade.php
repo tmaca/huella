@@ -9,6 +9,8 @@
 
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
+<script src="{{ url("/assets/lib/chartjs/Chart.min.js")}}"></script>
+
 <link rel="stylesheet" href="{{ url("/assets/css/main.css") }}">
 <script src="{{ url("/assets/js/smoothScroll.js") }}"></script>
 <script src="{{ url("/assets/js/collapseNavbar.js") }}"></script>

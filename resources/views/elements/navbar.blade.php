@@ -23,13 +23,13 @@
                 </li>
                 @if(Request::url() == route("landing"))
                 <li>
-                    <a href="#quienesSomos">
-                        Quienes Somos
+                    <a href="#queEs">
+                        Que es la Huella de Carbono
                     </a>
                 </li>
                 <li>
-                    <a href="#servicios">
-                        Servicios
+                    <a href="#comoFunciona">
+                        Como funciona
                     </a>
                 </li>
                 <li>

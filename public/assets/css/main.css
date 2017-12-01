@@ -114,6 +114,7 @@ header #superpuesto {
     left: 0;
     right: 0;
     text-align: center;
+    height: 0px;
     padding-bottom: 56.25%;
 }
 
@@ -131,15 +132,12 @@ header #superpuesto .vertical-aligned {
     vertical-align: middle;
 }
 
-#quienesSomos,
-#servicios,
+#queEs,
+#comoFunciona,
 #contacto {
-    height: calc(100vh - 50px);
+    min-height: calc(100vh - 50px);
     bottom: 15px;
-}
-
-.bloque{
-    margin-top: 70px;
+    padding-top: 70px;
 }
 
 footer {

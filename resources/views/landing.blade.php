@@ -138,32 +138,6 @@
 
     <section class="container-fluid" id="contacto" style="background: red;">
         <div class="container">
-<<<<<<< HEAD
-            <div class="bloque">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h1>Contacto</h1>
-                        <hr>
-                        <form action="datoscontacto" method="POST">
-                            {{ csrf_field() }}
-                            <div class="form-group">
-                                <label name="email">Email:</label>
-                                <input id="email" name="email" class="form-control">
-                            </div>
-
-                            <div class="form-group">
-                                <label name="subject">Asunto:</label>
-                                <input id="subject" name="subject" class="form-control">
-                            </div>
-
-                            <div class="form-group">
-                                <label name="message">Mensaje:</label>
-                                <textarea id="message" name="message" class="form-control">Escribe tu mensaje aqui...</textarea>
-                            </div>
-
-                            <input type="submit" value="Enviar mensaje " class="btn btn-success">
-                        </form>
-                    </div>
             <div class="row">
                 <div class="col-md-12">
                     <h1>Contacto</h1>
@@ -182,7 +156,7 @@
 
                         <div class="form-group">
                             <label name="message">Mensaje:</label>
-                            <textarea id="message" name="message" class="form-control">Escribe tu mensaje aqui...</textarea>
+                            <textarea id="message" name="message" class="form-control" placeholder="Escribe tu mensaje aqui..."></textarea>
                         </div>
 
                         <input type="submit" value="Enviar mensaje " class="btn btn-success">

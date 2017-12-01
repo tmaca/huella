@@ -1,7 +1,10 @@
 $(document).ready(function() {
 
     if (location.pathname == "/") {
-        $(window).scroll(function() {
+        $(window).scroll(checkSroll);
+
+        checkSroll();
+        function checkSroll() {
             if ($(window).scrollTop() > $("header").height() - $("#mainNavbar").height()) {
                 $("#mainNavbar").removeClass("navbar-transparent");
                 $("#mainNavbar").addClass("navbar-green");
@@ -10,7 +13,7 @@ $(document).ready(function() {
                 $("#mainNavbar").removeClass("navbar-green");
                 $("#mainNavbar").addClass("navbar-transparent");
             }
-        });
+        }
     }
 
 });
