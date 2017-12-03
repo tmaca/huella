@@ -137,7 +137,6 @@
     </section>
 
     <section class="container-fluid" id="contacto">
-        <div class="image"></div>
         <div class="container">
             <div class="row">
                 <div class="col-md-12">

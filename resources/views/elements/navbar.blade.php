@@ -16,7 +16,7 @@
         <div class="collapse navbar-collapse" id="navbar">
 
             <ul class="nav navbar-nav">
-                <li class="@if(Request::url() == route("landing")){{ "active" }}@endif">
+                <li id="initial" class="@if(Request::url() == route("landing")){{ "active" }}@endif">
                     <a href="@if(Request::url() == route("landing")){{ "#inicio" }}@else{{ route("landing") }}@endif">
                         Inicio
                     </a>

@@ -32,8 +32,8 @@ Route::prefix('admin')->group(function() {
     Route::post('/password/reset', 'AuthAdmin\ResetPasswordController@reset');
 });
 
-Route::get("/terms-of-service", function () {
+Route::get("terms-of-service", function () {
     return "Terminos del servicio";
 })->name("termsOfService");
 
-Route::post('/datoscontacto', 'HomeController@datoscontacto');
+Route::post('datoscontacto', 'HomeController@datoscontacto');
