@@ -147,10 +147,16 @@ footer {
     color: #7A5635;
     padding-top: 30px;
 }
-footer img{
+
+#imagenfooter{
+    width:80px;
+    height:80px;
+    background-image: url('/assets/img/human-footprints.svg');
+    background-size:100%;
     display: block;
     margin: auto;
 }
+
 #textofooter{
     margin-top: 10px;
     font-size: 20px;
@@ -159,6 +165,40 @@ footer img{
     width:100%;
     /*line-height: 150px;*/
 }
+/*------navbar left------*/
+.navbar-fixed-left {
+    width: 140px;
+    position: static; /*FIXED*/
+    border-radius: 0;
+    height: 100%;
+}
+
+.navbar-fixed-left .navbar-nav > li {
+    float: none;  /* Cancel default li float: left */
+    width: 139px;
+}
+
+.navbar-fixed-left + .container {
+    padding-left: 160px;
+}
+
+/* On using dropdown menu (To right shift popuped) */
+.navbar-fixed-left .navbar-nav > li > .dropdown-menu {
+    margin-top: -50px;
+    margin-left: 140px;
+}
+
+#wrapper{
+    width: 1200px;
+    height: 500px;
+    background-color: #b2dba1;
+    margin-left: 40px;
+}
+/*--------------------------*/
+
+
+
+
 
 .modal{
     position: absolute;
@@ -182,7 +222,6 @@ footer img{
     display: inline-block;
     vertical-align: middle;
     width: 420px;
-
 }
 
 .modal-content{

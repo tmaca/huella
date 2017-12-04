@@ -16,12 +16,13 @@
         <div class="collapse navbar-collapse" id="navbar">
 
             <ul class="nav navbar-nav">
+                @if(Request::url() == route("landing"))
                 <li id="initial" class="@if(Request::url() == route("landing")){{ "active" }}@endif">
                     <a href="@if(Request::url() == route("landing")){{ "#inicio" }}@else{{ route("landing") }}@endif">
                         Inicio
                     </a>
                 </li>
-                @if(Request::url() == route("landing"))
+
                 <li>
                     <a href="#queEs">
                         Que es la Huella de Carbono
