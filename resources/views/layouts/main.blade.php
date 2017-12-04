@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     @include("elements.head")
+    @include("elements.cookies")
 
     <title>
         @yield("title", config("app.name"))
@@ -30,7 +31,6 @@
 
     @include("elements.authModals")
 
-    @include("elements.cookies")
 
 </body>
 </html>
