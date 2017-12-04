@@ -1,8 +1,8 @@
-<!-- Modal Login-->
+<!-- Modal Login -->
 <div id="loginModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
 
-        <!-- Modal content-->
+        <!-- Modal content -->
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -20,7 +20,7 @@
 <div id="registerModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
 
-        <!-- Modal content-->
+        <!-- Modal content -->
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
