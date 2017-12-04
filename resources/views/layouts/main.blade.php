@@ -30,5 +30,7 @@
 
     @include("elements.authModals")
 
+    @include("elements.cookies")
+
 </body>
 </html>
