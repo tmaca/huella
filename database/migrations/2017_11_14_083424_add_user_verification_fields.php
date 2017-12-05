@@ -14,9 +14,8 @@ class AddUserVerificationFields extends Migration
     public function up()
     {
         Schema::table("users", function (Blueprint $table) {
-            $table->string("email");
-            $table->string("subject");
-            $table->string("message");
+            $table->string("email_code")->nullable();
+            $table->boolean("verified")->default(false);
         });
     }
 
