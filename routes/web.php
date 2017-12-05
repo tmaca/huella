@@ -30,6 +30,12 @@ Route::prefix('admin')->group(function() {
     Route::post('/password/email', 'AuthAdmin\ForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
     Route::get('/password/reset/{token}', 'AuthAdmin\ResetPasswordController@showResetForm')->name('admin.password.reset');
     Route::post('/password/reset', 'AuthAdmin\ResetPasswordController@reset');
+
+    // user management
+    Route::post("user/edit", "AdminController@editUser")->name("admin.user.edit");
+    Route::prefix("user/{id}")->group(function() {
+        Route::post("delete", "AdminController@deleteUser")->name("admin.user.delete");
+    });
 });
 
 Route::get("terms-of-service", function () {
