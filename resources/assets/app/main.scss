@@ -1,3 +1,5 @@
+@import "variables";
+
 main {
   min-height: calc(100vh - (1.42857143em + 20px) - 20px);
   padding: 10px 0px;
@@ -11,110 +13,100 @@ main {
 /*
  * Navbar green and transparent
  */
-/* navbar-green*/
-.navbar-green {
-  background-color: #5CB85C;
-  border-color: #3cb83e;
-}
 
+
+/* navbar-green*/
+
+.navbar-green {
+  background-color: $navbar-bgcolor;
+  border-color: $navbar-border;
+}
 .navbar-green .navbar-brand,
 .navbar-green .navbar-text,
 .navbar-green .navbar-nav > li > a,
 .navbar-transparent .navbar-brand,
 .navbar-transparent .navbar-text,
 .navbar-transparent .navbar-nav > li > a {
-  color: white;
+  color: $navbar-font;
 }
-
 .navbar-green .navbar-nav > li > a:hover,
 .navbar-green .navbar-nav > li > a:focus {
-  color: #333;
-  background-color: transparent;
+  color: $navbar-font2;
+  background-color: $navbar-bgcolor2;
 }
-
 .navbar-green .navbar-brand:hover,
 .navbar-green .navbar-brand:focus,
 .navbar-green .navbar-nav > .active > a,
 .navbar-green .navbar-nav > .active > a:hover,
 .navbar-green .navbar-nav > .active > a:focus {
-  color: black;
-  background-color: rgba(0, 0, 0, 0.3);
+  color: $navbar-font3;
+  background-color: $navbar-bgcolor3;
 }
-
 .navbar-green .navbar-toggle {
-  border-color: black;
+  border-color: $navbar-border2;
 }
-
 .navbar-green .navbar-toggle:hover,
 .navbar-green .navbar-toggle:focus {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: $navbar-bgcolor4;
 }
-
 .navbar-green .navbar-toggle .icon-bar {
-  background-color: black;
+  background-color: $navbar-bgcolor5;
 }
-
 .navbar-green .navbar-collapse,
 .navbar-green .navbar-form {
-  border-color: black;
+  border-color: $navbar-border2;
 }
-
 .navbar-green .navbar-nav > .open > a,
 .navbar-green .navbar-nav > .open > a:hover,
 .navbar-green .navbar-nav > .open > a:focus {
-  color: #555;
-  background-color: #e7e7e7;
+  color: $navbar-font4;
+  background-color: $navbar-bgcolor6;
 }
 
 /* navbar transparent */
-.navbar-transparent {
-  background-color: rgba(92, 184, 92, 0.2);
-  border-color: #3cb83e;
-}
 
+.navbar-transparent {
+  background-color: $navbar-bgcolor7;
+  border-color: $navbar-border3;
+}
 .navbar-transparent .navbar-nav > li > a:hover,
 .navbar-transparent .navbar-nav > li > a:focus {
-  color: #333;
-  background-color: transparent;
+  color: $navbar-font2;
+  background-color: $navbar-bgcolor2;
 }
-
 .navbar-transparent .navbar-brand:hover,
 .navbar-transparent .navbar-brand:focus,
 .navbar-transparent .navbar-nav > .active > a,
 .navbar-transparent .navbar-nav > .active > a:hover,
 .navbar-transparent .navbar-nav > .active > a:focus {
-  color: white;
-  background-color: rgba(92, 184, 92, 0.2);
+  color: $navbar-font;
+  background-color: $navbar-bgcolor7;
 }
-
 .navbar-transparent .navbar-toggle {
-  border-color: white;
+  border-color: $navbar-border4;
 }
-
 .navbar-transparent .navbar-toggle:hover,
 .navbar-transparent .navbar-toggle:focus {
-  background-color: rgba(60, 184, 62, 0.2);
+  background-color: $navbar-bgcolor8;
 }
-
 .navbar-transparent .navbar-toggle .icon-bar {
-  background-color: white;
+  background-color: $navbar-bgcolor9;
 }
-
 .navbar-transparent .navbar-collapse,
 .navbar-transparent .navbar-form {
-  border-color: #3cb83e;
+  border-color: $navbar-border;
 }
-
 .navbar-transparent .navbar-nav > .open > a,
 .navbar-transparent .navbar-nav > .open > a:hover,
 .navbar-transparent .navbar-nav > .open > a:focus {
-  color: #555;
-  background-color: #e7e7e7;
+  color: $navbar-font4;
+  background-color: $navbar-bgcolor6;
 }
 
 /*
  *
  */
+
 header {
   background-image: url("../img/header.jpg");
   background-position: center;
@@ -150,34 +142,32 @@ header #superpuesto .vertical-aligned {
 #queEs,
 #comoFunciona,
 #contacto {
-  min-height: calc(100vh - 50px);
+  min-height: $window-height;
   bottom: 15px;
   padding-top: 70px;
 }
 
 footer {
-  width: 100%;
+  width:100%;
   height: 200px;
   background-color: #A0DBB3;
   color: #7A5635;
   padding-top: 30px;
 }
-
-footer img {
+footer img{
   display: block;
   margin: auto;
 }
-
-#textofooter {
+#textofooter{
   margin-top: 10px;
   font-size: 20px;
   display: inline-block;
   text-align: center;
-  width: 100%;
+  width:100%;
   /*line-height: 150px;*/
 }
 
-.modal {
+.modal{
   position: absolute;
   top: 0;
   bottom: 0;
@@ -186,26 +176,27 @@ footer img {
   text-align: center;
 }
 
-.modal::before {
+.modal::before{
   content: " ";
   display: inline-block;
   vertical-align: middle;
   height: 50vw;
 }
 
-#loginModal .modal-dialog {
+#loginModal .modal-dialog{
   text-align: left;
   position: static;
   display: inline-block;
   vertical-align: middle;
   width: 420px;
+
 }
 
-.modal-content {
+.modal-content{
   border-radius: 0 !important;
 }
 
-#registerModal .modal-dialog {
+#registerModal .modal-dialog{
   text-align: left;
   position: static;
   display: inline-block;
@@ -217,30 +208,36 @@ body .modal-open {
   overflow: visible;
   position: absolute;
   width: 100%;
-  height: 100%;
+  height:100%;
 }
 
-#queEs {
+#queEs{
   background-color: rgba(167, 222, 55, 0.44);
 }
 
-#comoFunciona {
+#comoFunciona{
   background-color: white;
 }
 
-#contacto {
+#contacto{
   color: #fff;
   /*color: #cbcbcb;*/
   /*background-image: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%,rgba(0,0,0,0.4) 100%), url("../img/header-1.jpeg");*/
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(45, 225, 27, 0.2)), to(rgba(162, 94, 0, 0.5))), url("../img/header-1.jpeg");
   background-image: linear-gradient(to bottom, rgba(45, 225, 27, 0.2) 0%, rgba(162, 94, 0, 0.5) 100%), url("../img/header-1.jpeg");
-  background-size: cover;
-  background-position: center center;
-  background-attachment: fixed;
+  background-size:cover;
+  background-position:center center;
+  background-attachment:fixed;
 }
 
+
+
+
+
+
 /*------------MEDIA QUERIES---------------*/
+
 @media only screen and (max-width: 375px) {
+
   #queEs,
   #comoFunciona,
   #contacto {
@@ -250,37 +247,46 @@ body .modal-open {
     padding: 15px;
     /*margin:70px;*/
   }
-  .bloque {
+
+  .bloque{
     margin-top: 40px;
   }
-  footer {
+
+  footer{
     height: 50px;
-    width: 100%;
+    width:100%;
   }
-  footer p {
+
+  footer p{
     line-height: 50px;
-    margin: 0 auto;
+    margin:0 auto;
   }
+
 }
 
 @media only screen and (min-width: 376px) and (max-width: 600px) {
   #queEs,
   #comoFunciona,
   #contacto {
+
     font-size: 12px;
     line-height: 23px;
     padding: 15px;
     /*margin:70px;*/
   }
-  .bloque {
+
+  .bloque{
     margin-top: 40px;
   }
-  footer {
+
+  footer{
     height: 80px;
-    width: 100%;
+    width:100%;
   }
-  footer p {
+
+  footer p{
     line-height: 50px;
     margin-left: 50px;
+
   }
 }
