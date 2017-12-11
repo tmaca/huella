@@ -154,10 +154,16 @@ footer {
   color: #7A5635;
   padding-top: 30px;
 }
-footer img{
+
+#imagenfooter{
+  width:80px;
+  height:80px;
+  background-image: url('../img/human-footprints.svg');
+  background-size:100%;
   display: block;
   margin: auto;
 }
+
 #textofooter{
   margin-top: 10px;
   font-size: 20px;
@@ -168,7 +174,6 @@ footer img{
 }
 
 .modal{
-  position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
@@ -189,7 +194,6 @@ footer img{
   display: inline-block;
   vertical-align: middle;
   width: 420px;
-
 }
 
 .modal-content{

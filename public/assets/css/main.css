@@ -163,7 +163,11 @@ footer {
   padding-top: 30px;
 }
 
-footer img {
+#imagenfooter {
+  width: 80px;
+  height: 80px;
+  background-image: url("../img/human-footprints.svg");
+  background-size: 100%;
   display: block;
   margin: auto;
 }
@@ -178,7 +182,6 @@ footer img {
 }
 
 .modal {
-  position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
