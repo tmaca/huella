@@ -4,9 +4,9 @@
 
 @section("content")
 <div id="wrapper">
-    <div class="container">
+    <div class="menuUser">
         <div class="navbar navbar-inverse navbar-fixed-left">
-            <a class="navbar-brand" href="#">Brand</a>
+            <a class="navbar-brand" href="#">Usuario #1</a>
             <ul class="nav navbar-nav">
                 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
@@ -24,9 +24,32 @@
 
             </ul>
         </div>
+    </div><!--menuUser-->
 
 
-    </div><!--container-->
+    <div id="formularioUser">
+
+        <form action="{{ url('contact') }}" method="POST">
+            {{ csrf_field() }}
+            <div class="form-group">
+                <label name="email">Email:</label>
+                <input id="email" name="email" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label name="subject">Asunto:</label>
+                <input id="subject" name="subject" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label name="message">Mensaje:</label>
+                <textarea id="message" name="message" class="form-control" placeholder="Escribe tu mensaje aqui..."></textarea>
+            </div>
+
+            <input type="submit" value="Enviar mensaje " class="btn btn-success"/>
+        </form>
+
+    </div>
 </div><!--wrapper-->
 
 

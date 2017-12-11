@@ -143,7 +143,7 @@
 
                     <h1>Contacto</h1>
                     <hr>
-                    <form action="{{ url('contact') }}" method="POST">
+                    <form action="{{ route('contact') }}" method="POST">
                         {{ csrf_field() }}
                         <div class="form-group">
                             <label name="email">Email:</label>
