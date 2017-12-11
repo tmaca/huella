@@ -46,4 +46,4 @@ Route::get("terms-of-service", function () {
     return "Terminos del servicio";
 })->name("termsOfService");
 
-Route::post('datoscontacto', 'HomeController@datoscontacto');
+Route::post('datoscontacto', 'HomeController@datoscontacto')->name('contact');
