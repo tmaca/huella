@@ -1,0 +1,48 @@
+footer {
+    width:100%;
+    height: 200px;
+    background-color: #A0DBB3;
+    color: #7A5635;
+    padding-top: 30px;
+
+    #imagenfooter {
+        width: 80px;
+        height: 80px;
+        background-image: url('/assets/img/human-footprints.svg');
+        background-size: cover;
+        display: block;
+        margin: auto;
+    }
+
+    #textofooter {
+        margin-top: 10px;
+        font-size: 20px;
+        display: inline-block;
+        text-align: center;
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+
+    footer {
+        height: 50px;
+    }
+
+    footer p {
+        line-height: 50px;
+        margin:0 auto;
+    }
+
+}
+
+@media only screen and (min-width: 376px) and (max-width: 600px) {
+    footer {
+        height: 80px;
+    }
+
+    footer p {
+        line-height: 50px;
+        margin-left: 50px;
+    }
+}

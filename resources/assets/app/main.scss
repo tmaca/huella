@@ -1,179 +1,21 @@
 @import "variables";
 
 main {
-  min-height: calc(100vh - (1.42857143em + 20px) - 20px);
-  padding: 10px 0px;
+    min-height: calc(100vh - (50px + 20px) - 20px);
+    padding: 10px 0px;
 }
 
-main {
-  min-height: calc(100vh - (1.42857143em + 20px) - 20px);
-  padding: 10px 0px;
-}
+@import "navbar";
 
-/*
- * Navbar green and transparent
- */
+@import "landing";
 
-
-/* navbar-green*/
-
-.navbar-green {
-  background-color: $navbar-bgcolor;
-  border-color: $navbar-border;
-}
-.navbar-green .navbar-brand,
-.navbar-green .navbar-text,
-.navbar-green .navbar-nav > li > a,
-.navbar-transparent .navbar-brand,
-.navbar-transparent .navbar-text,
-.navbar-transparent .navbar-nav > li > a {
-  color: $navbar-font;
-}
-.navbar-green .navbar-nav > li > a:hover,
-.navbar-green .navbar-nav > li > a:focus {
-  color: $navbar-font2;
-  background-color: $navbar-bgcolor2;
-}
-.navbar-green .navbar-brand:hover,
-.navbar-green .navbar-brand:focus,
-.navbar-green .navbar-nav > .active > a,
-.navbar-green .navbar-nav > .active > a:hover,
-.navbar-green .navbar-nav > .active > a:focus {
-  color: $navbar-font3;
-  background-color: $navbar-bgcolor3;
-}
-.navbar-green .navbar-toggle {
-  border-color: $navbar-border2;
-}
-.navbar-green .navbar-toggle:hover,
-.navbar-green .navbar-toggle:focus {
-  background-color: $navbar-bgcolor4;
-}
-.navbar-green .navbar-toggle .icon-bar {
-  background-color: $navbar-bgcolor5;
-}
-.navbar-green .navbar-collapse,
-.navbar-green .navbar-form {
-  border-color: $navbar-border2;
-}
-.navbar-green .navbar-nav > .open > a,
-.navbar-green .navbar-nav > .open > a:hover,
-.navbar-green .navbar-nav > .open > a:focus {
-  color: $navbar-font4;
-  background-color: $navbar-bgcolor6;
-}
-
-/* navbar transparent */
-
-.navbar-transparent {
-  background-color: $navbar-bgcolor7;
-  border-color: $navbar-border3;
-}
-.navbar-transparent .navbar-nav > li > a:hover,
-.navbar-transparent .navbar-nav > li > a:focus {
-  color: $navbar-font2;
-  background-color: $navbar-bgcolor2;
-}
-.navbar-transparent .navbar-brand:hover,
-.navbar-transparent .navbar-brand:focus,
-.navbar-transparent .navbar-nav > .active > a,
-.navbar-transparent .navbar-nav > .active > a:hover,
-.navbar-transparent .navbar-nav > .active > a:focus {
-  color: $navbar-font;
-  background-color: $navbar-bgcolor7;
-}
-.navbar-transparent .navbar-toggle {
-  border-color: $navbar-border4;
-}
-.navbar-transparent .navbar-toggle:hover,
-.navbar-transparent .navbar-toggle:focus {
-  background-color: $navbar-bgcolor8;
-}
-.navbar-transparent .navbar-toggle .icon-bar {
-  background-color: $navbar-bgcolor9;
-}
-.navbar-transparent .navbar-collapse,
-.navbar-transparent .navbar-form {
-  border-color: $navbar-border;
-}
-.navbar-transparent .navbar-nav > .open > a,
-.navbar-transparent .navbar-nav > .open > a:hover,
-.navbar-transparent .navbar-nav > .open > a:focus {
-  color: $navbar-font4;
-  background-color: $navbar-bgcolor6;
-}
+@import "footer";
 
 /*
- *
+ * login y registro alinear modales verticalmente
  */
-
-header {
-  background-image: url("../img/header.jpg");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-header #superpuesto {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  text-align: center;
-  height: 0px;
-  padding-bottom: 56.25%;
-}
-
-header #superpuesto::before {
-  content: " ";
-  display: inline-block;
-  vertical-align: middle;
-  height: 50vw;
-}
-
-header #superpuesto .vertical-aligned {
-  text-align: center;
-  position: static;
-  display: inline-block;
-  vertical-align: middle;
-}
-
-#queEs,
-#comoFunciona,
-#contacto {
-  min-height: $window-height;
-  bottom: 15px;
-  padding-top: 70px;
-}
-
-footer {
-  width:100%;
-  height: 200px;
-  background-color: #A0DBB3;
-  color: #7A5635;
-  padding-top: 30px;
-}
-
-#imagenfooter{
-  width:80px;
-  height:80px;
-  background-image: url('../img/human-footprints.svg');
-  background-size:100%;
-  display: block;
-  margin: auto;
-}
-
-#textofooter{
-  margin-top: 10px;
-  font-size: 20px;
-  display: inline-block;
-  text-align: center;
-  width:100%;
-  /*line-height: 150px;*/
-}
-
-.modal{
+#registerModal.modal,
+#loginModal.modal {
   top: 0;
   bottom: 0;
   left: 0;
@@ -181,31 +23,37 @@ footer {
   text-align: center;
 }
 
-.modal::before{
+#registerModal.modal::before,
+#loginModal.modal::before {
   content: " ";
   display: inline-block;
   vertical-align: middle;
   height: 50vw;
+  text-align: center;
 }
 
-#loginModal .modal-dialog{
+#loginModal .modal-dialog,
+#registerModal .modal-dialog {
   text-align: left;
   position: static;
   display: inline-block;
   vertical-align: middle;
+}
+
+#loginModal .modal-dialog {
   width: 420px;
 }
 
-.modal-content{
-  border-radius: 0 !important;
+#registerModal .modal-dialog {
+    width: 700px;
 }
 
-#registerModal .modal-dialog{
-  text-align: left;
-  position: static;
-  display: inline-block;
-  vertical-align: middle;
-  width: 700px;
+/*
+ * fin modales
+ */
+
+.modal-content{
+  border-radius: 0 !important;
 }
 
 body .modal-open {
@@ -213,84 +61,4 @@ body .modal-open {
   position: absolute;
   width: 100%;
   height:100%;
-}
-
-#queEs{
-  background-color: rgba(167, 222, 55, 0.44);
-}
-
-#comoFunciona{
-  background-color: white;
-}
-
-#contacto{
-  color: #fff;
-  /*color: #cbcbcb;*/
-  /*background-image: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%,rgba(0,0,0,0.4) 100%), url("../img/header-1.jpeg");*/
-  background-image: linear-gradient(to bottom, rgba(45, 225, 27, 0.2) 0%, rgba(162, 94, 0, 0.5) 100%), url("../img/header-1.jpeg");
-  background-size:cover;
-  background-position:center center;
-  background-attachment:fixed;
-}
-
-
-
-
-
-
-/*------------MEDIA QUERIES---------------*/
-
-@media only screen and (max-width: 375px) {
-
-  #queEs,
-  #comoFunciona,
-  #contacto {
-    height: 100vh;
-    font-size: 10px;
-    line-height: 20px;
-    padding: 15px;
-    /*margin:70px;*/
-  }
-
-  .bloque{
-    margin-top: 40px;
-  }
-
-  footer{
-    height: 50px;
-    width:100%;
-  }
-
-  footer p{
-    line-height: 50px;
-    margin:0 auto;
-  }
-
-}
-
-@media only screen and (min-width: 376px) and (max-width: 600px) {
-  #queEs,
-  #comoFunciona,
-  #contacto {
-
-    font-size: 12px;
-    line-height: 23px;
-    padding: 15px;
-    /*margin:70px;*/
-  }
-
-  .bloque{
-    margin-top: 40px;
-  }
-
-  footer{
-    height: 80px;
-    width:100%;
-  }
-
-  footer p{
-    line-height: 50px;
-    margin-left: 50px;
-
-  }
 }

@@ -1,0 +1,76 @@
+header {
+    background-image: url("../img/header.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    #superpuesto {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        text-align: center;
+        height: 0px;
+        padding-bottom: 56.25%;
+
+        &:before {
+            content: " ";
+            display: inline-block;
+            vertical-align: middle;
+            height: 50vw;
+        }
+    }
+
+    .vertical-aligned {
+        text-align: center;
+        position: static;
+        display: inline-block;
+        vertical-align: middle;
+    }
+}
+
+#queEs,
+#comoFunciona,
+#contacto {
+  min-height: $window-height;
+  bottom: 15px;
+  padding-top: 70px;
+}
+
+#queEs {
+  background-color: rgba(167, 222, 55, 0.44);
+}
+
+#comoFunciona{
+  background-color: white;
+}
+
+#contacto {
+  color: #fff;
+  background-image: linear-gradient(to bottom, rgba(45, 225, 27, 0.2) 0%, rgba(162, 94, 0, 0.5) 100%), url("../img/header-1.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+@media only screen and (max-width: 375px) {
+    #queEs,
+    #comoFunciona,
+    #contacto {
+        height: 100vh;
+        font-size: 10px;
+        line-height: 20px;
+        padding: 15px;
+    }
+}
+
+@media only screen and (min-width: 376px) and (max-width: 600px) {
+    #queEs,
+    #comoFunciona,
+    #contacto {
+        font-size: 12px;
+        line-height: 23px;
+        padding: 15px;
+    }
+}
