@@ -2,7 +2,7 @@ $navbar-green-background: #5CB85C;
 $navbar-green-border: darken($navbar-green-background, 10%);
 $navbar-green-color: black;
 $navbar-green-active-background: transparentize($navbar-green-border, .2);
-$navbar-green-toggle-color: $navbar-green-color;
+$navbar-green-toggle-color: white;
 $navbar-green-toggle-hover: transparentize($navbar-green-border, .5);
 
 $navbar-transparent-background: transparentize($navbar-green-background, .8);

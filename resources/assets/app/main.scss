@@ -52,15 +52,21 @@ main {
    margin-top:0;
  }
 
- /*
-  * end landing
-  */
+/*
+ * end landing
+ */
 
 @import "footer";
 
 /*
- * login y registro alinear modales verticalmente
+ * modals
  */
+
+.modal-content {
+    border-radius: 0 !important;
+}
+
+// login and register modals align vertically
 #registerModal.modal,
 #loginModal.modal {
   top: 0;
@@ -93,19 +99,4 @@ main {
 
 #registerModal .modal-dialog {
     width: 700px;
-}
-
-/*
- * fin modales
- */
-
-.modal-content{
-  border-radius: 0 !important;
-}
-
-body .modal-open {
-  overflow: visible;
-  position: absolute;
-  width: 100%;
-  height:100%;
 }
