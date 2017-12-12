@@ -87,5 +87,5 @@
 
     </div>
 
-    <script src="/assets/js/admin/userManagement.js"></script>
+    <script src="assets/js/admin/userManagement.js"></script>
 @endsection
