@@ -1,11 +1,11 @@
-$navbar-green-background: #5CB85C;
+$navbar-green-background: green;
 $navbar-green-border: darken($navbar-green-background, 10%);
 $navbar-green-color: black;
 $navbar-green-active-background: transparentize($navbar-green-border, .2);
 $navbar-green-toggle-color: white;
 $navbar-green-toggle-hover: transparentize($navbar-green-border, .5);
 
-$navbar-transparent-background: transparentize($navbar-green-background, .8);
+$navbar-transparent-background: transparentize(black, .8);
 $navbar-transparent-border: darken($navbar-transparent-background, 10%);
 $navbar-transparent-color: white;
 $navbar-transparent-active-background: opacify($navbar-transparent-border, .1);
