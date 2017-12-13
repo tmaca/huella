@@ -35,13 +35,13 @@
 
             <ul class="navbar-nav navbar-right">
                 @guest
-                <li class="nav-item @if(Request::url() == route("login")){{ "active" }}@endif">
+                <li class="nav-item active">
                     <a class="nav-link" data-toggle="modal" data-target="#loginModal">
                         <i class="fa fa-sign-in"></i>
                         Login
                     </a>
                 </li>
-                <li class="nav-item @if(Request::url() == route("register")){{ "active" }}@endif">
+                <li class="nav-item active">
                     <a class="nav-link" data-toggle="modal" data-target="#registerModal">
                         <i class="fa fa-user-plus"></i>
                         Registro

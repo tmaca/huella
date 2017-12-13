@@ -71,11 +71,5 @@
         </div>
         <!--factor-->
 
-<<<<<<< HEAD
-        <input type="submit" value="Guardar" class="btn btn-success"/>
-    </form>
-</div>
-=======
     <input type="submit" value="Guardar" class="btn btn-primary"/>
 </form>
->>>>>>> d18794561e6d6322a917a2f7e39cb701efc27bb5
