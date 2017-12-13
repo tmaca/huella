@@ -19,6 +19,11 @@ header {
             display: inline-block;
             vertical-align: middle;
             height: 50vw;
+
+            @media screen and (max-width: 609px) {
+                height: 25vw;
+
+            }
         }
     }
 

@@ -71,14 +71,10 @@
         </label>
     </div>
 
-    <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-default">
-                <div class="fa fa-pencil"></div>
-                Guardar Cambios
-            </button>
-        </div>
-    </div>
+    <button type="submit" class="btn btn-default">
+        <div class="fa fa-pencil"></div>
+        Guardar Cambios
+    </button>
 
 </form>
 
