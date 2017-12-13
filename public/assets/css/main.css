@@ -171,9 +171,6 @@ header .vertical-aligned {
   }
 }
 
-/*
- * landing
- */
 .navbar-fixed-left {
   width: 140px;
   position: static;
@@ -206,22 +203,22 @@ header .vertical-aligned {
 }
 
 #menuUser {
-  width: 35%;
-}
-
-#formularioUser form {
-  margin-left: 400px;
+  width: 20%;
+  margin: 2%;
   float: left;
-  width: 500px;
+  /*background-color: #1b7450;*/
 }
 
 #formularioUser {
-  margin-top: 0;
+  float: left;
+  width: 45%;
+  margin: 5%;
 }
 
-/*
- * end landing
- */
+#formularioUser form {
+  width: 30%;
+}
+
 footer {
   width: 100%;
   height: 200px;

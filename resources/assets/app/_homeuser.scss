@@ -25,14 +25,20 @@
   background-color: #b2dba1;
   margin-left: 40px;
 }
+
 #menuUser{
-  width:35%;
-}
-#formularioUser form{
-  margin-left: 400px;
+  width:20%;
+  margin: 2%;
   float: left;
-  width: 500px;
+  /*background-color: #1b7450;*/
 }
+
 #formularioUser{
-  margin-top:0;
+  float: left;
+  width: 45%;
+  margin: 5%;
+}
+
+#formularioUser form{
+  width:30%;
 }
