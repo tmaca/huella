@@ -11,48 +11,7 @@ main {
 
 @import "footer";
 
-/*
- * modals
- */
-
-.modal-content {
-    border-radius: 0 !important;
-}
-
-// login and register modals align vertically
-#registerModal.modal,
-#loginModal.modal {
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  text-align: center;
-}
-
-#registerModal.modal::before,
-#loginModal.modal::before {
-  content: " ";
-  display: inline-block;
-  vertical-align: middle;
-  height: 50vw;
-  text-align: center;
-}
-
-#loginModal .modal-dialog,
-#registerModal .modal-dialog {
-  text-align: left;
-  position: static;
-  display: inline-block;
-  vertical-align: middle;
-}
-
-#loginModal .modal-dialog {
-  width: 420px;
-}
-
-#registerModal .modal-dialog {
-    width: 700px;
-}
+@import "modals";
 
 ::-moz-selection { /* Code for Firefox */
     color: white;

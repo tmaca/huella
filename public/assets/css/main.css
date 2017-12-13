@@ -81,7 +81,7 @@ header .vertical-aligned {
   }
 }
 
-.navbar-fixed-left {
+#menuUser .navbar-fixed-left {
   width: 140px;
   position: static;
   /*FIXED*/
@@ -89,27 +89,28 @@ header .vertical-aligned {
   height: 100%;
 }
 
-.navbar-fixed-left .navbar-nav > li {
+#menuUser .navbar-fixed-left .navbar-nav > li {
   float: none;
   /* Cancel default li float: left */
   width: 139px;
 }
 
-.navbar-fixed-left + .container {
+#menuUser .navbar-fixed-left + .container {
   padding-left: 160px;
 }
 
 /* On using dropdown menu (To right shift popuped) */
-.navbar-fixed-left .navbar-nav > li > .dropdown-menu {
+#menuUser .navbar-fixed-left .navbar-nav > li > .dropdown-menu {
   margin-top: -50px;
   margin-left: 140px;
 }
 
 #wrapper {
-  width: 1200px;
-  height: 500px;
+  width: 1300px;
+  height: 700px;
   background-color: #b2dba1;
-  margin-left: 40px;
+  margin-left: 20px;
+  margin-bottom: 20px;
 }
 
 #menuUser {
@@ -121,12 +122,9 @@ header .vertical-aligned {
 
 #formularioUser {
   float: left;
-  width: 45%;
   margin: 5%;
-}
-
-#formularioUser form {
-  width: 30%;
+  font-size: 0.9em;
+  text-align: right;
 }
 
 footer {
@@ -174,9 +172,6 @@ footer #textofooter {
   }
 }
 
-/*
- * modals
- */
 .modal-content {
   border-radius: 0 !important;
 }
