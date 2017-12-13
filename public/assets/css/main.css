@@ -3,99 +3,6 @@ main {
   padding: 10px 0px;
 }
 
-<<<<<<< HEAD
-=======
-.navbar-green {
-  background-color: #48b323;
-  border-color: #37881b;
-}
-
-.navbar-green .navbar-brand:hover,
-.navbar-green .navbar-brand:focus,
-.navbar-green .navbar-nav > .active > a,
-.navbar-green .navbar-nav > .active > a:hover,
-.navbar-green .navbar-nav > .active > a:focus {
-  color: black;
-  background-color: rgba(55, 136, 27, 0.8);
-}
-
-.navbar-green .navbar-nav > li > a:hover,
-.navbar-green .navbar-nav > li > a:focus {
-  background-color: rgba(55, 136, 27, 0.8);
-}
-
-.navbar-green .navbar-toggle {
-  border-color: white;
-}
-
-.navbar-green .navbar-toggle:hover, .navbar-green .navbar-toggle:focus {
-  background-color: rgba(55, 136, 27, 0.5);
-}
-
-.navbar-green .navbar-toggle .icon-bar {
-  background-color: white;
-}
-
-.navbar-green .navbar-collapse,
-.navbar-green .navbar-form {
-  border-color: white;
-}
-
-.navbar-transparent {
-  background-color: rgba(0, 0, 0, 0.2);
-  border-color: rgba(0, 0, 0, 0.2);
-}
-
-.navbar-transparent .navbar-brand:hover,
-.navbar-transparent .navbar-brand:focus,
-.navbar-transparent .navbar-nav > .active > a,
-.navbar-transparent .navbar-nav > .active > a:hover,
-.navbar-transparent .navbar-nav > .active > a:focus {
-  color: white;
-  background-color: rgba(0, 0, 0, 0.3);
-}
-
-.navbar-transparent .navbar-nav > li > a:hover,
-.navbar-transparent .navbar-nav > li > a:focus {
-  background-color: rgba(0, 0, 0, 0.3);
-}
-
-.navbar-transparent .navbar-toggle {
-  border-color: white;
-}
-
-.navbar-transparent .navbar-toggle:hover, .navbar-transparent .navbar-toggle:focus {
-  background-color: rgba(0, 0, 0, 0.7);
-}
-
-.navbar-transparent .navbar-toggle .icon-bar {
-  background-color: white;
-}
-
-.navbar-transparent .navbar-collapse,
-.navbar-transparent .navbar-form {
-  border-color: #37881b;
-}
-
-.navbar-green .navbar-brand,
-.navbar-green .navbar-text,
-.navbar-green .navbar-nav > li > a,
-.navbar-transparent .navbar-brand,
-.navbar-transparent .navbar-text,
-.navbar-transparent .navbar-nav > li > a {
-  font-weight: bold;
-  color: white;
-}
-
-.navbar-green .navbar-nav > .open > a:hover,
-.navbar-green .navbar-nav > .open > a:focus,
-.navbar-transparent .navbar-nav > .open > a:hover,
-.navbar-transparent .navbar-nav > .open > a:focus {
-  color: #555;
-  background-color: rgba(55, 136, 27, 0.8);
-}
-
->>>>>>> 2a9ce709549f3876bae335acc3d8cba275ae7a5a
 header {
   background-image: url("../img/header.jpg");
   background-position: center;
@@ -174,8 +81,6 @@ header .vertical-aligned {
   }
 }
 
-<<<<<<< HEAD
-=======
 .navbar-fixed-left {
   width: 140px;
   position: static;
@@ -224,7 +129,6 @@ header .vertical-aligned {
   width: 30%;
 }
 
->>>>>>> 2a9ce709549f3876bae335acc3d8cba275ae7a5a
 footer {
   width: 100%;
   height: 200px;
@@ -236,11 +140,7 @@ footer {
 footer #imagenfooter {
   width: 80px;
   height: 80px;
-<<<<<<< HEAD
-  background-image: url("/assets/img/human-footprints.svg");
-=======
   background-image: url("../img/human-footprints.svg");
->>>>>>> 2a9ce709549f3876bae335acc3d8cba275ae7a5a
   background-size: cover;
   display: block;
   margin: auto;
@@ -248,11 +148,7 @@ footer #imagenfooter {
 
 footer #textofooter {
   margin-top: 10px;
-<<<<<<< HEAD
-  font-size: 20px;
-=======
   font-size: 16px;
->>>>>>> 2a9ce709549f3876bae335acc3d8cba275ae7a5a
   display: inline-block;
   text-align: center;
   width: 100%;
@@ -318,8 +214,6 @@ footer #textofooter {
 #registerModal .modal-dialog {
   width: 700px;
 }
-<<<<<<< HEAD
-=======
 
 ::-moz-selection {
   /* Code for Firefox */
@@ -331,4 +225,3 @@ footer #textofooter {
   color: white;
   background: yellowgreen;
 }
->>>>>>> 2a9ce709549f3876bae335acc3d8cba275ae7a5a
