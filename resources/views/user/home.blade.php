@@ -85,7 +85,7 @@
                 <input id="email" name="email" class="form-control">
             </div>
                 <!--factor-->
-            <input type="submit" value="Guardar" class="btn btn-success"/>
+            <input type="submit" value="Guardar" class="btn btn-primary"/>
         </form>
 
     </div>
