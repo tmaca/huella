@@ -41,7 +41,7 @@ Route::prefix('admin')->group(function() {
 });
 
 Route::get("terms-of-service", function () {
-    return "Terminos del servicio";
+    return view("tos");
 })->name("termsOfService");
 
 Route::post('datoscontacto', 'HomeController@datoscontacto')->name('contact');

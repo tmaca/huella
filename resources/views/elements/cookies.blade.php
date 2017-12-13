@@ -15,11 +15,13 @@ window.addEventListener("load", function(){
                 "border": "#5cb85c"
             }
         },
-        "showLink": false,
         "content": {
-            "message": "Utilizamos galletas para proporcionar una mejor experiencia web",
-            "dismiss": "Dame más, tengo hambre"
-        }
+            "message": "Utilizamos cookies para proporcionar una mejor experiencia web, si continuas navengando entendemos que aceptas la utilización de las mismas.",
+            "dismiss": "Entendido",
+            "link": "Más información",
+            "href": "{{ route("termsOfService") }}"
+        },
+        "showLink": true,
     });
 });
 </script>
