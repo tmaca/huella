@@ -48,14 +48,25 @@
                     </a>
                 </li>
                 @else
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route("logout") }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                        <i class="fa fa-sign-out"></i>
-                        Cerrar Sesion
+
+
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user"></i>
+                        {{ Auth::user()->name }}
                     </a>
-                    <form id="logout-form" action="{{ route("logout") }}" method="POST" style="display:none">
-                        {{ csrf_field() }}
-                    </form>
+                    <ul class="dropdown-menu">
+                      <li><a href="{{ route("home") }}">Home</a></li>
+                      <li>
+                          <a href="{{ route("logout") }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                              <i class="fa fa-sign-out"></i>
+                              Cerrar Sesion
+                          </a>
+                          <form id="logout-form" action="{{ route("logout") }}" method="POST" style="display:none">
+                              {{ csrf_field() }}
+                          </form>
+                      </li>
+                    </ul>
                 </li>
                 @endguest
             </ul>

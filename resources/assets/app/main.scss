@@ -7,6 +7,8 @@ main {
 
 @import "landing";
 
+@import "homeuser";
+
 @import "footer";
 
 /*
@@ -50,4 +52,14 @@ main {
 
 #registerModal .modal-dialog {
     width: 700px;
+}
+
+::-moz-selection { /* Code for Firefox */
+    color: white;
+    background: yellowgreen;
+}
+
+::selection {
+    color: white;
+    background: yellowgreen;
 }
