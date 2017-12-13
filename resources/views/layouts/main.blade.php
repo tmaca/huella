@@ -7,20 +7,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     @include("elements.head")
-    @include("elements.cookies")
 
     <title>
         @yield("title", config("app.name"))
     </title>
 </head>
-<body>
+<body @if(Request::url() == route("landing")) style="position:relative;" data-spy="scroll" data-target="mainNavbar" }}@else style="padding-top:74px;" @endif>
 
     @include("elements.navbar")
 
     @if(Request::url() == route("landing"))
         @include("elements.header")
-    @else
-        <div class="navbar navbar-default"></div>
     @endif
 
     <main class="container-fluid" style="padding:0;">

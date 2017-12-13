@@ -6,12 +6,12 @@ $(document).ready(function() {
 
 function updateNavbarColor() {
     try {
-        if ($("#initial").attr('class').indexOf("active") !== -1){
-            $("#mainNavbar").removeClass("navbar-green");
-            $("#mainNavbar").addClass("navbar-transparent");
+        if ($("#initial .nav-link").hasClass('active')){
+            $("#mainNavbar").removeClass("bg-primary");
+            $("#mainNavbar").addClass("bg-primary-alpha");
         } else {
-            $("#mainNavbar").removeClass("navbar-transparent");
-            $("#mainNavbar").addClass("navbar-green");
+            $("#mainNavbar").removeClass("bg-primary-alpha");
+            $("#mainNavbar").addClass("bg-primary");
         }
     } catch(e) {}
 }

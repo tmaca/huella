@@ -4,7 +4,7 @@
 
 @section("content")
     <div class="container">
-        <h3>Lista de usuarios <span class="badge">{{ $users->count() }}</span></h3>
+        <h3>Lista de usuarios</h3>
         <hr>
         <table class="table table-bordered table-striped">
             <thead>
@@ -75,8 +75,8 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar"><span   aria-hidden="true">&times;</span></button>
                         <h4 class="modal-title">Editar Usuario</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar"><span   aria-hidden="true">&times;</span></button>
                     </div>
                     <div class="modal-body">
                         @include("forms.admin.editUser")

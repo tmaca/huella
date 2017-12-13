@@ -1,63 +1,55 @@
-<nav class="navbar @if(Request::url() == route("landing")){{ "navbar-transparent" }}@else{{ "navbar-green" }}@endif navbar-fixed-top" id="mainNavbar" data-offset-top="100px">
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark @if(Request::url() == route("landing")){{ "bg-primary-alpha" }}@else{{ "bg-primary" }}@endif" id="mainNavbar">
 
-    <div class="container-fluid">
-
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="{{ route("landing") }}">
-                {{ config("app.name") }}
-            </a>
-        </div>
+    <a class="navbar-brand" href="{{ route("landing") }}">{{ config("app.name") }}</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
         <div class="collapse navbar-collapse" id="navbar">
 
-            <ul class="nav navbar-nav">
+            <ul class="navbar-nav mr-auto">
                 @if(Request::url() == route("landing"))
-                <li id="initial" class="@if(Request::url() == route("landing")){{ "active" }}@endif">
-                    <a href="@if(Request::url() == route("landing")){{ "#inicio" }}@else{{ route("landing") }}@endif">
+                <li id="initial" class="nav-item">
+                    <a class="nav-link" href="@if(Request::url() == route("landing")){{ "#inicio" }}@else{{ route("landing") }}@endif">
                         Inicio
                     </a>
                 </li>
 
-                <li>
-                    <a href="#queEs">
+                <li class="nav-item">
+                    <a class="nav-link" href="#queEs">
                         Que es la Huella de Carbono
                     </a>
                 </li>
-                <li>
-                    <a href="#comoFunciona">
+                <li class="nav-item">
+                    <a class="nav-link" href="#comoFunciona">
                         Como funciona
                     </a>
                 </li>
-                <li>
-                    <a href="#contacto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#contacto">
                         Contacto
                     </a>
                 </li>
                 @endif
             </ul>
 
-            <ul class="nav navbar-nav navbar-right">
+            <ul class="navbar-nav navbar-right">
                 @guest
-                <li class="@if(Request::url() == route("login")){{ "active" }}@endif">
-                    <a data-toggle="modal" data-target="#loginModal">
+                <li class="nav-item @if(Request::url() == route("login")){{ "active" }}@endif">
+                    <a class="nav-link" data-toggle="modal" data-target="#loginModal">
                         <i class="fa fa-sign-in"></i>
                         Login
                     </a>
                 </li>
-                <li class="@if(Request::url() == route("register")){{ "active" }}@endif">
-                    <a data-toggle="modal" data-target="#registerModal">
+                <li class="nav-item @if(Request::url() == route("register")){{ "active" }}@endif">
+                    <a class="nav-link" data-toggle="modal" data-target="#registerModal">
                         <i class="fa fa-user-plus"></i>
                         Registro
                     </a>
                 </li>
                 @else
-                <li>
-                    <a href="{{ route("logout") }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route("logout") }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         <i class="fa fa-sign-out"></i>
                         Cerrar Sesion
                     </a>

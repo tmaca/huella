@@ -1,120 +1,8 @@
 main {
-  min-height: calc(100vh - (1.42857143em + 20px) - 20px);
+  min-height: calc(100vh - (50px + 20px) - 20px);
   padding: 10px 0px;
 }
 
-main {
-  min-height: calc(100vh - (1.42857143em + 20px) - 20px);
-  padding: 10px 0px;
-}
-
-/*
- * Navbar green and transparent
- */
-/* navbar-green*/
-.navbar-green {
-  background-color: #5CB85C;
-  border-color: #3cb83e;
-}
-
-.navbar-green .navbar-brand,
-.navbar-green .navbar-text,
-.navbar-green .navbar-nav > li > a,
-.navbar-transparent .navbar-brand,
-.navbar-transparent .navbar-text,
-.navbar-transparent .navbar-nav > li > a {
-  color: white;
-}
-
-.navbar-green .navbar-nav > li > a:hover,
-.navbar-green .navbar-nav > li > a:focus {
-  color: #333;
-  background-color: transparent;
-}
-
-.navbar-green .navbar-brand:hover,
-.navbar-green .navbar-brand:focus,
-.navbar-green .navbar-nav > .active > a,
-.navbar-green .navbar-nav > .active > a:hover,
-.navbar-green .navbar-nav > .active > a:focus {
-  color: black;
-  background-color: rgba(0, 0, 0, 0.3);
-}
-
-.navbar-green .navbar-toggle {
-  border-color: black;
-}
-
-.navbar-green .navbar-toggle:hover,
-.navbar-green .navbar-toggle:focus {
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-.navbar-green .navbar-toggle .icon-bar {
-  background-color: black;
-}
-
-.navbar-green .navbar-collapse,
-.navbar-green .navbar-form {
-  border-color: black;
-}
-
-.navbar-green .navbar-nav > .open > a,
-.navbar-green .navbar-nav > .open > a:hover,
-.navbar-green .navbar-nav > .open > a:focus {
-  color: #555;
-  background-color: #e7e7e7;
-}
-
-/* navbar transparent */
-.navbar-transparent {
-  background-color: rgba(92, 184, 92, 0.2);
-  border-color: #3cb83e;
-}
-
-.navbar-transparent .navbar-nav > li > a:hover,
-.navbar-transparent .navbar-nav > li > a:focus {
-  color: #333;
-  background-color: transparent;
-}
-
-.navbar-transparent .navbar-brand:hover,
-.navbar-transparent .navbar-brand:focus,
-.navbar-transparent .navbar-nav > .active > a,
-.navbar-transparent .navbar-nav > .active > a:hover,
-.navbar-transparent .navbar-nav > .active > a:focus {
-  color: white;
-  background-color: rgba(92, 184, 92, 0.2);
-}
-
-.navbar-transparent .navbar-toggle {
-  border-color: white;
-}
-
-.navbar-transparent .navbar-toggle:hover,
-.navbar-transparent .navbar-toggle:focus {
-  background-color: rgba(60, 184, 62, 0.2);
-}
-
-.navbar-transparent .navbar-toggle .icon-bar {
-  background-color: white;
-}
-
-.navbar-transparent .navbar-collapse,
-.navbar-transparent .navbar-form {
-  border-color: #3cb83e;
-}
-
-.navbar-transparent .navbar-nav > .open > a,
-.navbar-transparent .navbar-nav > .open > a:hover,
-.navbar-transparent .navbar-nav > .open > a:focus {
-  color: #555;
-  background-color: #e7e7e7;
-}
-
-/*
- *
- */
 header {
   background-image: url("../img/header.jpg");
   background-position: center;
@@ -133,14 +21,14 @@ header #superpuesto {
   padding-bottom: 56.25%;
 }
 
-header #superpuesto::before {
+header #superpuesto:before {
   content: " ";
   display: inline-block;
   vertical-align: middle;
   height: 50vw;
 }
 
-header #superpuesto .vertical-aligned {
+header .vertical-aligned {
   text-align: center;
   position: static;
   display: inline-block;
@@ -150,77 +38,9 @@ header #superpuesto .vertical-aligned {
 #queEs,
 #comoFunciona,
 #contacto {
-  min-height: calc(100vh - 50px);
+  min-height: calc(100vh - 56px);
   bottom: 15px;
   padding-top: 70px;
-}
-
-footer {
-  width: 100%;
-  height: 200px;
-  background-color: #A0DBB3;
-  color: #7A5635;
-  padding-top: 30px;
-}
-
-#imagenfooter {
-  width: 80px;
-  height: 80px;
-  background-image: url("../img/human-footprints.svg");
-  background-size: 100%;
-  display: block;
-  margin: auto;
-}
-
-#textofooter {
-  margin-top: 10px;
-  font-size: 20px;
-  display: inline-block;
-  text-align: center;
-  width: 100%;
-  /*line-height: 150px;*/
-}
-
-.modal {
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  text-align: center;
-}
-
-.modal::before {
-  content: " ";
-  display: inline-block;
-  vertical-align: middle;
-  height: 50vw;
-}
-
-#loginModal .modal-dialog {
-  text-align: left;
-  position: static;
-  display: inline-block;
-  vertical-align: middle;
-  width: 420px;
-}
-
-.modal-content {
-  border-radius: 0 !important;
-}
-
-#registerModal .modal-dialog {
-  text-align: left;
-  position: static;
-  display: inline-block;
-  vertical-align: middle;
-  width: 700px;
-}
-
-body .modal-open {
-  overflow: visible;
-  position: absolute;
-  width: 100%;
-  height: 100%;
 }
 
 #queEs {
@@ -233,56 +53,13 @@ body .modal-open {
 
 #contacto {
   color: #fff;
-  /*color: #cbcbcb;*/
-  /*background-image: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%,rgba(0,0,0,0.4) 100%), url("../img/header-1.jpeg");*/
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(45, 225, 27, 0.2)), to(rgba(162, 94, 0, 0.5))), url("../img/header-1.jpeg");
   background-image: linear-gradient(to bottom, rgba(45, 225, 27, 0.2) 0%, rgba(162, 94, 0, 0.5) 100%), url("../img/header-1.jpeg");
   background-size: cover;
-  background-position: center center;
+  background-position: center;
   background-attachment: fixed;
 }
 
-/*------navbar left users home------*/
-.navbar-fixed-left {
-  width: 140px;
-  position: static; /*FIXED*/
-  border-radius: 0;
-  height: 100%;
-}
-.navbar-fixed-left .navbar-nav > li {
-  float: none;  /* Cancel default li float: left */
-  width: 139px;
-}
-.navbar-fixed-left + .container {
-  padding-left: 160px;
-}
-#wrapper .navbar{
-
-}
-/* On using dropdown menu (To right shift popuped) */
-.navbar-fixed-left .navbar-nav > li > .dropdown-menu {
-  margin-top: -50px;
-  margin-left: 140px;
-}
-#wrapper{
-  width: 1200px;
-  height: 500px;
-  background-color: #b2dba1;
-  margin-left: 40px;
-}
-#menuUser{
-  width:35%;
-}
-#formularioUser form{
-  margin-left: 400px;
-  float: left;
-  width: 500px;
-}
-#formularioUser{
-  margin-top:0;
-}
-
-/*------------MEDIA QUERIES---------------*/
 @media only screen and (max-width: 375px) {
   #queEs,
   #comoFunciona,
@@ -291,18 +68,6 @@ body .modal-open {
     font-size: 10px;
     line-height: 20px;
     padding: 15px;
-    /*margin:70px;*/
-  }
-  .bloque {
-    margin-top: 40px;
-  }
-  footer {
-    height: 50px;
-    width: 100%;
-  }
-  footer p {
-    line-height: 50px;
-    margin: 0 auto;
   }
 }
 
@@ -313,17 +78,91 @@ body .modal-open {
     font-size: 12px;
     line-height: 23px;
     padding: 15px;
-    /*margin:70px;*/
   }
-  .bloque {
-    margin-top: 40px;
+}
+
+footer {
+  width: 100%;
+  height: 200px;
+  background-color: #A0DBB3;
+  color: #7A5635;
+  padding-top: 30px;
+}
+
+footer #imagenfooter {
+  width: 80px;
+  height: 80px;
+  background-image: url("/assets/img/human-footprints.svg");
+  background-size: cover;
+  display: block;
+  margin: auto;
+}
+
+footer #textofooter {
+  margin-top: 10px;
+  font-size: 20px;
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+}
+
+@media only screen and (max-width: 375px) {
+  footer {
+    height: 50px;
   }
+  footer p {
+    line-height: 50px;
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (min-width: 376px) and (max-width: 600px) {
   footer {
     height: 80px;
-    width: 100%;
   }
   footer p {
     line-height: 50px;
     margin-left: 50px;
   }
+}
+
+/*
+ * modals
+ */
+.modal-content {
+  border-radius: 0 !important;
+}
+
+#registerModal.modal,
+#loginModal.modal {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+#registerModal.modal::before,
+#loginModal.modal::before {
+  content: " ";
+  display: inline-block;
+  vertical-align: middle;
+  height: 50vw;
+  text-align: center;
+}
+
+#loginModal .modal-dialog,
+#registerModal .modal-dialog {
+  text-align: left;
+  position: static;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#loginModal .modal-dialog {
+  width: 420px;
+}
+
+#registerModal .modal-dialog {
+  width: 700px;
 }

@@ -7,7 +7,7 @@
     </div>
     <div id="superpuesto">
         <div class="vertical-aligned">
-            <div class="well well-lg">
+            <div>
                 <h2>
                     Descubre más sobre la Huella de Carbono
                 </h2>

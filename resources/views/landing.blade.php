@@ -9,14 +9,11 @@
             <h1>¿Qué es la huella de carbono?</h1>
             <hr>
             <div class="row">
-                <img src="{{ url("assets/img/huella.png") }}" class="hidden-xs col-sm-offset-0 col-sm-4 col-md-3 col-lg-2" alt="Huella de pie verde creado con bombillas, simbolo de reciclaje y otras imagenes que fomentan el ecologismo.">
-                <p class="col-xs-12 col-sm-8 col-md-9 col-lg-10 text-justify">
+                <p class="col-12 offset-sm-2 col-sm-8 offset-md-2 col-md-8 offset-lg-1 col-lg-10 offset-xl-0 col-xl-12 text-justify">
                     El cambio climático, provocado por la emisión de Gases de Efecto Invernadero y en especial del CO<sup>2</sup>, es uno de los mayores probleas de nuestro tiempo y existen evidencias considerables de que la mayor parte del calentamiento global ha sido causado por las actividades humanas. Hoy día, casi todas las actividades que realizamos y bienes que poseemos y utilizamos implican <strong>consumir energía</strong>, lo que significa <strong>contribuir a las emisiones a la atmósfera</strong>. La <strong>Huella de Carbono</strong> se conoce como la totalidad de gases de efecto invernadero, también conocidos como GEI, emitidos por efecto directo (por el centro/organización) o indirecto (emitidos por terceros).
                 </p>
 
-                <img src="{{ url("assets/img/huella.png") }}" class="visible-xs col-xs-offset-4 col-xs-4" alt="Huella de pie verde creado con bombillas, simbolo de reciclaje y otras imagenes que fomentan el ecologismo.">
-
-                <p class="col-xs-12 col-sm-8 col-md-9 col-lg-10 text-justify">
+                <p class="col-12 offset-sm-2 col-sm-8 offset-md-2 col-md-8 offset-lg-1 col-lg-10 offset-xl-0 col-xl-12 text-justify">
                     Bajo este prisma, la Huella de Carbono, representa una medida para la contribución de las organizaciones a ser entidades socialmente responsables y un elemento más de concienciación para la asunción entre los ciudadanos de prácticas más sostenibles. Con esta iniciativa se pretende cuantificar la cantidad de emisiones de GEI, medidas en emisiones de CO2 equivalente, que son liberadas a la atmósfera debido a nuestras actividades cotidianas o a la comercialización de un producto. Este análisis abarca todas las actividades de su ciclo de vida (desde la adquisición de las materias primas hasta su gestión como residuo) permitiendo a los consumidores decidir qué alimentos comprar en base a la contaminación generada como resultado de los procesos por los que ha pasado.
                 </p>
 
@@ -30,42 +27,33 @@
             <h1>Como funciona</h1>
             <hr>
 
-            <div class="row">
+            <div class="card-deck mb-2">
 
-                <div class="col-xs-12 col-sm-6 col-md-4">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading text-center">
-                            <i class="fa fa-user-plus fa-4x"></i>
-                        </div>
-                        <div class="panel-body text-center">
-                            Registrate y verifica tu e-mail
-                        </div>
+                <div class="card bg-primary text-white">
+                    <div class="card-header text-center">
+                        <i class="fa fa-user-plus fa-4x"></i>
+                    </div>
+                    <div class="card-body text-center">
+                        Registrate y verifica tu e-mail
+                    </div>
+                </div>
+                <div class="card bg-primary text-white">
+                    <div class="card-header text-center">
+                        <i class="fa fa-check-square-o fa-4x"></i>
+                    </div>
+                    <div class="card-body text-center">
+                        Completa los formularios
+                    </div>
+                </div>
+                <div class="card bg-primary text-white">
+                    <div class="card-header text-center">
+                        <i class="fa fa-bar-chart fa-4x"></i>
+                    </div>
+                    <div class="card-body text-center">
+                        Ve estadísticas de tus emisiones e históricos
                     </div>
                 </div>
 
-                <div class="col-xs-12 col-sm-6 col-md-4">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading text-center">
-                            <i class="fa fa-check-square-o fa-4x"></i>
-                        </div>
-                        <div class="panel-body text-center">
-                            Completa los formularios
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-xs-12 col-sm-offset-3 col-sm-6 col-md-offset-0 col-md-4">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading text-center">
-                            <i class="fa fa-bar-chart fa-4x"></i>
-                        </div>
-                        <div class="panel-body text-center">
-                            Ve estadísticas de tus emisiones e históricos
-                        </div>
-                    </div>
-                </div>
-
-                <div class="clearfix"></div>
             </div>
 
             <p class="text-justify">

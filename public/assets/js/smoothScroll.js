@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $('body').scrollspy({target: ".navbar", offset: 51});
+    $('body').scrollspy({target: "#mainNavbar", offset: 57});
 
     $("#mainNavbar a").on('click', function(event) {
         if (this.hash !== "") {
@@ -8,7 +8,7 @@ $(document).ready(function(){
             var hash = this.hash;
 
             $('html').animate({
-                scrollTop: $(hash).offset().top - 50
+                scrollTop: $(hash).offset().top - 56
             }, 500, function() {
                 window.history.pushState(null, hash, hash);
             });
