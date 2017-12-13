@@ -13,12 +13,12 @@
                     Descubre más sobre la Huella de Carbono
                 </h2>
                 @guest
-                <a data-toggle="modal" data-target="#registerModal" class="btn btn-success btn-lg">
+                <a data-toggle="modal" data-target="#registerModal" class="btn btn-primary btn-lg">
                     <i class="fa fa-user"></i>
                     Registrarse
                 </a>
                 @else
-                <a href="logout" class="btn btn-success btn-lg">
+                <a href="logout" class="btn btn-primary btn-lg">
                     <i class="fa fa-sign-out"></i>
                     Cerrar Sesión
                 </a>
