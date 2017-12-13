@@ -1,6 +1,7 @@
 <form action="{{ ('#') }}" method="POST">
 {{ csrf_field() }}
 <!--GASES-->
+
     <div class="form-group row">
         <label name="gasnatural" class="col-form-label col-sm-6" >Gas natural (kwh)</label>
         <div class="col-sm-6">
@@ -26,6 +27,7 @@
         </div>
     </div>
     <!--GASES-->
+
     <!--ELECTRICIDAD-->
     <div class="form-group row" >
         <label name="electricidad" class="col-form-label col-sm-6">Electricidad KWh</label>
@@ -34,6 +36,7 @@
         </div>
     </div>
     <!--ELECTRICIDAD-->
+
     <!--agua-->
     <div class="form-group row">
         <label name="agua" class="col-form-label col-sm-6">Agua potable (m3)</label>
@@ -42,6 +45,7 @@
         </div>
     </div>
     <!--agua-->
+
     <!--papel y carton-->
     <div class="form-group row">
         <label name="papelcartonC" class="col-form-label col-sm-6">Papel y carton (consumo)</label>
@@ -56,6 +60,7 @@
         </div>
     </div>
     <!--papel y carton-->
+
     <!--factor-->
     <div class="form-group row">
         <label name="factor" class="col-form-label col-sm-6">Factor kwh/Nm3</label>
@@ -64,5 +69,6 @@
         </div>
     </div>
     <!--factor-->
+
     <input type="submit" value="Guardar" class="btn btn-success"/>
 </form>
