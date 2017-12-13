@@ -2,27 +2,27 @@
     <form class="form-horizontal" method="POST" action="{{ route('admin.login.submit') }}" novalidate>
         {{ csrf_field() }}
 
-        <div class="form-group{{ $errors->has('code') ? ' has-error' : '' }}">
+        <div class="form-group">
             <label for="code" class="control-label">Código</label>
 
-            <input id="code" type="code" class="form-control" name="code" value="{{ old('code') }}" required autofocus>
+            <input id="code" type="code" class="form-control{{ $errors->has('code') ? ' is-invalid' : '' }}" name="code" value="{{ old('code') }}" required autofocus>
 
             @if ($errors->has('code'))
-                <span class="help-block">
+                <div class="invalid-feedback">
                     <strong>{{ $errors->first('code') }}</strong>
-                </span>
+                </div>
             @endif
         </div>
 
-        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+        <div class="form-group">
             <label for="password" class="control-label">Contraseña</label>
 
-            <input id="password" type="password" class="form-control" name="password" required>
+            <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
 
             @if ($errors->has('password'))
-                <span class="help-block">
+                <div class="invalid-feedback">
                     <strong>{{ $errors->first('password') }}</strong>
-                </span>
+                </div>
             @endif
         </div>
 

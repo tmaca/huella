@@ -3,58 +3,58 @@
 
     <input type="hidden" name="id" id="id" value="{{ old("id") }}">
 
-    <div class="form-group{{ $errors->has("name") ? " has-error" : "" }}">
+    <div class="form-group">
         <label for="name" class="control-label">Nombre</label>
 
-        <input type="text" name="name" id="name" class="form-control" autofocus value="{{ old("name") }}">
+        <input type="text" name="name" id="name" class="form-control{{ $errors->has("name") ? " is-invalid" : "" }}" autofocus value="{{ old("name") }}">
         @if ($errors->has('name'))
-            <span class="help-block">
+            <div class="invalid-feedback">
                 <strong>{{ $errors->first('name') }}</strong>
-            </span>
+            </div>
         @endif
     </div>
 
-    <div class="form-group{{ $errors->has("nif") ? " has-error" : "" }}">
+    <div class="form-group">
         <label for="nif" class="control-label">NIF</label>
 
-        <input type="text" name="nif" id="nif" class="form-control" value="{{ old("nif") }}">
+        <input type="text" name="nif" id="nif" class="form-control{{ $errors->has("nif") ? " is-invalid" : "" }}" value="{{ old("nif") }}">
         @if ($errors->has('nif'))
-            <span class="help-block">
+            <div class="invalid-feedback">
                 <strong>{{ $errors->first('nif') }}</strong>
-            </span>
+            </div>
         @endif
     </div>
 
-    <div class="form-group{{ $errors->has("telephone") ? " has-error" : "" }}">
+    <div class="form-group">
         <label for="telephone" class="control-label">Teléfono</label>
 
-        <input type="number" name="telephone" id="telephone" class="form-control" value="{{ old("telephone") }}">
+        <input type="number" name="telephone" id="telephone" class="form-control{{ $errors->has("telephone") ? " is-invalid" : "" }}" value="{{ old("telephone") }}">
         @if ($errors->has('telephone'))
-            <span class="help-block">
+            <div class="invalid-feedback">
                 <strong>{{ $errors->first('telephone') }}</strong>
-            </span>
+            </div>
         @endif
     </div>
 
-    <div class="form-group{{ $errors->has("year") ? " has-error" : "" }}">
+    <div class="form-group">
         <label for="year" class="control-label">Año</label>
 
-        <input type="text" name="year" id="year" class="form-control" value="{{ old("year") }}">
+        <input type="text" name="year" id="year" class="form-control{{ $errors->has("year") ? " is-invalid" : "" }}" value="{{ old("year") }}">
         @if ($errors->has('year'))
-            <span class="help-block">
+            <div class="invalid-feedback">
                 <strong>{{ $errors->first('year') }}</strong>
-            </span>
+            </div>
         @endif
     </div>
 
-    <div class="form-group{{ $errors->has("email") ? " has-error" : "" }}">
+    <div class="form-group">
         <label for="email" class="control-label">Email</label>
 
-        <input type="text" name="email" id="email" class="form-control" value="{{ old("email") }}">
+        <input type="text" name="email" id="email" class="form-control{{ $errors->has("email") ? " is-invalid" : "" }}" value="{{ old("email") }}">
         @if ($errors->has('email'))
-            <span class="help-block">
+            <div class="invalid-feedback">
                 <strong>{{ $errors->first('email') }}</strong>
-            </span>
+            </div>
         @endif
     </div>
 
@@ -74,7 +74,7 @@
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
             <button type="submit" class="btn btn-default">
-                <span class="fa fa-pencil"></span>
+                <div class="fa fa-pencil"></div>
                 Guardar Cambios
             </button>
         </div>
