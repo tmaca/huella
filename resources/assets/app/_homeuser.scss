@@ -12,7 +12,6 @@
   padding-left: 160px;
 }
 #wrapper .navbar{
-
 }
 /* On using dropdown menu (To right shift popuped) */
 .navbar-fixed-left .navbar-nav > li > .dropdown-menu {
@@ -20,25 +19,23 @@
   margin-left: 140px;
 }
 #wrapper{
-  width: 1200px;
-  height: 500px;
+  width: 1300px;
+  height: 700px;
   background-color: #b2dba1;
-  margin-left: 40px;
+  margin-left: 20px;
+  margin-bottom:20px;
 }
-
 #menuUser{
   width:20%;
   margin: 2%;
   float: left;
   /*background-color: #1b7450;*/
 }
-
 #formularioUser{
   float: left;
-  width: 45%;
   margin: 5%;
+  font-size: 0.9em;
+  text-align: right;
 }
-
 #formularioUser form{
-  width:30%;
 }
