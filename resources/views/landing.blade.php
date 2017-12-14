@@ -4,8 +4,8 @@
 
 @section("content")
 
-    <section class="container-fluid" id="queEs">
-        <div class="container">
+    <section class="container-fluid row mx-0" id="queEs">
+        <div class="container align-self-center">
             <h1>¿Qué es la huella de carbono?</h1>
             <hr>
             <div class="row align-items-center">
@@ -29,8 +29,8 @@
         </div>
     </section>
 
-    <section class="container-fluid" id="comoFunciona">
-        <div class="container">
+    <section class="container-fluid row mx-0" id="comoFunciona">
+        <div class="container align-self-center">
             <h1>Como funciona</h1>
             <hr>
 
@@ -131,8 +131,8 @@
         </div>
     </section>
 
-    <section class="container-fluid" id="contacto">
-        <div class="container">
+    <section class="container-fluid row mx-0" id="contacto">
+        <div class="container align-self-center">
             <div class="row">
                 <div class="col-md-12">
 

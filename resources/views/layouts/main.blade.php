@@ -20,7 +20,7 @@
         @include("elements.header")
     @endif
 
-    <main class="container-fluid" style="padding:0;">
+    <main class="p-0">
         @yield("content")
     </main>
 
