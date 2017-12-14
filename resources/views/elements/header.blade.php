@@ -2,8 +2,7 @@
     <div class="embed-responsive embed-responsive-16by9">
         <video class="embed-responsive-item video-js" autoplay loop muted>
             <source src="assets/video/video.mp4" type="video/mp4">
-            <!--<source src="assets/video/header.webm" type="video/webm">
-            <source src="assets/video/header.mp4" type="video/mp4">-->
+            <source src="assets/video/video.webm" type="video/webm">
         </video>
     </div>
     <div id="superpuesto">
