@@ -40,7 +40,20 @@ header {
 #contacto {
   min-height: $window-height;
   bottom: 15px;
-  padding-top: 70px;
+  padding-top: 20px;
+
+  @media only screen and (max-width: 375px) {
+      height: 100vh;
+      font-size: 10px;
+      line-height: 20px;
+      padding: 15px;
+  }
+
+  @media only screen and (min-width: 376px) and (max-width: 600px) {
+      font-size: 12px;
+      line-height: 23px;
+      padding: 15px;
+  }
 }
 
 #queEs {
@@ -57,25 +70,4 @@ header {
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-}
-
-@media only screen and (max-width: 375px) {
-    #queEs,
-    #comoFunciona,
-    #contacto {
-        height: 100vh;
-        font-size: 10px;
-        line-height: 20px;
-        padding: 15px;
-    }
-}
-
-@media only screen and (min-width: 376px) and (max-width: 600px) {
-    #queEs,
-    #comoFunciona,
-    #contacto {
-        font-size: 12px;
-        line-height: 23px;
-        padding: 15px;
-    }
 }
