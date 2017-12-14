@@ -35,6 +35,7 @@ class HomeController extends Controller
         $validator = $this::validator($request->all());
 
         if ($validator->fails()) {
+            $request->session()->flash("isContactValid", false);
             return redirect(route("landing"))->withErrors($validator)->withInput();
 
         }

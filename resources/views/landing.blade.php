@@ -138,25 +138,7 @@
 
                     <h1>Contacto</h1>
                     <hr>
-                    <form action="{{ route('contact') }}" method="POST">
-                        {{ csrf_field() }}
-                        <div class="form-group">
-                            <label name="email">Email:</label>
-                            <input id="email" name="email" class="form-control">
-                        </div>
-
-                        <div class="form-group">
-                            <label name="subject">Asunto:</label>
-                            <input id="subject" name="subject" class="form-control">
-                        </div>
-
-                        <div class="form-group">
-                            <label name="message">Mensaje:</label>
-                            <textarea id="message" name="message" class="form-control" placeholder="Escribe tu mensaje aqui..."></textarea>
-                        </div>
-
-                        <input type="submit" value="Enviar mensaje " class="btn btn-primary"/>
-                    </form>
+                    @include("forms.guest.contacto")
 
                 </div>
             </div>
