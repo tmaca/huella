@@ -14,11 +14,15 @@ main {
 @import "modals";
 
 ::-moz-selection { /* Code for Firefox */
-    color: white;
-    background: yellowgreen;
+    color: $selection-color;
+    background: $selection-background;
 }
 
 ::selection {
-    color: white;
-    background: yellowgreen;
+    color: $selection-color;
+    background: $selection-background;
+}
+
+.swal-overlay--show-modal {
+    overflow: auto;
 }
