@@ -34,40 +34,67 @@
             </ul>
 
             <ul class="navbar-nav navbar-right">
-                @guest
-                <li class="nav-item active">
-                    <a class="nav-link" data-toggle="modal" data-target="#loginModal">
-                        <i class="fa fa-sign-in"></i>
-                        Login
-                    </a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" data-toggle="modal" data-target="#registerModal">
-                        <i class="fa fa-user-plus"></i>
-                        Registro
-                    </a>
-                </li>
-                @else
+                @unless(Request::segment(1) == "admin")
+                    @guest
+                    <li class="nav-item active">
+                        <a class="nav-link" data-toggle="modal" data-target="#loginModal">
+                            <i class="fa fa-sign-in"></i>
+                            Login
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" data-toggle="modal" data-target="#registerModal">
+                            <i class="fa fa-user-plus"></i>
+                            Registro
+                        </a>
+                    </li>
+                    @endguest
+
+                    @auth
+                        <li class="nav-item dropdown active">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-user"></i>
+                                {{ Auth::user()->name }}
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                              <a class="dropdown-item" href="{{ route("home") }}">
+                                  <i class="fa fa-home" aria-hidden="true"></i>
+                                  Home
+                              </a>
+                              <a class="dropdown-item" href="{{ route("logout") }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                  <i class="fa fa-sign-out"></i>
+                                  Cerrar Sesion
+                              </a>
+                              <form id="logout-form" action="{{ route("logout") }}" method="POST" style="display:none">
+                                  {{ csrf_field() }}
+                              </form>
+                          </div>
+                        </li>
+                    @endauth
+                @endunless
+
+                @auth("admin")
                 <li class="nav-item dropdown active">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fa fa-user"></i>
-                        {{ Auth::user()->name }}
+                        <i class="fa fa-unlock-alt"></i>
+                        {{ Auth::guard("admin")->user()->code }}
+                        <small>(admin)</small>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="{{ route("home") }}">
-                          <i class="fa fa-home" aria-hidden="true"></i>
-                          Home
+                      <a class="dropdown-item" href="{{ route("admin.home") }}">
+                          <i class="fa fa-home"></i>
+                          Dashboard
                       </a>
-                      <a class="dropdown-item" href="{{ route("logout") }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                      <a class="dropdown-item" href="{{ route("admin.logout") }}" onclick="event.preventDefault(); document.getElementById('adminlogout-form').submit();">
                           <i class="fa fa-sign-out"></i>
                           Cerrar Sesion
                       </a>
-                      <form id="logout-form" action="{{ route("logout") }}" method="POST" style="display:none">
+                      <form id="adminlogout-form" action="{{ route("admin.logout") }}" method="POST" style="display:none">
                           {{ csrf_field() }}
                       </form>
                   </div>
                 </li>
-                @endguest
+                @endauth
             </ul>
         </div>
     </div>
