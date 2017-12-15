@@ -58,13 +58,14 @@ class LoginController extends Controller
         ];
 
         // Attempt to log the user in
-        if (Auth::guard('admin')->attempt($credential, $request->member)){
+        if (Auth::guard('admin')->attempt($credential, $request->input("inputremember"))){
             // If login succesful, then redirect to their intended location
             return redirect()->intended(route('admin.home'));
         }
 
         // If Unsuccessful, then redirect back to the login with the form data
-        return redirect()->route("admin.login")->withInput();
+        $invalidCredentials = trans('auth.failed');
+        return view("authAdmin.login", ["invalidCredentials" => $invalidCredentials]);
     }
 
     /**
@@ -76,8 +77,6 @@ class LoginController extends Controller
     public function logout(Request $request)
     {
         Auth::guard('admin')->logout();
-
-//        $request->session()->invalidate();
 
         return redirect('/');
     }

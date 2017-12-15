@@ -4,11 +4,15 @@
     <div class="form-group">
         <label for="code" class="control-label">Código</label>
 
-        <input id="code" type="code" class="form-control{{ $errors->has('code') ? ' is-invalid' : '' }}" name="code" value="{{ old('code') }}" required autofocus>
+        <input id="code" type="code" class="form-control{{ ($errors->has('code') || isset($invalidCredentials)) ? ' is-invalid' : '' }}" name="code" value="{{ old('code') }}" required autofocus>
 
         @if ($errors->has('code'))
             <div class="invalid-feedback">
                 <strong>{{ $errors->first('code') }}</strong>
+            </div>
+        @elseif(isset($invalidCredentials))
+            <div class="invalid-feedback">
+                <strong>{{ $invalidCredentials }}</strong>
             </div>
         @endif
     </div>
