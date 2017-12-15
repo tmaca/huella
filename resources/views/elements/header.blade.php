@@ -1,6 +1,6 @@
 <header id="inicio">
     <div class="embed-responsive embed-responsive-16by9">
-        <video class="embed-responsive-item video-js" autoplay loop muted>
+        <video class="embed-responsive-item video-js" autoplay loop muted poster="https://images.unsplash.com/photo-1502219778817-93d41333bd19?dpr=1&auto=format&fit=crop&w=1000&q=80&cs=tinysrgb&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D" style="object-fit:cover;">
             <source src="assets/video/video.mp4" type="video/mp4">
             <source src="assets/video/video.webm" type="video/webm">
         </video>
