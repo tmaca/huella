@@ -1,4 +1,4 @@
-<script src="{{ url("assets/lib/jQuery/jquery-3.2.1.min.js") }}"></script><script src="{{ url("assets/js/changeForm.js") }}"></script>
+<script src="{{ url("assets/lib/jQuery/jquery-3.2.1.min.js") }}"></script>
 
 <link rel="stylesheet" href="{{ url("/assets/lib/bootstrap/css/bootstrap.css") }}">
 <script src="{{ url("assets/lib/bootstrap/js/bootstrap.bundle.min.js") }}"></script>
