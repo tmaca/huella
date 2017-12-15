@@ -85,6 +85,11 @@
                           <i class="fa fa-home"></i>
                           Dashboard
                       </a>
+                      <a class="dropdown-item" href="{{ route("admin.messages") }}">
+                          <i class="fa fa-envelope"></i>
+                          Mensajes
+                      </a>
+                      <div class="dropdown-divider"></div>
                       <a class="dropdown-item" href="{{ route("admin.logout") }}" onclick="event.preventDefault(); document.getElementById('adminlogout-form').submit();">
                           <i class="fa fa-sign-out"></i>
                           Cerrar Sesion
