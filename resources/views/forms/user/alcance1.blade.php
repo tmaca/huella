@@ -71,5 +71,6 @@
         </div>
         <!--factor-->
 
-    <input type="submit" value="Guardar" class="btn btn-primary"/>
-</form>
+        <input type="submit" value="Guardar" class="btn btn-primary"/>
+    </form>
+</div
