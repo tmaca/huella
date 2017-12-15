@@ -1,4 +1,4 @@
-<script src="{{ url("assets/lib/jQuery/jquery-3.2.1.min.js") }}"></script>
+<script src="{{ url("assets/lib/jQuery/jquery-3.2.1.min.js") }}"></script><script src="{{ url("assets/js/changeForm.js") }}"></script>
 
 <link rel="stylesheet" href="{{ url("/assets/lib/bootstrap/css/bootstrap.css") }}">
 <script src="{{ url("assets/lib/bootstrap/js/bootstrap.bundle.min.js") }}"></script>
@@ -17,4 +17,3 @@
 <script src="{{ url("assets/js/smoothScroll.js") }}"></script>
 <script src="{{ url("assets/js/collapseNavbar.js") }}"></script>
 <script src="{{ url("assets/js/navbarChangeColor.js") }}"></script>
-<script src="{{ url("assets/js/changeForm.js") }}"></script>
