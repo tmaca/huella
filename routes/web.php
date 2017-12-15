@@ -25,6 +25,7 @@ Route::get("/email/confim/{token}", "Auth\RegisterController@verifyEmail")->name
 
 Route::prefix('admin')->group(function() {
     Route::get('/', 'AdminController@index')->name('admin.home');
+
     Route::get('/login', 'AuthAdmin\LoginController@showLoginForm')->name('admin.login');
     Route::post('/login', 'AuthAdmin\LoginController@login')->name('admin.login.submit');
     Route::post('/logout', 'AuthAdmin\LoginController@logout')->name('admin.logout');
@@ -32,6 +33,8 @@ Route::prefix('admin')->group(function() {
     Route::post('/password/email', 'AuthAdmin\ForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
     Route::get('/password/reset/{token}', 'AuthAdmin\ResetPasswordController@showResetForm')->name('admin.password.reset');
     Route::post('/password/reset', 'AuthAdmin\ResetPasswordController@reset');
+
+    Route::get('mensajes', 'AdminController@pruebasAdmin');
 
     // user management
     Route::post("user/edit", "AdminController@editUser")->name("admin.user.edit");
@@ -45,3 +48,5 @@ Route::get("terms-of-service", function () {
 })->name("termsOfService");
 
 Route::post('datoscontacto', 'HomeController@datoscontacto')->name('contact');
+
+

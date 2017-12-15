@@ -26,7 +26,7 @@ class UsersTableSeeder extends Seeder
 
         $admin = new Admin;
         $admin->name = "admin";
-        $admin->code = "0123456789";
+        $admin->code = "1234567890";
         $admin->password = bcrypt('password');
         $admin->save();
 

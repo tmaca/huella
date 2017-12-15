@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 
 use App\Models\User;
+use App\Models\ContactoUsuario;
 
 class AdminController extends Controller
 {
@@ -29,6 +30,11 @@ class AdminController extends Controller
     {
         $users = User::all();
         return view('admin.home', ["users" => $users]);
+    }
+
+    public function pruebasAdmin(){
+        $mails = ContactoUsuario::all();
+        return view('admin.datoscontactoadmin', ["mails" => $mails]);
     }
 
     public function deleteUser(Request $request, $id) {
