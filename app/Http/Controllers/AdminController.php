@@ -32,7 +32,7 @@ class AdminController extends Controller
         return view('admin.home', ["users" => $users]);
     }
 
-    public function pruebasAdmin(){
+    public function showMessages() {
         $mails = ContactoUsuario::all();
         return view('admin.datoscontactoadmin', ["mails" => $mails]);
     }

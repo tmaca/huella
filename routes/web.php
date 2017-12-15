@@ -34,13 +34,14 @@ Route::prefix('admin')->group(function() {
     Route::get('/password/reset/{token}', 'AuthAdmin\ResetPasswordController@showResetForm')->name('admin.password.reset');
     Route::post('/password/reset', 'AuthAdmin\ResetPasswordController@reset');
 
-    Route::get('mensajes', 'AdminController@pruebasAdmin');
-
     // user management
     Route::post("user/edit", "AdminController@editUser")->name("admin.user.edit");
     Route::prefix("user/{id}")->group(function() {
         Route::post("delete", "AdminController@deleteUser")->name("admin.user.delete");
     });
+
+    // messages from contact form
+    Route::get('/messages', 'AdminController@showMessages')->name("admin.messages");
 });
 
 Route::get("terms-of-service", function () {
@@ -48,5 +49,3 @@ Route::get("terms-of-service", function () {
 })->name("termsOfService");
 
 Route::post('datoscontacto', 'HomeController@datoscontacto')->name('contact');
-
-
