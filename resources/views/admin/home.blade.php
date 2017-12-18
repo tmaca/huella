@@ -54,7 +54,7 @@
                                 <button class="btn btn-danger" data-action="delete">
                                     <i class="fa fa-trash"></i>
                                 </button>
-                                <form class="hidden" action="{{ route("admin.user.delete", ["id" => $user->id]) }}" method="post">
+                                <form class="d-none" action="{{ route("admin.user.delete", ["id" => $user->id]) }}" method="post">
                                     {{ csrf_field() }}
                                 </form>
                             </div>

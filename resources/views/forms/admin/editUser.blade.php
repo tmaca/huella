@@ -1,7 +1,7 @@
 <form action="{{ route("admin.user.edit") }}" method="post" novalidate>
     {{ csrf_field() }}
 
-    <input type="hidden" name="id" id="id" value="{{ old("id") }}">
+    <input type="d-none" name="id" id="id" value="{{ old("id") }}">
 
     <div class="form-group">
         <label for="name" class="control-label">Nombre</label>
