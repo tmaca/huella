@@ -85,7 +85,7 @@
                           <i class="fa fa-home"></i>
                           Dashboard
                       </a>
-                      <a class="dropdown-item" href="{{ route("admin.messages") }}">
+                      <a class="dropdown-item" href="{{ route("admin.mails.show") }}">
                           <i class="fa fa-envelope"></i>
                           Mensajes
                       </a>

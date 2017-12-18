@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 
 use App\Models\User;
 use App\Models\ContactoUsuario;
+
+use App\Mail\ReplyContacMail as ReplyContactMail;
 
 class AdminController extends Controller
 {
@@ -30,11 +33,6 @@ class AdminController extends Controller
     {
         $users = User::all();
         return view('admin.home', ["users" => $users]);
-    }
-
-    public function showMessages() {
-        $mails = ContactoUsuario::all();
-        return view('admin.datoscontactoadmin', ["mails" => $mails]);
     }
 
     public function deleteUser(Request $request, $id) {
@@ -67,5 +65,27 @@ class AdminController extends Controller
         $user->verified = $request->input("verified");
         $user->save();
         return redirect(route("admin.home"));
+    }
+
+
+    public function showMessages() {
+        $mails = ContactoUsuario::all();
+        return view('admin.datoscontactoadmin', ["mails" => $mails]);
+    }
+
+    public function deleteMail(Request $request, $id) {
+        $mail = ContactoUsuario::where("id", $id)->firstOrFail();
+        $mail->delete();
+        return redirect(route("admin.mails.show"));
+    }
+
+    public function replyMail(Request $request, $id) {
+        $for = $request->input("for");
+        $subject = $request->input("subject");
+        $message = $request->input("message");
+
+        // return $message;
+        Mail::to($for)->send(new ReplyContactMail($subject, $message));
+        return $request->all();
     }
 }
