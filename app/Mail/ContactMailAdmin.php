@@ -25,6 +25,6 @@ class ContactMailAdmin extends Mailable
     {
         return $this->from(config("mail.from.address"))
             ->subject("Confirmación de formulario, " . config("app.name"))
-            ->view('datoscontacto');
+            ->view('mails.datoscontacto');
     }
 }
