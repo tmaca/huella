@@ -40,8 +40,12 @@ Route::prefix('admin')->group(function() {
         Route::post("delete", "AdminController@deleteUser")->name("admin.user.delete");
     });
 
-    // messages from contact form
-    Route::get('/messages', 'AdminController@showMessages')->name("admin.messages");
+    // messages management
+    Route::get('/mails', 'AdminController@showMessages')->name("admin.mails.show");
+    Route::prefix("mail/{id}")->group(function() {
+        Route::post("delete", "AdminController@deleteMail")->name("admin.mail.delete");
+        Route::post("reply", "AdminController@replyMail")->name("admin.mail.reply");
+    });
 });
 
 Route::get("terms-of-service", function () {
