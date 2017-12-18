@@ -16,7 +16,6 @@ function addEditEvent() {
 }
 
 function deleteUser() {
-    console.log(this);
     swal({
         title: "Eliminar usuario",
         text: "Esta accción no puede ser revertida, ¿deseas continuar?",
