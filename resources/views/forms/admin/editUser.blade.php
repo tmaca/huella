@@ -80,6 +80,8 @@
 
 @if(Request::session()->get("editFailed"))
 <script type="text/javascript">
-    $("#editUserModal").modal("show");
+    $(function() {
+        $("#editUserModal").modal("show");
+    });
 </script>
 @endif

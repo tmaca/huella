@@ -33,13 +33,17 @@
 
     @if(Request::session()->get("loginFailed"))
         <script>
-            $("#loginModal").modal("show");
+            $(function() {
+                $("#loginModal").modal("show");
+            });
         </script>
     @endif
 
     @if(Request::session()->get("registerFailed"))
         <script>
-            $("#registerModal").modal("show");
+            $(function() {
+                $("#registerModal").modal("show");
+            });
         </script>
     @endif
 

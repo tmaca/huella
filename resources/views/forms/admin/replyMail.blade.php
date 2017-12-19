@@ -43,6 +43,8 @@
 
 @if(Request::session()->get("replyFailed"))
 <script type="text/javascript">
-    $("#reaplyUserModal").modal("show");
+    $(function() {
+        $("#replyUserModal").modal("show");
+    });
 </script>
 @endif

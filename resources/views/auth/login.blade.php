@@ -7,7 +7,9 @@
 
         @if(isset($emailVerified) && !$emailVerified)
         <script type="text/javascript">
-            swal("Email no verificado", "Tienes que verificar el correo electrónico para poder iniciar sesión.", "info");
+            document.addEventListener("DOMContentLoaded", function () {
+                swal("Email no verificado", "Tienes que verificar el correo electrónico para poder iniciar sesión.", "info");
+            });
         </script>
 
         <noscript>

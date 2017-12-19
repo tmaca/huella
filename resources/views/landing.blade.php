@@ -74,56 +74,58 @@
                 <canvas width="300" height="100"></canvas>
 
                 <script>
-                var ctx = document.getElementById("example-chart").getElementsByTagName("canvas")[0].getContext('2d');
-                var myChart = new Chart(ctx, {
-                    type: 'line',
-                    data: {
-                        labels: [
-                            "Enero",
-                            "Febrero",
-                            "Marzo",
-                            "Abril",
-                            "Mayo",
-                            "Junio",
-                            "Julio",
-                            "Agosto",
-                            "Septiembre",
-                            "Octubre",
-                            "Noviembre",
-                            "Diciembre",
-                        ],
-                        datasets: [{
-                            data: [
-                                Math.random() *10,
-                                Math.random() *10,
-                                Math.random() *10,
-                                Math.random() *10,
-                                Math.random() *10,
-                                Math.random() *10,
-                                Math.random() *10,
-                                Math.random() *10,
-                                Math.random() *10,
-                                Math.random() *10,
-                                Math.random() *10,
-                                Math.random() *10,
+                document.addEventListener("DOMContentLoaded", function () {
+                    var ctx = document.getElementById("example-chart").getElementsByTagName("canvas")[0].getContext('2d');
+                    var myChart = new Chart(ctx, {
+                        type: 'line',
+                        data: {
+                            labels: [
+                                "Enero",
+                                "Febrero",
+                                "Marzo",
+                                "Abril",
+                                "Mayo",
+                                "Junio",
+                                "Julio",
+                                "Agosto",
+                                "Septiembre",
+                                "Octubre",
+                                "Noviembre",
+                                "Diciembre",
                             ],
-                            backgroundColor: "rgba(60, 184, 62, 0.3)",
-                            borderColor: "#3cb83e",
-                            borderWidth: 3,
-                        }]
-                    },
-                    options: {
-                        legend: {
-                            display: false,
-                            },
-                        scales: {
-                            yAxes: [{
-                                ticks: {
-                                    beginAtZero: true,
-                                }
+                            datasets: [{
+                                data: [
+                                    Math.random() *10,
+                                    Math.random() *10,
+                                    Math.random() *10,
+                                    Math.random() *10,
+                                    Math.random() *10,
+                                    Math.random() *10,
+                                    Math.random() *10,
+                                    Math.random() *10,
+                                    Math.random() *10,
+                                    Math.random() *10,
+                                    Math.random() *10,
+                                    Math.random() *10,
+                                ],
+                                backgroundColor: "rgba(60, 184, 62, 0.3)",
+                                borderColor: "#3cb83e",
+                                borderWidth: 3,
                             }]
+                        },
+                        options: {
+                            legend: {
+                                display: false,
+                            },
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        beginAtZero: true,
+                                    }
+                                }]
+                            }
                         }
-                    }
+                    });
                 });
                 </script>
 
