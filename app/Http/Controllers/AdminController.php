@@ -10,7 +10,7 @@ use Illuminate\Validation\Rule;
 use App\Models\User;
 use App\Models\ContactoUsuario;
 
-use App\Mail\ReplyContacMail as ReplyContactMail;
+use App\Mail\ReplyContactMail;
 
 class AdminController extends Controller
 {
@@ -81,11 +81,11 @@ class AdminController extends Controller
 
     public function replyMail(Request $request, $id) {
         $for = $request->input("for");
-        $subject = $request->input("subject");
-        $message = $request->input("message");
+        $reply = $request->input("reply");
 
-        // return $message;
-        Mail::to($for)->send(new ReplyContactMail($subject, $message));
-        return $request->all();
+        Mail::to($for)->send(new ReplyContactMail(ContactoUsuario::findOrFail($id), $reply));
+
+        $request->session()->flash("replyStatus", "sent");
+        return redirect(route("admin.mails.show"));
     }
 }

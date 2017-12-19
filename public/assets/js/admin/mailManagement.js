@@ -44,7 +44,7 @@ function replyMail() {
     document.getElementById("subject").value = (
             (row.getElementsByClassName("subject")[0].innerText.toUpperCase().indexOf("RE:") == -1) ? "RE: " : ""
         ) + row.getElementsByClassName("subject")[0].innerText;
-    document.getElementById("message").value = row.getElementsByClassName("message")[0].innerText;
+    document.getElementById("message").innerText = row.getElementsByClassName("message")[0].innerText;
 
     // change form action
     let id = row.getElementsByClassName("id")[0].innerText;
@@ -52,4 +52,7 @@ function replyMail() {
     form.action = form.getAttribute("data-action-url").replace("/id/", "/" + id + "/");
 
     $("#replyMailModal").modal("show");
+    $("#replyMailModal").on('shown.bs.modal', function (e) {
+        document.getElementById("reply").focus();
+    });
 }
