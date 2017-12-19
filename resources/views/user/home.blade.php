@@ -3,40 +3,21 @@
 @section("title", "Login")
 
 @section("content")
-<div id="wrapper">
-    <div id="menuUser">
-        <div class="navbar navbar-inverse navbar-fixed-left">
-            <a class="navbar-brand" href="#">
-                {{ Auth::user()->name }}
-            </a>
-            <ul class="nav navbar-nav" id="formLinks">
-               <!-- <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Sub Menu1</a></li>
-                        <li><a href="#">Sub Menu2</a></li>
-                        <li><a href="#">Sub Menu3</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">Sub Menu4</a></li>
-                        <li><a href="#">Sub Menu5</a></li>
-                    </ul>
-                </li>-->
-                <li><a href="#alcance1">Alcance 1</a></li>
-                <li><a href="#alcance2">Alcance 2</a></li>
-                <li><a href="#alcance3">Alcance 3</a></li>
-                
-            </ul>
+    <div id="alcances" class="row mx-0">
+        <div id="alcances-tabs" class="col-12 col-sm-4 col-md-4 col-lg-3 col-xl-2 bg-dark">
+            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist">
+                <h4 class="nav-link text-light">Menu</h4>
+                <a class="nav-link active" id="alcance1-tab" data-toggle="pill" href="#alcance1" role="tab">Alcance 1</a>
+                <a class="nav-link" id="alcance2-tab" data-toggle="pill" href="#alcance2" role="tab">Alcance 2</a>
+                <a class="nav-link" id="alcance3-tab" data-toggle="pill" href="#alcance3" role="tab">Alcance 3</a>
+            </div>
         </div>
-    </div><!--menuUser-->
-
-
-    <div id="formularioUser">
-
-        @include("forms.user.alcance1")
-        @include("forms.user.alcance2")
-        @include("forms.user.alcance3")
-
+        <div id="alcances-content" class="col-xs-12 col-sm-8 col md-8 col-lg-9 col-xl-10">
+            <div class="tab-content" id="v-pills-tabContent">
+              <div class="tab-pane fade show active" id="alcance1" role="tabpanel">@include("forms.user.alcance1")</div>
+              <div class="tab-pane fade" id="alcance2" role="tabpanel">@include("forms.user.alcance2")</div>
+              <div class="tab-pane fade" id="alcance3" role="tabpanel">@include("forms.user.alcance3")</div>
+            </div>
+        </div>
     </div>
-</div><!--wrapper-->
-
-
 @endsection

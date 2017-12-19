@@ -17,4 +17,3 @@
 <script src="{{ url("assets/js/smoothScroll.js") }}"></script>
 <script src="{{ url("assets/js/collapseNavbar.js") }}"></script>
 <script src="{{ url("assets/js/navbarChangeColor.js") }}"></script>
-<script src="{{ url("assets/js/changeForm.js") }}"></script>
