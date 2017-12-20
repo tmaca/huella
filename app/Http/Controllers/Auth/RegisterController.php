@@ -50,9 +50,6 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => 'required|string|min:5|max:255',
-            'nif' => 'required|alpha_num|size:9',
-            'telephone' => 'required|integer|min:100000000|max:999999999',
-            'year' => 'required|integer|min:1000|max:2100',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
             'terms' => 'accepted'
@@ -69,9 +66,6 @@ class RegisterController extends Controller
     {
         $user = User::create([
             'name' => $data['name'],
-            'nif' => $data['nif'],
-            'telephone' => $data['telephone'],
-            'year' => $data['year'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             "email_code" => str_random(75),
@@ -93,12 +87,17 @@ class RegisterController extends Controller
             $this::create($request->all());
         }
 
-        return view("auth.register", ["postRegister" => true, "emailAddress" => $request->email]);
+        $request->session()->flash("postRegister", true);
+        $request->session()->flash("emailAddress", $request->input("email"));
+        return redirect(route("landing"));
     }
 
     public function verifyEmail(Request $request, $token) {
-        User::where("email_code", $token)->firstOrFail()->verify();
+        $user = User::where("email_code", $token)->firstOrFail();
+        $user->verify();
 
-        return redirect(route("login"));
+        $request->session()->flash("accountActivated", true);
+        $request->session()->flash("emailAddress", $user->email);
+        return redirect(route("landing"));
     }
 }

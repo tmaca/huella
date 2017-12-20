@@ -44,9 +44,8 @@ class AdminController extends Controller
     public function editUser(Request $request) {
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|min:5|max:255',
-            'nif' => 'required|alpha_num|size:9',
-            'telephone' => 'required|integer|min:100000000|max:999999999',
-            'year' => 'required|integer|min:1000|max:2100',
+            'nif' => 'nullable|alpha_num|size:9',
+            'telephone' => 'nullable|integer|min:100000000|max:999999999',
             'email' => 'required|string|email|max:255',
             'verified' => 'required', Rule::in("0", "1"),
         ]);
@@ -60,7 +59,6 @@ class AdminController extends Controller
         $user->name = $request->input("name");
         $user->nif = $request->input("nif");
         $user->telephone = $request->input("telephone");
-        $user->year = $request->input("year");
         $user->email = $request->input("email");
         $user->verified = $request->input("verified");
         $user->save();

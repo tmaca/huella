@@ -44,7 +44,6 @@ function editUser() {
     document.getElementById("name").value = row.getElementsByClassName("name")[0].innerText;
     document.getElementById("nif").value = row.getElementsByClassName("nif")[0].innerText;
     document.getElementById("telephone").value = row.getElementsByClassName("telephone")[0].getAttribute("data-phone");
-    document.getElementById("year").value = row.getElementsByClassName("year")[0].innerText;
     document.getElementById("email").value = row.getElementsByClassName("email")[0].getAttribute("data-email");
 
     if (row.getElementsByClassName("verified")[0].getAttribute("data-verified") == "1") {

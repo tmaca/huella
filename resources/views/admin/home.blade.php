@@ -13,7 +13,6 @@
                     <td>Nombre</td>
                     <td>NIF</td>
                     <td>Teléfono</td>
-                    <td>Año</td>
                     <td>Email</td>
                     <td>Estado de la cuenta</td>
                     <td>Acciones</td>
@@ -25,15 +24,24 @@
                     <tr class="text-center">
                         <td class="id">{{ $user->id }}</td>
                         <td class="name">{{ $user->name }}</td>
-                        <td class="nif">{{ $user->nif }}</td>
-                        <td class="telephone" data-phone="{{ $user->telephone }}">
+                        <td class="nif">
+                            @if(!empty($user->nif))
+                                {{ $user->nif }}
+                            @else
+                            <span class="text-info">N/D</span>
+                            @endif
+                        </td>
+                        <td class="telephone" data-phone="{{ (!empty($user->phone)) ? $user->telephone : '' }}">
+                            @if(!empty($user->telephone))
                             <a href="tel:{{ $user->telephone }}">
                                 <i class="fa fa-phone"></i>
                                 ({{ $user->telephone }})
                             </a>
+                            @else
+                            <span class="text-info">N/D</span>
+                            @endif
                         </td>
-                        <td class="year">{{ $user->year }}</td>
-                        <td class="email" data-email="{{ $user->email }}">
+                            <td class="email" data-email="{{ $user->email }}">
                             <a href="mailto:{{ $user->email }}">
                                 <i class="fa fa-envelope"></i>
                                 ({{ $user->email }})

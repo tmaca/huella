@@ -1,7 +1,7 @@
 <form action="{{ route("admin.user.edit") }}" method="post" novalidate>
     {{ csrf_field() }}
 
-    <input type="d-none" name="id" id="id" value="{{ old("id") }}">
+    <input type="hidden" name="id" id="id" value="{{ old("id") }}">
 
     <div class="form-group">
         <label for="name" class="control-label">Nombre</label>
@@ -32,17 +32,6 @@
         @if ($errors->has('telephone'))
             <div class="invalid-feedback">
                 <strong>{{ $errors->first('telephone') }}</strong>
-            </div>
-        @endif
-    </div>
-
-    <div class="form-group">
-        <label for="year" class="control-label">Año</label>
-
-        <input type="text" name="year" id="year" class="form-control{{ $errors->has("year") ? " is-invalid" : "" }}" value="{{ old("year") }}">
-        @if ($errors->has('year'))
-            <div class="invalid-feedback">
-                <strong>{{ $errors->first('year') }}</strong>
             </div>
         @endif
     </div>
