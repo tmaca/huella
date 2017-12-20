@@ -12,7 +12,7 @@
         @yield("title", config("app.name"))
     </title>
 </head>
-<body @if(Request::url() == route("landing")) style="position:relative;" data-spy="scroll" data-target="mainNavbar" }}@else style="padding-top:74px;" @endif>
+<body @if(Request::url() == route("landing")) style="position:relative;" data-spy="scroll" data-target="mainNavbar" @else style="padding-top:74px;" @endif>
 
     @include("elements.navbar")
 
