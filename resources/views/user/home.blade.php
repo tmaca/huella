@@ -7,6 +7,7 @@
         <div id="alcances-tabs" class="col-12 col-sm-4 col-md-4 col-lg-3 col-xl-2 bg-dark">
             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist">
                 <h4 class="nav-link text-light">Menu</h4>
+                <a class="nav-link" href="{{ URL::route('building') }}" class="btn btn-default">Calcular huella</a>
                 <a class="nav-link active" id="alcance1-tab" data-toggle="pill" href="#alcance1" role="tab">Alcance 1</a>
                 <a class="nav-link" id="alcance2-tab" data-toggle="pill" href="#alcance2" role="tab">Alcance 2</a>
                 <a class="nav-link" id="alcance3-tab" data-toggle="pill" href="#alcance3" role="tab">Alcance 3</a>
