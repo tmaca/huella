@@ -74,7 +74,8 @@ class LoginController extends Controller
             if (!empty($user->email_code) && !$user->verified) {
                 Auth::logout();
 
-                return view("auth.login", ["emailVerified" => false]);
+                $request->session()->flash("emailVerified", false);
+                return redirect(route("landing"));
             }
 
             return redirect()->intended($this::redirectPath());

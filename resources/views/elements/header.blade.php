@@ -46,6 +46,27 @@
             </noscript>
             @endif
 
+            @if(Request::session()->get("emailVerified") === false)
+            <script type="text/javascript">
+                document.addEventListener("DOMContentLoaded", function () {
+                    swal("Cuenta pendiente de activación", "Te ha sido enviado un email para confirmar la cuenta, no podrás iniciar sesión hasta que esta quede activada", "error").then(function() {
+                        $("#loginModal #email").val("{{ Request::session()->get("emailAddress") }}");
+                        $("#loginModal").modal("show");
+                    });
+                });
+            </script>
+
+            <noscript>
+                <div class="alert alert-danger">
+                    <h4>Cuenta pendiente de activación</h4>
+                    <p>
+                        Te ha sido enviado un email para confirmar la cuenta, no podrás iniciar sesión hasta que esta quede activada
+
+                    </p>
+                </div>
+            </noscript>
+            @endif
+
             <div>
                 <h2>
                     Descubre más sobre la Huella de Carbono
