@@ -5,9 +5,12 @@ namespace App\Http\Controllers;
 use App\Mail\ContactMailUser;
 use App\Models\ContactoUsuario;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\ContactMailAdmin;
 use Illuminate\Support\Facades\Validator;
+
+use App\Mail\ContactMailAdmin;
+use App\Models\Building;
 
 class HomeController extends Controller
 {
@@ -75,7 +78,11 @@ class HomeController extends Controller
       */
       public function building(Request $request)
       {
-          return view('building.building');
+          // hacer query de los edificios
+          $buildings = Building::where("user_id", Auth::id())->get();
+
+          // devolver vista pasando los edificios
+          return view('building.building', ["buildings" => $buildings]);
       }
 
       public function saveBuilding(Request $request)
@@ -89,17 +96,16 @@ class HomeController extends Controller
 
           $building = Building::create([
               'name' => $request -> name,
-              'year' => $request -> year,
+              'user_id' => Auth::id()
           ]);
 
-           return view('building.building');
+           return redirect(route("building"));
       }
 
       protected function buildingValidator(array $data)
       {
           return Validator::make($data, [
-              'email' => 'required|string|max:30',
-              'year' => 'required|integer',
+              'name' => 'required|string|max:35',
           ]);
       }
 
