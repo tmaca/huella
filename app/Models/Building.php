@@ -9,7 +9,7 @@ class Building extends Model
     protected $table = 'buildings';
     protected $fillable = [
         'name',
-        'year'
+        'user_id'
     ];
 
     public function alcance1()
