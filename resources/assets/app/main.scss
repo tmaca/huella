@@ -16,12 +16,8 @@ main {
 
 @import "modals";
 
-::-moz-selection { /* Code for Firefox */
-    color: $selection-color;
-    background: $selection-background;
-}
-
-::selection {
+::selection,
+::-moz-selection {
     color: $selection-color;
     background: $selection-background;
 }
