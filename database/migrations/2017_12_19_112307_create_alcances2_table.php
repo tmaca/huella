@@ -17,7 +17,7 @@ class CreateAlcances2Table extends Migration
             $table->increments('id');
             $table->integer('building_id')->unsigned();
             $table->foreign('building_id')->references('id')->on('buildings')->onDelete("cascade")->onUpdate("cascade");
-            $table->string('year');
+            $table->integer('year');
             $table->string("electricidad_kwh");
             $table->timestamps();
         });

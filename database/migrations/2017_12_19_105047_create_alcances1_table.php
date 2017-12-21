@@ -17,7 +17,7 @@ class CreateAlcances1Table extends Migration
             $table->increments('id');
             $table->integer('building_id')->unsigned();
             $table->foreign('building_id')->references('id')->on('buildings')->onDelete("cascade")->onUpdate("cascade");
-            $table->string('year');
+            $table->integer('year');
             $table->string("gas_natural_kwh");
             $table->string("gas_natural_nm3");
             $table->string("refrigerantes");
