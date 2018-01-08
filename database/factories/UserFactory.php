@@ -21,7 +21,6 @@ $factory->define(App\Models\User::class, function (Faker $faker) {
         'name' => $faker->name,
         'nif' => strtoupper($faker->randomLetter) . $faker->randomNumber(8),
         'telephone' => $faker->randomNumber(9),
-        'year' => $faker->numberBetween(1980, date("Y")),
         'email' => $faker->unique()->safeEmail,
         'password' => $password ? $password : bcrypt('secret'),
         'verified' => $verified ? $verified : false,
