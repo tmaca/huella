@@ -54,7 +54,7 @@ Route::get("terms-of-service", function () {
 
 Route::post('datoscontacto', 'HomeController@datoscontacto')->name('contact');
 
-// user routes
+// building routes
 Route::get('building', 'HomeController@building')->name('building');
 
 Route::post('addBuilding', 'HomeController@saveBuilding')->name('addBuilding');

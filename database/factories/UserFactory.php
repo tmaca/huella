@@ -14,8 +14,8 @@ use Faker\Generator as Faker;
 */
 
 $factory->define(App\Models\User::class, function (Faker $faker) {
-    static $password = "password";
-    static $verified = false;
+    $password = password_hash("password", PASSWORD_DEFAULT);
+    $verified = false;
 
     return [
         'name' => $faker->name,
@@ -23,8 +23,8 @@ $factory->define(App\Models\User::class, function (Faker $faker) {
         'telephone' => $faker->randomNumber(9),
         'year' => $faker->numberBetween(1980, date("Y")),
         'email' => $faker->unique()->safeEmail,
-        'password' => $password ?: $password = bcrypt('secret'),
-        'verified' => $verified ?: $verified = false,
+        'password' => $password ? $password : bcrypt('secret'),
+        'verified' => $verified ? $verified : false,
         'remember_token' => str_random(10),
     ];
 });
