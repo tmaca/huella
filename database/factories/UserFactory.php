@@ -23,7 +23,7 @@ $factory->define(App\Models\User::class, function (Faker $faker) {
         'telephone' => $faker->randomNumber(9),
         'year' => $faker->numberBetween(1980, date("Y")),
         'email' => $faker->unique()->safeEmail,
-        'password' => $password ? $password : password_hash('secret', PASSWORD_DEFAULT),
+        'password' => $password ? $password : bcrypt('secret'),
         'verified' => $verified ? $verified : false,
         'remember_token' => str_random(10),
     ];

@@ -17,4 +17,3 @@ class ContactoUsuario extends Model
 
 
 }
-

@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'nif', 'telephone', 'email', 'password', "email_code", "verified"
+        'name', 'nif', 'telephone', 'email', 'year', 'password', 'email_code', 'verified'
     ];
 
     /**
@@ -39,5 +39,13 @@ class User extends Authenticatable
 
     public function sendVerifyEmail() {
         Mail::to($this->email)->send(new RegisterConfirmation($this));
+    }
+
+    /**
+     * Buildings
+     */
+    public function building()
+    {
+        return $this->hasMany('App\Building');
     }
 }
