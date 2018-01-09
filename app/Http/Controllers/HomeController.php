@@ -59,7 +59,7 @@ class HomeController extends Controller
          ]);
 
          Mail::to($email)->send(new ContactMailUser());
-         Mail::to("pruebaslaravelzubiri@gmail.com")->send(new ContactMailAdmin());
+         Mail::to(config("mail.adminAddress"))->send(new ContactMailAdmin());
 
          return view('mails.respuestacontacto');
      }
