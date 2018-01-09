@@ -16,10 +16,10 @@
 
 
                 <li data-toggle="collapse" data-target="#service" class="collapsed">
-                    <a href="#"><i class="fa fa-globe fa-lg"></i> Calcular Huella <span class="arrow"></span></a>
+                    <a href="#"><i class="fa fa-globe fa-lg"></i>Edificios<span class="arrow"></span></a>
                 </li>
                 <ul class="sub-menu collapse" id="service">
-                    <li>Añadir edificio</li>
+                    <a href="{{ URL::route('building') }}"><li>Añadir edificio</li></a>
                     <li>Editar edificio</li>
                     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist">
                     <li id="alcance1-tab" data-toggle="pill" href="#alcance1" role="tab">Alcance 1</li>
