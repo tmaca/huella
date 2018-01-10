@@ -28,7 +28,7 @@
                                 <button class="btn btn-danger" data-action="delete">
                                     <i class="fa fa-trash"></i>
                                 </button>
-                                <form class="d-none" action="" method="post">
+                                <form class="d-none" action="{{ route("building.delete", ["id" => $building->id]) }}" method="post">
                                     {{ csrf_field() }}
                                 </form>
                             </div>
@@ -79,5 +79,5 @@
         </div>
     </div>
 
-    <script src="assets/js/admin/buildingManagement.js"></script>
+    <script src="assets/js/user/buildingManagement.js"></script>
 @endsection
