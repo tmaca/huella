@@ -6,12 +6,15 @@ $(document).ready(function(){
             event.preventDefault();
 
             var hash = this.hash;
-
-            $('html').animate({
-                scrollTop: $(hash).offset().top - 56
-            }, 500, function() {
-                window.history.pushState(null, hash, hash);
-            });
+            smoothScroll(hash, true);
+            window.history.pushState(null, null, hash);
         }
     });
+
 });
+
+function smoothScroll(nodeElement, isLanding = false) {
+    $('html').animate({
+        scrollTop: $(nodeElement).offset().top - ((isLanding) ? 56 : 0)
+    }, 500);
+}
