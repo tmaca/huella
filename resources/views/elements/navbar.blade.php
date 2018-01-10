@@ -10,7 +10,7 @@
             <ul class="navbar-nav mr-auto">
                 <li id="initial" class="nav-item">
                     @if(Request::url() == route("landing"))
-                    <a class="nav-link" href="{{ route("landing") }}">
+                    <a class="nav-link" href="#inicio">
                         Inicio
                     </a>
                     @endif
