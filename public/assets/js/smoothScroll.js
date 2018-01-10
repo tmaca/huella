@@ -6,15 +6,15 @@ $(document).ready(function(){
             event.preventDefault();
 
             var hash = this.hash;
-            smoothScroll(hash, true);
+            smoothScroll(hash);
             window.history.pushState(null, null, hash);
         }
     });
 
 });
 
-function smoothScroll(nodeElement, isLanding = false) {
+function smoothScroll(nodeElement) {
     $('html').animate({
-        scrollTop: $(nodeElement).offset().top - ((isLanding) ? 56 : 0)
+        scrollTop: $(nodeElement).offset().top
     }, 500);
 }
