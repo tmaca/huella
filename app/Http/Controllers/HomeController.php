@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Validator;
 
 use App\Mail\ContactMailAdmin;
 use App\Models\Building;
+use App\Models\Study;
 
 class HomeController extends Controller
 {
@@ -45,7 +46,7 @@ class HomeController extends Controller
          {
              $request->session()->flash("isContactValid", false);
 
-             return redirect(route("landing"))->withErrors($validator)->withInput();
+             return redirect(route("landing") . "#contacto")->withErrors($validator)->withInput();
          }
 
          $email=$request->email;
@@ -113,78 +114,42 @@ class HomeController extends Controller
     /**
      * Alcances
      */
-     public function alcance1(Request $request)
+     public function alcances(Request $request)
      {
-         $validator = $this::alcance1Validator($request->all());
+         $validator = $this::alcancesValidator($request->all());
 
          if ($validator->fails())
          {
              return redirect(route("landing"))->withErrors($validator)->withInput();
          }
 
-         $alcance1 = Alcance1::create([
-             'gas_natural_kwh' => $request->gas_natural_kwh,
-             'gas_natural_nm3' => $request->gas_natural_nm3,
-             'refrigerantes' => $request->refrigerantes,
-             'recarga_gases_refrigerantes' => $request->recarga_gases_refrigerantes,
+         $alcances = Study::create([
+             'building_id' => 1, // TODO cambiar en futuro, a modo de prueba
+             'year' => date("U"), // TODO cambiar en futuro, a modo de prueba
+             'a1_gas_natural_kwh' => $request->a1_gas_natural_kwh,
+             'a1_gas_natural_nm3' => $request->a1_gas_natural_nm3,
+             'a1_refrigerantes' => $request->a1_refrigerantes,
+             'a1_recarga_gases_refrigerantes' => $request->a1_recarga_gases_refrigerantes,
+             'a2_electricidad_kwh' => $request->a2_electricidad_kwh,
+             'a3_agua_potable_m3' => $request->a3_agua_potable_m3,
+             'a3_papel_carton_consumo_kg' => $request->a3_papel_carton_consumo_kg,
+             'a3_papel_carton_residuos_kg' => $request->a3_papel_carton_residuos_kg,
+             'a3_factor_kwh_nm3' => $request->a3_factor_kwh_nm3,
          ]);
      }
 
-     protected function alcance1Validator(array $data)
+     protected function alcancesValidator(array $data)
      {
          return Validator::make($data, [
-             'gas_natural_kwh'=>'required',
-             'gas_natural_nm3'=>'required',
-             'refrigerantes'=>'required',
-             'recarga_gases_refrigerantes'=>'required',
-         ]);
-     }
-
-     public function alcance2(Request $request)
-     {
-         $validator = $this::alcance1Validator($request->all());
-
-         if ($validator->fails())
-         {
-             return redirect(route("landing"))->withErrors($validator)->withInput();
-         }
-
-         $alcance2 = Alcance2::create([
-             'electricidad_kwh' => $request->electricidad_kwh,
-         ]);
-     }
-
-     protected function alcance2Validator(array $data)
-     {
-         return Validator::make($data, [
-             'electricidad_kwh' => 'required',
-         ]);
-     }
-
-     public function alcance3(Request $request)
-     {
-         $validator = $this::alcance1Validator($request->all());
-
-         if ($validator->fails())
-         {
-             return redirect(route("landing"))->withErrors($validator)->withInput();
-         }
-
-         $alcance3 = Alcance3::create([
-            'agua_potable_m3' => $request->agua_potable_m3,
-            'papel_carton_consumo_kg' => $request->papel_carton_consumo_kg,
-            'papel_carton_residuos_kg' => $request->papel_carton_residuos_kg,
-            'factor_kwh_nm3' => $request->factor_kwh_nm3,
-         ]);
-     }
-
-     protected function alcance3Validator(array $data)
-     {
-         return Validator::make($data, [
-             'agua_potable_m3' => 'required',
-             'papel_carton_consumo_kg' => 'required',
-             'papel_carton_residuos_kg' => 'required',
-             'factor_kwh_nm3' => 'required',
+             'a1_gas_natural_kwh'=>'required',
+             'a1_gas_natural_nm3'=>'required',
+             'a1_refrigerantes'=>'required',
+             'a1_recarga_gases_refrigerantes'=>'required',
+             'a2_electricidad_kwh' => 'required',
+             'a3_agua_potable_m3' => 'required',
+             'a3_papel_carton_consumo_kg' => 'required',
+             'a3_papel_carton_residuos_kg' => 'required',
+             'a3_factor_kwh_nm3' => 'required',
          ]);
      }
 

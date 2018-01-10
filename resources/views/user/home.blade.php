@@ -22,9 +22,8 @@
                     <li>Añadir edificio</li>
                     <li>Editar edificio</li>
                     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist">
-                    <li id="alcance1-tab" data-toggle="pill" href="#alcance1" role="tab">Alcance 1</li>
-                    <li id="alcance2-tab" data-toggle="pill" href="#alcance2" role="tab">Alcance 2</li>
-                    <li id="alcance3-tab" data-toggle="pill" href="#alcance3" role="tab">Alcance 3</li>
+                    <li id="alcance1-tab" data-toggle="pill" href="#alcances" role="tab">Alcances</li>
+
                     </div>
                 </ul>
 
@@ -45,9 +44,7 @@
         <div class="row">
             <div id="alcances-content" class="col-xs-12 col-sm-8 col md-8 col-lg-9 col-xl-10">
                 <div class="tab-content" id="v-pills-tabContent">
-                    <div class="tab-pane fade show active" id="alcance1" role="tabpanel">@include("forms.user.alcance1")</div>
-                    <div class="tab-pane fade" id="alcance2" role="tabpanel">@include("forms.user.alcance2")</div>
-                    <div class="tab-pane fade" id="alcance3" role="tabpanel">@include("forms.user.alcance3")</div>
+                    <div class="tab-pane fade show active" id="alcance1" role="tabpanel">@include("forms.user.alcances")</div>
                 </div>
             </div>
         </div>

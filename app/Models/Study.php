@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Alcances;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -8,6 +8,8 @@ class Study extends Model
 {
     protected $table = 'studies';
     protected $fillable = [
+        'building_id',
+        'year',
         'carbon_footprint',
         'a1_gas_natural_kwh',
         'a1_gas_natural_nm3',
