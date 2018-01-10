@@ -1,4 +1,5 @@
-$window-height: calc(100vh - 56px);
+$navbar-height: 56px;
+$window-height: calc(100vh - #{$navbar-height});
 
 $selection-background: rgb(143, 120, 210);
 $selection-color: white;

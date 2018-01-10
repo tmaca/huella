@@ -1,4 +1,9 @@
+body {
+    padding-bottom: $navbar-height;
+}
+
 header {
+    margin-top: - $navbar-height;
     background-image: url("../img/header.jpg");
     background-position: center;
     background-size: cover;
@@ -42,21 +47,20 @@ header {
 #queEs,
 #comoFunciona,
 #contacto {
-  min-height: $window-height;
+  min-height: calc(#{$window-height} + #{$navbar-height});
   bottom: 15px;
-  padding-top: 20px;
 
+  /* en moviles se ve muy peque con las media */
   @media only screen and (max-width: 375px) {
-      min-height: 100vh;
-      font-size: 10px;
-      line-height: 20px;
-      padding: 15px;
+      // font-size: 10px;
+      // line-height: 20px;
+      // padding: 15px;
   }
 
   @media only screen and (min-width: 376px) and (max-width: 600px) {
-      font-size: 12px;
-      line-height: 23px;
-      padding: 15px;
+      // font-size: 12px;
+      // line-height: 23px;
+      // padding: 15px;
   }
 }
 
