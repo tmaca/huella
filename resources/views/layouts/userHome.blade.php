@@ -4,7 +4,7 @@
 
 @include("elements.userNavbar")
 
-<div class="mt-3" id="userContent">
+<div class="px-3 mt-3" id="userContent">
     @yield("userContent")
 </div>
 
