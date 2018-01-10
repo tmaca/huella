@@ -67,4 +67,9 @@ Route::prefix('building')->group(function() {
     Route::prefix("building/{id}")->group(function() {
         Route::post("delete", "HomeController@deleteBuilding")->name("building.delete");
     });
-});    
+});
+
+Route::prefix("profile")->group(function () {
+    Route::get("/", "HomeController@showProfile")->name("user.profile"); // TODO
+    Route::post("/", "HomeController@saveProfile")->name("user.profile"); // TODO
+});
