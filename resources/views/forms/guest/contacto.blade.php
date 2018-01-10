@@ -46,15 +46,6 @@
                     icon: "warning",
                     title: "Email no enviado",
                     text: "Algunos campos no han pasado la validación",
-                    buttons: {
-                        cancel: "No revisar",
-                        confirm: "Revisar formulario",
-                    }
-                }).then(function(isConfirm) {
-                    if (isConfirm) {
-                        smoothScroll(document.getElementById("contacto"), true);
-                    }
-
                 });
         }, false);
     </script>
