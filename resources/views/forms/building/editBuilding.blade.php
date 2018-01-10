@@ -1,5 +1,6 @@
-<form action="{{-- route("user.building.edit") --}}" method="post" novalidate>
+<form action="{{ route("building.edit") }}" method="post" novalidate>
     {{ csrf_field() }}
+    <input type="hidden" name="id" id="id">
     <div class="form-group">
         <input type="text" name="name" id="name" class="form-control{{ $errors->has("name") ? " is-invalid" : "" }}" autofocus value="{{ old("name") }}">
         @if ($errors->has('name'))

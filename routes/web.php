@@ -55,6 +55,13 @@ Route::get("terms-of-service", function () {
 Route::post('datoscontacto', 'HomeController@datoscontacto')->name('contact');
 
 // building routes
-Route::get('building', 'HomeController@building')->name('building');
+Route::prefix('building')->group(function() {
+    Route::get('/', 'HomeController@building')->name('building');
 
-Route::post('addBuilding', 'HomeController@saveBuilding')->name('addBuilding');
+    // building management
+    Route::post('add', 'HomeController@addBuilding')->name('building.add');
+    Route::post('edit', 'HomeController@editBuilding')->name('building.edit');
+    Route::prefix("building/{id}")->group(function() {
+        Route::post("delete", "HomeController@deleteBuilding")->name("building.delete");
+    });
+});    

@@ -85,7 +85,14 @@ class HomeController extends Controller
           return view('building.building', ["buildings" => $buildings]);
       }
 
-      public function saveBuilding(Request $request)
+      protected function buildingValidator(array $data)
+      {
+          return Validator::make($data, [
+              'name' => 'required|string|max:35',
+          ]);
+      }
+
+      public function addBuilding(Request $request)
       {
           $validator = $this::buildingValidator($request->all());
 
@@ -102,11 +109,26 @@ class HomeController extends Controller
            return redirect(route("building"));
       }
 
-      protected function buildingValidator(array $data)
+      public function editBuilding(Request $request)
       {
-          return Validator::make($data, [
-              'name' => 'required|string|max:35',
-          ]);
+          $validator = $this::buildingValidator($request->all());
+
+          if ($validator->fails())
+          {
+              return redirect(route("building"))->withErrors($validator)->withInput();
+          }
+
+          $building = Building::where("id", $request->id)->firstOrFail();
+          $building->name = $request->input("name");
+          $building->save();
+          return redirect(route("building"));
+      }
+
+      public function deleteBuilding(Request $request, $id)
+      {
+          $building = Building::where("id", $id)->firstOrFail();
+          $building->delete();
+          return redirect(route("building"));
       }
 
 
