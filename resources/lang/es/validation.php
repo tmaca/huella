@@ -104,6 +104,7 @@ return [
             'rule-name' => 'custom-message',
         ],
     ],
+    'dni' => 'El DNI introducido no es válido',
 
     /*
     |--------------------------------------------------------------------------

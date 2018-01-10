@@ -104,6 +104,7 @@ return [
             'rule-name' => 'custom-message',
         ],
     ],
+    'dni' => 'The given ID is not valid',
 
     /*
     |--------------------------------------------------------------------------
