@@ -13,7 +13,7 @@
             <li data-toggle="collapse" data-target="#service" class="collapsed">
                 <a href="#"><i class="fa fa-globe fa-lg"></i>Edificios<span class="arrow"></span></a>
             </li>
-            <ul class="sub-menu collapse" id="service">
+            <ul class="sub-menu collapse{{ Request::url() == route("building") ? " show" : "" }}" id="service">
                 <a href="{{ URL::route('building') }}"><li>Añadir edificio</li></a>
                 <li>Editar edificio</li>
                 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist">
