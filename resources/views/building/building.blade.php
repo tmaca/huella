@@ -1,8 +1,8 @@
-@extends("layouts.main")
+@extends("layouts.userHome")
 
 @section("title", "Login")
 
-@section("content")
+@section("userContent")
     <div class="container">
         <h3>Lista de Edificios</h3>
         <hr>
