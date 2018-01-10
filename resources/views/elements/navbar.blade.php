@@ -8,29 +8,29 @@
         <div class="collapse navbar-collapse" id="navbar">
 
             <ul class="navbar-nav mr-auto">
-                @if(Request::url() == route("landing"))
                 <li id="initial" class="nav-item">
-                    <a class="nav-link" href="@if(Request::url() == route("landing")){{ "#inicio" }}@else{{ route("landing") }}@endif">
+                    @if(Request::url() == route("landing"))
+                    <a class="nav-link" href="{{ route("landing") }}">
                         Inicio
                     </a>
+                    @endif
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#queEs">
+                    <a class="nav-link" href="{{ Request::url() == route("landing") ? "" : route("landing") }}#queEs">
                         Que es la Huella de Carbono
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#comoFunciona">
+                    <a class="nav-link" href="{{ Request::url() == route("landing") ? "" : route("landing") }}#comoFunciona">
                         Como funciona
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#contacto">
+                    <a class="nav-link" href="{{ Request::url() == route("landing") ? "" : route("landing") }}#contacto">
                         Contacto
                     </a>
                 </li>
-                @endif
             </ul>
 
             <ul class="navbar-nav navbar-right">
