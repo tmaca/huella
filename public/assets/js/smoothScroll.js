@@ -1,17 +1,22 @@
 $(document).ready(function(){
     $('body').scrollspy({target: "#mainNavbar", offset: 57});
 
-    $("#mainNavbar a").on('click', function(event) {
-        if (this.hash !== "") {
-            event.preventDefault();
+    if (location.pathname == "/") {
+        $("#mainNavbar a").on('click', function(event) {
+            if (this.hash !== "") {
+                event.preventDefault();
 
-            var hash = this.hash;
+                var hash = this.hash;
+                smoothScroll(hash);
+                window.history.pushState(null, null, hash);
+            }
+        });
+    }
 
-            $('html').animate({
-                scrollTop: $(hash).offset().top - 56
-            }, 500, function() {
-                window.history.pushState(null, hash, hash);
-            });
-        }
-    });
 });
+
+function smoothScroll(nodeElement) {
+    $('html').animate({
+        scrollTop: $(nodeElement).offset().top
+    }, 500);
+}
