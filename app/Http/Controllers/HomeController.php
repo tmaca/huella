@@ -8,10 +8,14 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
-use App\Mail\ContactMailAdmin;
 use App\Models\Building;
+use App\Mail\ContactMailAdmin;
 use App\Models\Study;
+use App\Models\User;
+
+use App\Rules\ValidateDni;
 
 class HomeController extends Controller
 {
@@ -201,5 +205,55 @@ class HomeController extends Controller
          ]);
      }
 
+     /*
+      * perfil del usuario
+      */
+
+      private function validateProfile($request) {
+          $validator = Validator::make($request->all(), [
+              'name' => 'required|string|min:5|max:255',
+              'nif' => [
+                  'nullable',
+                  'alpha_num',
+                  'max:9',
+                  new ValidateDni
+              ],
+              'email' => [
+                  'required',
+                  'email',
+                  'email',
+                  'max:255',
+                  Rule::unique('users')->ignore(Auth::id()),
+              ],
+              'telephone' => 'nullable|numeric|min:100000000|max:999999999',
+          ]);
+
+          return $validator;
+      }
+
+      public function showProfile(Request $request) {
+          return view("user.profile");
+      }
+
+      public function saveProfile(Request $request) {
+          $validator = $this->validateProfile($request);
+
+          if ($validator->fails()) {
+              return redirect(route("user.profile"))->withErrors($validator)->withInput();
+          }
+
+          $user = Auth::user();
+          $user->name = $request->input("name");
+          $user->nif = strtoupper($request->input("nif"));
+          $user->telephone = $request->input("telephone");
+          $user->email = $request->input("email");
+          $user->save();
+
+          return redirect(route("user.profile"));
+      }
+
+      public function showChangePassword() {
+          abort("404");
+      }
 
 }
