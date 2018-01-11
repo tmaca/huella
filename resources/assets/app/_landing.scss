@@ -47,8 +47,9 @@ header {
 #queEs,
 #comoFunciona,
 #contacto {
-  min-height: $window-height - ($navbar-height * 1.5) *2;
-  padding: $navbar-height * 1.5 0;
+  min-height: $window-height;
+  padding-top: $navbar-height *1.25;
+  padding-bottom: $navbar-height /2;
   bottom: 15px;
 
   /* en moviles se ve muy peque con las media */
