@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
+use Hash;
 
 use App\Models\Building;
 use App\Mail\ContactMailAdmin;
@@ -253,7 +254,38 @@ class HomeController extends Controller
       }
 
       public function showChangePassword() {
-          abort("404");
+          return view("user.changePassword");
+      }
+
+      private function validateChangePassword($request) {
+          $validator = Validator::make($request->all(), [
+              'currentPassword' => 'required',
+              'newPassword' => 'required|confirmed|min:6',
+          ]);
+
+          return $validator;
+      }
+
+      public function changePassword(Request $request) {
+          $validator = $this->validateChangePassword($request);
+          $user = Auth::user();
+
+          if ($validator->fails()) {
+              return redirect(route("user.profile.changePassword"))->withErrors($validator);
+          }
+
+          if (Hash::check($request->input("currentPassword"), $user->password)) {
+              $user->password = Hash::make($request->input("newPassword"));
+              $user->save();
+
+              return redirect(route("user.changePassword"))->with("changed", true);
+              return $request->all();
+
+          } else {
+              $validator->errors()->add("currentPassword", trans("auth.failed"));
+              return redirect(route("user.profile.changePassword"))->withErrors($validator);
+          }
+
       }
 
 }

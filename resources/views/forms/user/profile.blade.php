@@ -56,7 +56,7 @@
     <button type="submit" class="btn btn-primary">
         Guardar cambios
     </button>
-    <a href="{{ route("user.changePassword") }}" class="btn btn-default">
+    <a href="{{ route("user.profile.changePassword") }}" class="btn btn-default">
         <i class="fa fa-key"></i>
         Cambiar contraseña
     </button>
