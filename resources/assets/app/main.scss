@@ -16,6 +16,8 @@ main {
 
 @import "modals";
 
+@import "errors";
+
 ::selection,
 ::-moz-selection {
     color: $selection-color;
