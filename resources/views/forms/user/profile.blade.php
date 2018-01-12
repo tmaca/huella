@@ -1,6 +1,5 @@
 <form action="{{ route('user.profile') }}" method="POST">
     {{ csrf_field() }}
-
     <div class="form-group row">
         <label for="name" class="col-form-label col-sm-4" >Nombre</label>
         <div class="col-sm-8">
@@ -59,5 +58,5 @@
     <a href="{{ route("user.profile.changePassword") }}" class="btn btn-default">
         <i class="fa fa-key"></i>
         Cambiar contraseña
-    </button>
+    </a>
 </form>
