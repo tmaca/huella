@@ -5,7 +5,10 @@
 
 #alcances-tabs, #alcances-content {
     padding-top: 20px;
+    font-size: 0.9em;
+    text-align: right;
 }
+
 
 @mixin FontAwesome($code) {
     font-family: FontAwesome;

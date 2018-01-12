@@ -3,17 +3,29 @@
     {{ csrf_field() }}
     <!--GASES-->
         <div class="form-group row">
-            <label name="a1_gas_natural_kwh" class="col-form-label col-sm-4" >Gas natural (kwh)</label>
+            <label name="a1_gas_natural_kwh" class="col-form-label col-sm-4" >Gas natural</label>
             <div class="col-sm-8">
-                <input id="a1_gas_natural_kwh" name="a1_gas_natural_kwh" class="form-control">
+                <div class="input-group">
+                    <input id="a1_gas_natural_kwh" name="a1_gas_natural_kwh" class="form-control">
+                    <div class="input-group-append">
+                        <span class="input-group-text">kwh</span>
+                    </div>
+                </div>
             </div>
         </div>
+
+
         <div class="form-group row">
-            <label name="a1_gas_natural_nm3" class="col-form-label col-sm-4">Gas natural (Nm3)</label>
-            <div class="col-sm-8">
-                <input id="a1_gas_natural_nm3" name="a1_gas_natural_nm3" class="form-control">
+            <label name="a1_gas_natural_nm3" class="col-form-label col-sm-4">Gas natural</label>
+            <div class="col-sm-8"><div class="input-group">
+                    <input id="a1_gas_natural_nm3" name="a1_gas_natural_nm3" class="form-control">
+                    <div class="input-group-append">
+                        <span class="input-group-text">Nm3</span>
+                    </div>
+                </div>
             </div>
         </div>
+
         <div class="form-group row">
             <label name="a1_refrigerantes" class="col-form-label col-sm-4">Refrigerantes</label>
             <div class="col-sm-8">
@@ -30,18 +42,28 @@
 
         <!--ELECTRICIDAD-->
         <div class="form-group row" >
-            <label name="a2_electricidad_kwh" class="col-form-label col-sm-4">Electricidad KWh</label>
-            <div class="col-sm-8">
-                <input id="a2_electricidad_kwh" name="a2_electricidad_kwh" class="form-control">
+            <label name="a2_electricidad_kwh" class="col-form-label col-sm-4">Electricidad</label>
+            <div class="col-sm-8"><div class="input-group">
+                    <input id="a2_electricidad_kwh" name="a2_electricidad_kwh" class="form-control">
+                    <div class="input-group-append">
+                        <span class="input-group-text">KWh</span>
+                    </div>
+                </div>
             </div>
         </div>
         <!--ELECTRICIDAD-->
 
+
         <!--agua-->
-        <div class="form-group row">
-            <label name="a3_agua_potable_m3" class="col-form-label col-sm-4">Agua potable (m3)</label>
-            <div class="col-sm-8">
-                <input id="a3_agua_potable_m3" name="a3_agua_potable_m3" class="form-control">
+
+        <div class="form-group row" >
+            <label name="a3_agua_potable_m3" class="col-form-label col-sm-4">Agua potable</label>
+            <div class="col-sm-8"><div class="input-group">
+                    <input id="a3_agua_potable_m3" name="a3_agua_potable_m3" class="form-control">
+                    <div class="input-group-append">
+                        <span class="input-group-text">m3</span>
+                    </div>
+                </div>
             </div>
         </div>
         <!--agua-->
