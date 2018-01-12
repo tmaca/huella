@@ -4,11 +4,17 @@
 }
 
 #alcances-tabs, #alcances-content {
-    padding-top: 20px;
-    font-size: 0.9em;
-    text-align: right;
+    //font-size: em;
+    text-align: left;
+    margin-bottom: 40px;
 }
-
+#alh2{
+    text-align: left;
+    color: #20c997;
+}
+#alc{
+    margin-bottom: 50px;
+}
 
 @mixin FontAwesome($code) {
     font-family: FontAwesome;
