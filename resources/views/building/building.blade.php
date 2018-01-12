@@ -1,6 +1,6 @@
 @extends("layouts.userHome")
 
-@section("title", "Login")
+@section("title", "Edificios")
 
 @section("userContent")
     <div class="container">

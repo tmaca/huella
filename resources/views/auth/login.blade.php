@@ -1,6 +1,6 @@
 @extends("layouts.main")
 
-@section("title", "Login")
+@section("title", "Iniciar sesión")
 
 @section("content")
     <div class="container">

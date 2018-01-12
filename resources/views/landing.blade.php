@@ -1,6 +1,6 @@
 @extends("layouts.main")
 
-@section("title", "Inicio")
+@section("title", config("app.name"))
 
 @section("content")
 
