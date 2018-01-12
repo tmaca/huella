@@ -27,8 +27,11 @@
 
     @include("elements.footer")
 
-    @include("elements.authModals")
-
+    @if (Request::route())
+        @guest
+            @include("elements.authModals")
+        @endguest
+    @endif
 
 </body>
 </html>
