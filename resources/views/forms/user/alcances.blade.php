@@ -1,7 +1,23 @@
 <div class="container-fluid">
-    <form action="{{ ('alcances') }}" method="POST">
+    @foreach($errors->all() as $error)
+        <p>{{ $error }}</p>
+    @endforeach
+    <form action="{{ route('alcances') }}" method="POST">
     {{ csrf_field() }}
     <!--GASES-->
+        <div id="alc">
+        <h3 id="alh2">Datos generales</h3>
+        <hr>
+        <div class="form-group row">
+            <label name="a1_gas_natural_kwh" class="col-form-label col-sm-4" >Año </label>
+            <div class="col-sm-8">
+                <div class="input-group">
+                    <input id="ano" name="ano" class="form-control">
+                </div>
+            </div>
+        </div>
+        </div>
+
         <div id="alc">
         <h3 id="alh2">Alcance 1</h3>
         <hr>
@@ -114,7 +130,8 @@
         </div>
         <!--factor-->
         </div><!--alc3-->
-
+        <input type="hidden" name="id" value="{{$id}}"/>
         <input type="submit" value="Guardar" class="btn btn-primary"/>
+        <input type="submit" value="Calcular Huella de Carbono" class="btn btn-primary"/>
     </form>
 </div>

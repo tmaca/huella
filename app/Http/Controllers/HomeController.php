@@ -141,22 +141,23 @@ class HomeController extends Controller
     /**
      * Alcances
      */
-    public function alcancesView()
+    public function alcancesView($id)
     {
-        return (view("user.alcances"));
+        return (view("user.alcances", ['id'=>$id]));
     }
+
      public function alcances(Request $request)
      {
          $validator = $this::alcancesValidator($request->all());
 
          if ($validator->fails())
          {
-             return redirect(route("landing"))->withErrors($validator)->withInput();
+             return redirect()->back()->withErrors($validator)->withInput();
          }
 
          $alcances = Study::create([
-             'building_id' => 1, // TODO cambiar en futuro, a modo de prueba
-             'year' => date("U"), // TODO cambiar en futuro, a modo de prueba
+             'building_id' => $request->id,
+             'year' => $request->ano,
              'a1_gas_natural_kwh' => $request->a1_gas_natural_kwh,
              'a1_gas_natural_nm3' => $request->a1_gas_natural_nm3,
              'a1_refrigerantes' => $request->a1_refrigerantes,
@@ -172,6 +173,8 @@ class HomeController extends Controller
      protected function alcancesValidator(array $data)
      {
          return Validator::make($data, [
+             'id'=>'required',
+             'ano'=>'required|numeric|min:1950',
              'a1_gas_natural_kwh'=>'required',
              'a1_gas_natural_nm3'=>'required',
              'a1_refrigerantes'=>'required',

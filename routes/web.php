@@ -55,7 +55,7 @@ Route::get("terms-of-service", function () {
 Route::post('datoscontacto', 'HomeController@datoscontacto')->name('contact');
 
 //alcances
-Route::get('alcances', 'HomeController@alcancesView')->name('alcancesView');
+Route::get('alcances/{id}', 'HomeController@alcancesView')->name('alcancesView');
 Route::post('alcances', 'HomeController@alcances')->name('alcances');
 
 // building routes

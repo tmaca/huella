@@ -22,8 +22,8 @@
                         <td class="id d-none">{{ $building->id }}</td>
                         <td class="name">{{ $building->name }}</td>
                         <td>
-                            <a class="btn btn-primary" href="{{ route('alcances') }}" title="Calcular Alcance">
-                                <fa class="fa fa-calculator"></fa> Calcular Alcance
+                            <a class="btn btn-primary" href="{{ route('alcancesView', ['id' => $building->id]) }}" title="Calcular Alcance">
+                                <fa class="fa fa-calculator"></fa> Introducir datos
                             </a>
                         </td>
                         <td>
