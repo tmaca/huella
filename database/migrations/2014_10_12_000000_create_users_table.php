@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->integer('telephone')->nullable();
             $table->string('email')->unique();
             $table->string('password');
+            $table->boolean('publicViewable')->default(true);
             $table->rememberToken();
             $table->timestamps();
         });

@@ -231,6 +231,7 @@ class HomeController extends Controller
                   Rule::unique('users')->ignore(Auth::id()),
               ],
               'telephone' => 'nullable|numeric|min:100000000|max:999999999',
+              'publicViewable' => 'required|boolean'
           ]);
 
           return $validator;
@@ -252,6 +253,7 @@ class HomeController extends Controller
           $user->nif = strtoupper($request->input("nif"));
           $user->telephone = $request->input("telephone");
           $user->email = $request->input("email");
+          $user->publicViewable = $request->input("publicViewable");
           $user->save();
 
           return redirect(route("user.profile"));
