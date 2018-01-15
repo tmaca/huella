@@ -168,6 +168,8 @@ class HomeController extends Controller
              'a3_papel_carton_residuos_kg' => $request->a3_papel_carton_residuos_kg,
              'a3_factor_kwh_nm3' => $request->a3_factor_kwh_nm3,
          ]);
+
+         return redirect(route("building"));
      }
 
      protected function alcancesValidator(array $data)
