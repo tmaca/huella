@@ -37,13 +37,13 @@
                 @unless(Request::segment(1) == "admin")
                     @guest
                     <li class="nav-item active">
-                        <a class="nav-link" data-toggle="modal" data-target="#loginModal">
+                        <a class="nav-link" href="{{ route("login") }}" data-toggle="modal" data-target="#loginModal">
                             <i class="fa fa-sign-in"></i>
                             Login
                         </a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" data-toggle="modal" data-target="#registerModal">
+                        <a class="nav-link" href="{{ route("register") }}" data-toggle="modal" data-target="#registerModal">
                             <i class="fa fa-user-plus"></i>
                             Registro
                         </a>
