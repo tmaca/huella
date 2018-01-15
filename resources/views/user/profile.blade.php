@@ -4,8 +4,11 @@
 
 @section("userContent")
 
-    <h2>Mi perfil</h2>
-
-    @include("forms.user.profile")
+    <div class="container">
+        <h2>Mi perfil</h2>
+        <hr>
+        
+        @include("forms.user.profile")
+    </div>
 
 @endsection
