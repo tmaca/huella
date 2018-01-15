@@ -52,6 +52,30 @@
         </div>
     </div>
 
+    <div class="form-group row">
+        <label for="publicViewable" class="col-form-label col-sm-4" >Tipo de cuenta</label>
+        <div class="col-sm-8">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="publicViewable" id="publicViewableTrue" value="1"{{ (old("publicViewable") && old("publicViewable") === 1) ? " checked" : (Auth::user()->publicViewable === 1) ? " checked" : "" }}>
+                <label class="form-check-label" for="publicViewableTrue">
+                    Público
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="publicViewable" id="publicViewableFalse" value="0"{{ (old("publicViewable") && old("publicViewable") == 0) ? " checked" : (Auth::user()->publicViewable === 0) ? " checked" : "" }}>
+                <label class="form-check-label" for="publicViewableFalse">
+                    Privado
+                </label>
+            </div>
+
+            @if ($errors->has('publicViewable'))
+                <div class="invalid-feedback">
+                    <strong>{{ $errors->first('publicViewable') }}</strong>
+                </div>
+            @endif
+        </div>
+    </div>
+
     <button type="submit" class="btn btn-primary">
         Guardar cambios
     </button>

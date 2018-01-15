@@ -15,6 +15,7 @@
                     <td>Teléfono</td>
                     <td>Email</td>
                     <td>Estado de la cuenta</td>
+                    <td>Visible para el público</td>
                     <td>Acciones</td>
                 </tr>
             </thead>
@@ -52,6 +53,13 @@
                             <span class="text-success">Verificada</span>
                             @else
                             <span class="text-danger">No verificada</span>
+                            @endif
+                        </td>
+                        <td>
+                            @if($user->publicViewable)
+                            <span class="text-success">Si</span>
+                            @else
+                            <span class="text-danger">No</span>
                             @endif
                         </td>
                         <td>
