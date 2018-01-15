@@ -141,6 +141,10 @@ class HomeController extends Controller
     /**
      * Alcances
      */
+    public function alcancesView()
+    {
+        return (view("user.alcances"));
+    }
      public function alcances(Request $request)
      {
          $validator = $this::alcancesValidator($request->all());

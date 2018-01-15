@@ -9,8 +9,9 @@
         <table class="table table-bordered table-striped">
             <thead>
                 <tr class="text-center">
-                    <td>#</td>
+                    <td class="d-none">#</td>
                     <td>Nombre</td>
+                    <td>Alcance</td>
                     <td>Acciones</td>
                 </tr>
             </thead>
@@ -18,22 +19,24 @@
                 @if($buildings->count() > 0)
                     @foreach($buildings as $building)
                     <tr class="text-center">
-                        <td class="id">{{ $building->id }}</td>
+                        <td class="id d-none">{{ $building->id }}</td>
                         <td class="name">{{ $building->name }}</td>
                         <td>
+                            <a class="btn btn-primary" href="{{ route('alcances') }}" title="Calcular Alcance">
+                                <fa class="fa fa-calculator"></fa> Calcular Alcance
+                            </a>
+                        </td>
+                        <td>
                             <div class="btn-group">
-                                <button class="btn btn-primary" data-action="edit" title="Calcular Alcance">
-                                    <fa class="fa fa-calculator"></fa>
-                                </button>
                                 <button class="btn btn-info" data-action="edit" title="Editar edificio">
                                     <fa class="fa fa-pencil"></fa>
-                                </button>
-                                <button class="btn btn-danger" data-action="delete" title="Eliminar edificio">
-                                    <i class="fa fa-trash"></i>
                                 </button>
                                 <form class="d-none" action="{{ route("building.delete", ["id" => $building->id]) }}" method="post">
                                     {{ csrf_field() }}
                                 </form>
+                                <button class="btn btn-danger" data-action="delete" title="Eliminar edificio">
+                                    <i class="fa fa-trash"></i>
+                                </button>
                             </div>
                         </td>
                     </tr>
@@ -58,7 +61,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h4 class="modal-title">Añadir Edificio</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar"><span   aria-hidden="true">&times;</span></button>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar"><span aria-hidden="true">&times;</span></button>
                     </div>
                     <div class="modal-body">
                         @include("forms.building.addBuilding")
