@@ -22,10 +22,13 @@
                         <td class="name">{{ $building->name }}</td>
                         <td>
                             <div class="btn-group">
-                                <button class="btn btn-info" data-action="edit">
+                                <button class="btn btn-primary" data-action="edit" title="Calcular Alcance">
+                                    <fa class="fa fa-calculator"></fa>
+                                </button>
+                                <button class="btn btn-info" data-action="edit" title="Editar edificio">
                                     <fa class="fa fa-pencil"></fa>
                                 </button>
-                                <button class="btn btn-danger" data-action="delete">
+                                <button class="btn btn-danger" data-action="delete" title="Eliminar edificio">
                                     <i class="fa fa-trash"></i>
                                 </button>
                                 <form class="d-none" action="{{ route("building.delete", ["id" => $building->id]) }}" method="post">
