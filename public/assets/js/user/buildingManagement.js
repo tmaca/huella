@@ -45,3 +45,13 @@ function editBuilding() {
 
     $("#editBuildingModal").modal("show");
 }
+
+$(function () {
+    $('#addBuildingModal').on('shown.bs.modal', function () {
+        $('input:not([type="hidden"])').trigger('focus');
+    });
+
+    $('#editBuildingModal').on('shown.bs.modal', function () {
+        $('input:not([type="hidden"])').trigger('focus');
+    });
+});
