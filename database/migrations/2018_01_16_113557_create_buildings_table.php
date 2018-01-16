@@ -25,6 +25,8 @@ class CreateBuildingsTable extends Migration
             $table->foreign("region_id")->references("id")->on("regions")->onUpdate("cascade")->onDelete("cascade");
             $table->integer("postcode")->nullable();
             $table->string("address_with_number")->nullable();
+            $table->double('latitude', 17, 14)->nullable();
+            $table->double('longitude', 17, 14)->nullable();
             $table->timestamps();
         });
     }
