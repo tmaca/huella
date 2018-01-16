@@ -95,6 +95,11 @@ class HomeController extends Controller
       {
           return Validator::make($data, [
               'name' => 'required|string|max:35',
+              'description' => 'nullable|string',
+              'country_id' => 'required|exists:countries,id',
+              'region_id' => 'required|exists:regions,id',
+              'postcode' => 'required|numeric|max:99999',
+              'address' => 'required|string',
           ]);
       }
 
@@ -108,8 +113,13 @@ class HomeController extends Controller
           }
 
           $building = Building::create([
-              'name' => $request -> name,
-              'user_id' => Auth::id()
+              'user_id' => Auth::id(),
+              'name' => $request->name,
+              'description' => $request->description,
+              'country_id' => $request->country_id,
+              'region_id' => $request->region_id,
+              'postcode' => $request->postcode,
+              'address_with_number' => $request->address,
           ]);
 
            return redirect(route("building"));
@@ -126,6 +136,11 @@ class HomeController extends Controller
 
           $building = Building::where("id", $request->id)->firstOrFail();
           $building->name = $request->input("name");
+          $building->description = $request->input("description");
+          $building->country_id = $request->input("country_id");
+          $building->region_id = $request->input("region_id");
+          $building->postcode = $request->input("postcode");
+          $building->address_with_number = $request->input("address");
           $building->save();
           return redirect(route("building"));
       }
