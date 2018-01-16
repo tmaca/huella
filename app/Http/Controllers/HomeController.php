@@ -84,7 +84,7 @@ class HomeController extends Controller
      {
          return Validator::make($data, [
              'email' => 'required|string|email|max:255',
-             'subject' => 'nullable',
+             'subject' => 'nullable|max:30',
              'message' => 'required',
          ]);
      }

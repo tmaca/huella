@@ -25,9 +25,9 @@
         <label for="subject">Asunto:</label>
         <input id="subject" name="subject" class="form-control{{ $errors->has('subject') ? ' is-invalid' : '' }}" value="{{ old("subject") }}">
 
-        @if ($errors->has('email'))
+        @if ($errors->has('subject'))
             <div class="invalid-feedback">
-                <strong>{{ $errors->first('email') }}</strong>
+                <strong>{{ $errors->first('subject') }}</strong>
             </div>
         @endif
     </div>
@@ -36,9 +36,9 @@
         <label for="message">Mensaje:</label>
         <textarea id="message" name="message" class="form-control{{ $errors->has('message') ? ' is-invalid' : '' }}" placeholder="Escribe tu mensaje aqui...">{{ old("message") }}</textarea>
 
-        @if ($errors->has('email'))
+        @if ($errors->has('message'))
             <div class="invalid-feedback">
-                <strong>{{ $errors->first('email') }}</strong>
+                <strong>{{ $errors->first('message') }}</strong>
             </div>
         @endif
     </div>
@@ -71,6 +71,11 @@
                 },
                 success: function(data) {
                     if ($.isEmptyObject(data.error)) {
+                        $(".ajaxError").remove();
+                        $("#email").removeClass("is-invalid");
+                        $("#subject").removeClass("is-invalid");
+                        $("#message").removeClass("is-invalid");
+
                         swal({
                             icon: "success",
                             title: "Email enviado",
@@ -85,17 +90,48 @@
         });
 
         function printErrorMsg(msg) {
-            $(".print-error-msg").find("ul").html('');
-            $(".print-error-msg").css('display', 'block');
+            let emailError, subjectError, messageError, swalText;
 
-            $.each(msg, function(key, value) {
-                $(".print-error-msg").find("ul").append('<li>' + value + '</li>');
-            });
+            for (let i = 0; i < msg.length; i++) {
+                if (msg[i].indexOf("email") > -1) {
+                    emailError = msg[i];
+                } else if (msg[i].indexOf("subject") > -1){
+                    subjectError = msg[i].replace("subject", "asunto");
+                } else if (msg[i].indexOf("message") > -1){
+                    messageError = msg[i].replace("message", "mensaje");
+                }
+            }
+
+            $(".ajaxError").remove();
+            $("#email").removeClass("is-invalid");
+            $("#subject").removeClass("is-invalid");
+            $("#message").removeClass("is-invalid");
+
+            if (emailError !== undefined) {
+                $("#email").addClass("is-invalid").parent().append($("<div/>", {"class": "invalid-feedback ajaxError"}).append($("<strong/>", {text: emailError})));
+                buildSwalText(emailError);
+            }
+            if(subjectError !== undefined) {
+                $("#subject").addClass("is-invalid").parent().append($("<div/>", {"class": "invalid-feedback ajaxError"}).append($("<strong/>", {text: subjectError})));
+                buildSwalText(subjectError);
+            }
+            if(messageError !== undefined) {
+                $("#message").addClass("is-invalid").parent().append($("<div/>", {"class": "invalid-feedback ajaxError"}).append($("<strong/>", {text: messageError})));
+                buildSwalText(messageError);
+            }
+
+            function buildSwalText(error) {
+                if (swalText === undefined) {
+                    swalText = error;
+                } else { 
+                    swalText = swalText + "\n" + error;
+                }
+            }
 
             swal({
                 icon: "warning",
                 title: "Email no enviado",
-                text: msg.toString(),
+                text: swalText,
             });
         }
     });
