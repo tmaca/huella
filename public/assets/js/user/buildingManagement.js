@@ -42,16 +42,33 @@ function editBuilding() {
 
     document.getElementById("id").value = row.getElementsByClassName("id")[0].innerText;
     document.getElementById("name").value = row.getElementsByClassName("name")[0].innerText;
+    document.getElementById("description").value = row.getAttribute("data-description");
+    let country = document.getElementById("country_id").options;
+    for (let i = 0; i < country.length; i++) {
+        if (country[i].value == row.getAttribute("data-country-id")) {
+            country[i].selected = true;
+            break;
+        }
+    }
+    let region = document.getElementById("region_id").options;
+    for (let i = 0; i < region.length; i++) {
+        if (region[i].value == row.getAttribute("data-region-id")) {
+            region[i].selected = true;
+            break;
+        }
+    }
+    document.getElementById("postcode").value = row.getAttribute("data-postcode");
+    document.getElementById("address").value = row.getAttribute("data-address");
 
     $("#editBuildingModal").modal("show");
 }
 
 $(function () {
     $('#addBuildingModal').on('shown.bs.modal', function () {
-        $('input:not([type="hidden"])').first().trigger('focus');
+        $('#addBuildingModal input:not([type="hidden"])').first().trigger('focus');
     });
 
     $('#editBuildingModal').on('shown.bs.modal', function () {
-        $('input:not([type="hidden"])').first().trigger('focus');
+        $('#editBuildingModal input:not([type="hidden"])').first().trigger('focus');
     });
 });
