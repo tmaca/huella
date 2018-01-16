@@ -20,10 +20,10 @@ class CreateBuildingsTable extends Migration
             $table->string('name');
             $table->text('description')->nullable();
             $table->integer("country_id")->unsigned();
-            $table->foreign("country_id")->references("id")->on("countries")->onUpdate("cascasde")->onDelete("cascade");
+            $table->foreign("country_id")->references("id")->on("countries")->onUpdate("cascade")->onDelete("cascade");
             $table->integer("region_id")->unsigned();
-            $table->foreign("region_id")->references("id")->on("regions")->onUpdate("cascasde")->onDelete("cascade");
-            $table->integer("postcode", "5")->nullable();
+            $table->foreign("region_id")->references("id")->on("regions")->onUpdate("cascade")->onDelete("cascade");
+            $table->integer("postcode")->nullable();
             $table->string("address_with_number")->nullable();
             $table->timestamps();
         });
