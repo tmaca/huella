@@ -48,10 +48,10 @@ function editBuilding() {
 
 $(function () {
     $('#addBuildingModal').on('shown.bs.modal', function () {
-        $('input:not([type="hidden"])').trigger('focus');
+        $('input:not([type="hidden"])').first().trigger('focus');
     });
 
     $('#editBuildingModal').on('shown.bs.modal', function () {
-        $('input:not([type="hidden"])').trigger('focus');
+        $('input:not([type="hidden"])').first().trigger('focus');
     });
 });
