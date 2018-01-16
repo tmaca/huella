@@ -9,7 +9,12 @@ class Building extends Model
     protected $table = 'buildings';
     protected $fillable = [
         'name',
-        'user_id'
+        'description',
+        'user_id',
+        'country_id',
+        'region_id',
+        'postcode',
+        'address_with_number',
     ];
 
     public function studies()
