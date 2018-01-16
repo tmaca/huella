@@ -9,6 +9,20 @@
         @endif
     </div>
 
+    <div class="form-group">
+        <select name="Description" class="form-control{{ $errors->has("Description") ? " is-invalid" : "" }}" placeholder="Descripción del edificio">
+            <option disabled selected>--Selecciona un pais--</option>
+            @foreach (App\Models\Country::all() as $country)
+                <option value="{{ $country->id }}">{{ $country->name }}</option>
+            @endforeach
+        </select>
+        @if ($errors->has('Description'))
+            <div class="invalid-feedback">
+                <strong>{{ $errors->first('Description') }}</strong>
+            </div>
+        @endif
+    </div>
+
     <button type="submit" class="btn btn-default">
         <div class="fa fa-pencil"></div>
         Guardar Cambios
