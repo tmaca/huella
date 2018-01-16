@@ -1,4 +1,14 @@
-<form action="{{ route('contact') }}" method="POST">
+@if(session()->get("isContactValid") === true)
+    <div class="alert alert-success print-success-msg">
+        Tu mensaje se ha enviado correctamente.
+    </div>
+@endif
+
+<div class="alert alert-danger print-error-msg" style="display:none">
+    <ul></ul>
+</div>
+
+<form id="contactForm" action="{{ route('contact') }}" method="POST">
     {{ csrf_field() }}
     <div class="form-group">
         <label for="email">Email:</label>
@@ -33,20 +43,60 @@
         @endif
     </div>
 
-    <button type="submit" class="btn btn-primary">
+    <button id="btn-submit" type="submit" class="btn btn-primary">
         <i class="fa fa-send"></i>
         Enviar mensaje
     </button>
 </form>
 
-@if(session()->get("isContactValid") === false)
-    <script defer>
-        document.addEventListener("DOMContentLoaded", function() {
-                swal({
-                    icon: "warning",
-                    title: "Email no enviado",
-                    text: "Algunos campos no han pasado la validación",
-                });
-        }, false);
-    </script>
-@endif
+<script>
+    $(document).ready(function() {
+        $("#contactForm").on("submit", function(e) {
+            e.preventDefault();
+
+            let post_url = $(this).attr("action");
+            let _token = $("input[name='_token']").val();
+            let email = $("input[name='email']").val();
+            let subject = $("input[name='subject']").val();
+            let message = $("textarea[name='message']").val();
+
+            $.ajax({
+                url: post_url,
+                type: 'POST',
+                data: {
+                    _token: _token,
+                    email: email,
+                    subject: subject,
+                    message: email,
+                },
+                success: function(data) {
+                    if ($.isEmptyObject(data.error)) {
+                        swal({
+                            icon: "success",
+                            title: "Email enviado",
+                            text: "Tu mensaje se ha enviado correctamente",
+                        });
+                    } else {
+                        printErrorMsg(data.error);
+                    }
+                }
+            });
+
+        });
+
+        function printErrorMsg(msg) {
+            $(".print-error-msg").find("ul").html('');
+            $(".print-error-msg").css('display', 'block');
+
+            $.each(msg, function(key, value) {
+                $(".print-error-msg").find("ul").append('<li>' + value + '</li>');
+            });
+
+            swal({
+                icon: "warning",
+                title: "Email no enviado",
+                text: msg.toString(),
+            });
+        }
+    });
+</script>

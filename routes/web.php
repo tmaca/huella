@@ -52,6 +52,7 @@ Route::get("terms-of-service", function () {
     return view("tos");
 })->name("termsOfService");
 
+// Contact
 Route::post('datoscontacto', 'HomeController@datoscontacto')->name('contact');
 
 //alcances

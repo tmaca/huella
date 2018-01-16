@@ -49,9 +49,13 @@ class HomeController extends Controller
 
          if ($validator->fails())
          {
-             $request->session()->flash("isContactValid", false);
+            $request->session()->flash("isContactValid", false);
 
-             return redirect(route("landing") . "#contacto")->withErrors($validator)->withInput();
+            if($request->ajax()){
+                return response()->json(['error'=>$validator->errors()->all()]);
+            }
+
+            return redirect(route("landing") . "#contacto")->withErrors($validator)->withInput();
          }
 
          $email=$request->email;
@@ -67,7 +71,13 @@ class HomeController extends Controller
          Mail::to($email)->send(new ContactMailUser());
          Mail::to(config("mail.adminAddress"))->send(new ContactMailAdmin());
 
-         return view('mails.respuestacontacto');
+         if($request->ajax()){
+             return response()->json(['success'=>'Tu mensaje se ha enviado correctamente.']);
+         }
+
+         $request->session()->flash("isContactValid", true);
+
+         return redirect(route("landing") . "#contacto");
      }
 
      protected function contactValidator(array $data)
