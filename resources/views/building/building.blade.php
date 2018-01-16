@@ -18,7 +18,7 @@
             <tbody>
                 @if($buildings->count() > 0)
                     @foreach($buildings as $building)
-                    <tr class="text-center">
+                    <tr class="text-center" data-description="{{ $building->description }}" data-country-id="{{ $building->country_id }}" data-region-id="{{ $building->region_id }}" data-postcode="{{ $building->postcode }}" data-address="{{ $building->address_with_number }}">
                         <td class="id d-none">{{ $building->id }}</td>
                         <td class="name">{{ $building->name }}</td>
                         <td>
