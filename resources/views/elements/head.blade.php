@@ -13,6 +13,14 @@
 
 <script src="{{ url("assets/lib/chartjs/Chart.min.js")}}" defer></script>
 
+<script src="https://api.mapbox.com/mapbox-gl-js/v0.42.0/mapbox-gl.js" defer></script>
+<link href="https://api.mapbox.com/mapbox-gl-js/v0.42.0/mapbox-gl.css" rel='stylesheet' />
+<script type="text/javascript" defer>
+    document.addEventListener("DOMContentLoaded", function () {
+        mapboxgl.accessToken = 'pk.eyJ1IjoicHJ1ZWJhc2xhcmF2ZWx6dWJpcmkiLCJhIjoiY2pjaGI3a3IwMWoybTMzbzAzbzdyZHozbyJ9.RM_roGHe_2xEoh1SE52rCw';
+    });
+</script>
+
 <link rel="stylesheet" href="{{ url("/assets/css/main.css") }}">
 <script src="{{ url("assets/js/smoothScroll.js") }}" defer></script>
 <script src="{{ url("assets/js/collapseNavbar.js") }}" defer></script>
