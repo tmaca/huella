@@ -42,23 +42,25 @@ function editBuilding() {
 
     document.getElementById("id").value = row.getElementsByClassName("id")[0].innerText;
     document.getElementById("name").value = row.getElementsByClassName("name")[0].innerText;
-    document.getElementById("description").value = row.getAttribute("data-description");
+    document.getElementById("description").value = row.getElementsByClassName("description")[0].innerText;
     let country = document.getElementById("country_id").options;
+    let countryId = row.getElementsByClassName("country")[0].getAttribute("data-id");
     for (let i = 0; i < country.length; i++) {
-        if (country[i].value == row.getAttribute("data-country-id")) {
+        if (country[i].value == countryId) {
             country[i].selected = true;
             break;
         }
     }
     let region = document.getElementById("region_id").options;
+    let regionId = row.getElementsByClassName("region")[0].getAttribute("data-id");
     for (let i = 0; i < region.length; i++) {
-        if (region[i].value == row.getAttribute("data-region-id")) {
+        if (region[i].value == regionId) {
             region[i].selected = true;
             break;
         }
     }
-    document.getElementById("postcode").value = row.getAttribute("data-postcode");
-    document.getElementById("address").value = row.getAttribute("data-address");
+    document.getElementById("postcode").value = row.getElementsByClassName("postcode")[0].innerText;
+    document.getElementById("address").value = row.getElementsByClassName("address")[0].innerText;
 
     $("#editBuildingModal").modal("show");
 }

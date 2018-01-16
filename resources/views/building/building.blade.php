@@ -11,6 +11,11 @@
                 <tr class="text-center">
                     <td class="d-none">#</td>
                     <td>Nombre</td>
+                    <td>Descripción</td>
+                    <td>Pais</td>
+                    <td>Provincia</td>
+                    <td>CP <i class="fa fa-info" title="Código postal"></i></td>
+                    <td>Dirección</td>
                     <td>Alcance</td>
                     <td>Acciones</td>
                 </tr>
@@ -18,9 +23,14 @@
             <tbody>
                 @if($buildings->count() > 0)
                     @foreach($buildings as $building)
-                    <tr class="text-center" data-description="{{ $building->description }}" data-country-id="{{ $building->country_id }}" data-region-id="{{ $building->region_id }}" data-postcode="{{ $building->postcode }}" data-address="{{ $building->address_with_number }}">
+                    <tr class="text-center">
                         <td class="id d-none">{{ $building->id }}</td>
                         <td class="name">{{ $building->name }}</td>
+                        <td class="description">{{ $building->description }}</td>
+                        <td class="country" data-id="{{ $building->country_id }}">{{ $building->country->name }}</td>
+                        <td class="region" data-id="{{ $building->region_id }}">{{ $building->region->name }}</td>
+                        <td class="postcode">{{ $building->postcode }}</td>
+                        <td class="address">{{ $building->address_with_number }}</td>
                         <td>
                             <a class="btn btn-primary" href="{{ route('alcancesView', ['id' => $building->id]) }}" title="Calcular Alcance">
                                 <fa class="fa fa-calculator"></fa> Introducir datos
