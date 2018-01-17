@@ -16,6 +16,7 @@
                     <td>Provincia</td>
                     <td>CP <i class="fa fa-info" title="Código postal"></i></td>
                     <td>Dirección</td>
+                    <td>Coordenadas (lat, lon)</td>
                     <td>Alcance</td>
                     <td>Acciones</td>
                 </tr>
@@ -26,11 +27,18 @@
                     <tr class="text-center">
                         <td class="id d-none">{{ $building->id }}</td>
                         <td class="name">{{ $building->name }}</td>
-                        <td class="description">{{ $building->description }}</td>
+                        <td class="description">{{ ($building->description) ? $building->description : "-" }}</td>
                         <td class="country" data-id="{{ $building->country_id }}">{{ $building->country->name }}</td>
                         <td class="region" data-id="{{ $building->region_id }}">{{ $building->region->name }}</td>
                         <td class="postcode">{{ $building->postcode }}</td>
                         <td class="address">{{ $building->address_with_number }}</td>
+                        <td class="address">
+                            @if($building->latitude && $building->longitude)
+                                {{ $building->latitude. ", ". $building->longitude  }}
+                            @else
+                                <span class="text-info">No encontrado <i class="fa fa-info" title="No se ha encontrado ningún resultado con la combinación de los parámetros indicados"></i></span>
+                            @endif
+                        </td>
                         <td>
                             <a class="btn btn-primary" href="{{ route('alcancesView', ['id' => $building->id]) }}" title="Calcular Alcance">
                                 <fa class="fa fa-calculator"></fa> Introducir datos
