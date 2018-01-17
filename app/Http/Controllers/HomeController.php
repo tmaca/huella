@@ -106,13 +106,14 @@ class HomeController extends Controller
       }
 
       public function geocodeBuilding(Building $building) {
-          $building = Building::first();
           $mapbox = new MapboxCurl();
           $lngLat = $mapbox->geocode($building);
 
-          $building->latitude = $lngLat[1];
-          $building->longitude = $lngLat[0];
-          $building->save();
+          if (gettype($lngLat) == "array") {
+              $building->latitude = $lngLat[1];
+              $building->longitude = $lngLat[0];
+              $building->save();
+          }
       }
 
       public function addBuilding(Request $request)
@@ -135,7 +136,7 @@ class HomeController extends Controller
           ]);
           $this->geocodeBuilding($building);
 
-           return redirect(route("building"));
+          return redirect(route("building"));
       }
 
       public function editBuilding(Request $request)
@@ -157,6 +158,7 @@ class HomeController extends Controller
           $building->save();
 
           $this->geocodeBuilding($building);
+
           return redirect(route("building"));
       }
 
