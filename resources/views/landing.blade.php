@@ -133,6 +133,50 @@
         </div>
     </section>
 
+    <section class="container-fluid row px-0 mx-0" id="centrosInvolucrados">
+        <div class="container align-self-center">
+            <h1>Centros involucrados</h1>
+            <hr>
+            <p>A continuación puedes ver los centros que ya utilizan la aplicación para realizar un seguimiento de la huella de carbono</p>
+        </div>
+        <div class="container-fluid px-0 mx-0" id="map">
+            <noscript>
+                <div class="container">
+                    <div class="alert alert-warning">
+                        <i class="fa fa-exclamation-triangle"></i>
+                        <strong>¡Atención!</strong>, parece ser que tienes javascript deshabilitado en tu navegador. Esto está impidiendo la carga del mapa, considera activarlo para poder disfrutar de mayor contenido y fluidez en la web.
+                    </div>
+                </div>
+            </noscript>
+        </div>
+    </section>
+
+    <script src="{{ asset("assets/js/landingMap.js")}}" charset="utf-8" defer></script>
+    <script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+        createMap();
+        createMarkers(buildings);
+    });
+
+    let buildings = [
+        @foreach(App\Models\Building::all() as $building)
+        @if ($building->user->publicViewable && $building->latitude && $building->longitude)
+        {
+            "type": "building",
+            "properties": {
+                "name": "{{ $building->name }}",
+                "description": "<p>{{ $building->description }}</p>",
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [{{ $building->longitude }}, {{ $building->latitude}}]
+            }
+        },
+        @endif
+        @endforeach
+        ];
+    </script>
+
     <section class="container-fluid row mx-0" id="contacto">
         <div class="container align-self-center">
             <div class="row">

@@ -27,6 +27,11 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="{{ Request::url() == route("landing") ? "" : route("landing") }}#centrosInvolucrados">
+                        Centros involucrados
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="{{ Request::url() == route("landing") ? "" : route("landing") }}#contacto">
                         Contacto
                     </a>
