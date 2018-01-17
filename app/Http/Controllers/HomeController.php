@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Hash;
 
+use App\Http\Controllers\MapboxCurl;
+
 use App\Models\Building;
 use App\Mail\ContactMailAdmin;
 use App\Models\Study;
@@ -103,6 +105,16 @@ class HomeController extends Controller
           ]);
       }
 
+      public function geocodeBuilding(Building $building) {
+          $building = Building::first();
+          $mapbox = new MapboxCurl();
+          $lngLat = $mapbox->geocode($building);
+
+          $building->latitude = $lngLat[1];
+          $building->longitude = $lngLat[0];
+          $building->save();
+      }
+
       public function addBuilding(Request $request)
       {
           $validator = $this::buildingValidator($request->all());
@@ -121,6 +133,7 @@ class HomeController extends Controller
               'postcode' => $request->postcode,
               'address_with_number' => $request->address,
           ]);
+          $this->geocodeBuilding($building);
 
            return redirect(route("building"));
       }
@@ -142,6 +155,8 @@ class HomeController extends Controller
           $building->postcode = $request->input("postcode");
           $building->address_with_number = $request->input("address");
           $building->save();
+
+          $this->geocodeBuilding($building);
           return redirect(route("building"));
       }
 
