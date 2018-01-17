@@ -48,6 +48,50 @@ header {
   font-family: 'Play', sans-serif;
   text-shadow: 0px 0px 10px black;
 }
+
+
+
+.botonHeader{
+  &::before{
+    color: $primary;
+    -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+    -webkit-animation-delay: 2s; /* Safari 4.0 - 8.0 */
+    animation-name: example;
+    animation-duration: 4s;
+    animation-delay: 2s;
+    position: relative;
+    animation-iteration-count: infinite;
+  }
+
+  width: 100px;
+  height: 100px;
+
+
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes example {
+  0%   {color: rgba(45, 225, 27, 0.21); left:0px; top:0px;}
+  25%  {color: #3af0b6; left:0px; top:50px;}
+  50%  {color: #38e4ac; left:200px; top:100px;}
+  75%  {color: #2eca6c; left:0px; top:150px;}
+  100% {color: #2dcb6d; left:0px; top:0px;}
+}
+
+/* Standard syntax */
+@keyframes example {
+  0%   {color: rgba(45, 225, 27, 0.2); left:0px; top:0px;}
+  25%  {color: #3af0b6; left:0px; top:50px;}
+  50%  {color: #38e4ac; left:0px; top:100px;}
+  75%  {color: #2eca6c; left:0px; top:150px;}
+  100% {color: #38e4ac; left:0px; top:0px;}
+}
+
+.whiteScroll{
+  color: white;
+}
+
 #queEs,
 #comoFunciona,
 #contacto {

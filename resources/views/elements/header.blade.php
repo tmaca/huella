@@ -71,7 +71,8 @@
                 <h2 class="headerText">
                     HUELLA DE CARBONO
                 </h2>
-                @guest
+
+                <!--@guest
                 <a data-toggle="modal" data-target="#registerModal" class="btn btn-primary btn-lg">
                     <i class="fa fa-user"></i>
                     Registrarse
@@ -82,7 +83,10 @@
                     Cerrar Sesión
                 </a>
                 @endguest
+-->
             </div>
+                <i class="fa fa-chevron-down fa-3x botonHeader whiteScroll" aria-hidden="true"></i>
+
         </div>
     </div>
 </header>
