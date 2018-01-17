@@ -17,7 +17,7 @@
 <link href="https://api.mapbox.com/mapbox-gl-js/v0.42.0/mapbox-gl.css" rel='stylesheet' />
 <script type="text/javascript" defer>
     document.addEventListener("DOMContentLoaded", function () {
-        mapboxgl.accessToken = 'pk.eyJ1IjoicHJ1ZWJhc2xhcmF2ZWx6dWJpcmkiLCJhIjoiY2pjaGI3a3IwMWoybTMzbzAzbzdyZHozbyJ9.RM_roGHe_2xEoh1SE52rCw';
+        mapboxgl.accessToken = '{{ env("MAPBOX_TOKEN") }}';
     });
 </script>
 
