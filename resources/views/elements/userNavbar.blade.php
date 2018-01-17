@@ -11,7 +11,7 @@
 
 
             <li data-toggle="collapse" data-target="#service" class="collapsed">
-                <a href="{{ URL::route('building') }}"><i class="fa fa-globe fa-lg"></i>Edificios<!--<span class="arrow"></span>--></a>
+                <a href="{{ URL::route('building') }}"><i class="fa fa-globe fa-lg"></i> Edificios<!--<span class="arrow"></span>--></a>
             </li>
             <!--<ul class="sub-menu collapse{{ Request::url() == route("building") ? " show" : "" }}" id="service">
                 <li>Añadir edificio</li></a>
@@ -23,7 +23,7 @@
             </ul>-->
 
             <li data-toggle="collapse" data-target="#new" class="collapsed">
-                <a href="#"><i class="fa fa-bar-chart fa-lg"></i> Estadísticas <span class="arrow"></span></a>
+                <a href="#"><i class="fa fa-bar-chart fa-lg"></i>  Estadísticas <span class="arrow"></span></a>
             </li>
             <ul class="sub-menu collapse" id="new">
                 <li>Etapa 1</li>

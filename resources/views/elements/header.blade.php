@@ -68,8 +68,8 @@
             @endif
 
             <div>
-                <h2>
-                    Descubre más sobre la Huella de Carbono
+                <h2 class="headerText">
+                    HUELLA DE CARBONO
                 </h2>
                 @guest
                 <a data-toggle="modal" data-target="#registerModal" class="btn btn-primary btn-lg">
