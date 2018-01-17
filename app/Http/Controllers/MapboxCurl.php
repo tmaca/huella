@@ -31,10 +31,10 @@ class MapboxCurl extends Controller
 
     public function geocode(Building $building) {
         $this->endpoint = "/geocoding/v5/mapbox.places/".
-            urlencode($building->address_with_number . "," . $building->region->name) .
+            urlencode($building->address_with_number) . ", " . urlencode($building->postcode) . ", " . urlencode($building->region->name) .
             ".json?" .
             "types=address&" .
-            "country=es";//. //" " . $building->country->name . "," .
+            "country=es&" . // " " . $building->country->name . "," .
             "region=" . $building->region->name . "&" .
             "postcode=" . $building->postcode;
 
@@ -42,10 +42,11 @@ class MapboxCurl extends Controller
 
         if (!$response === false) {
             $response = json_decode($response);
-            try {
+
+            if (count($response->features) > 0) {
                 return $response->features[0]->center;
-            } catch (Exception $e) {
-                return json_decode("{\"message\":\"Error taking coordinates\"}");
+            } else {
+                return json_decode("{\"message\":\"No maches found\"}");
             }
         }
         return json_decode("{\"message\":\"Error on CURL request\"}");
