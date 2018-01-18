@@ -118,12 +118,18 @@ header {
   background-color: rgba(167, 222, 55, 0.44);
 }
 
-#comoFunciona{
+#comoFunciona {
+  min-height: auto;
   background-color: white;
 }
 
+#centrosInvolucrados {
+    min-height: auto;
+    padding-bottom: 0px;
+}
+
 #map {
-    min-height: 80vh;
+    min-height: 33vh;
 
     .fa-map-marker::before {
         text-shadow:
@@ -136,6 +142,27 @@ header {
             -1px -1px black,
             -0px -1px black,
             1px -1px black;
+    }
+
+    #buildings {
+        position: absolute;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+        z-index: 10;
+        background: $primary;
+        width: 20%;
+        max-width: 200px;
+        box-shadow: -1px 0px 4px black;
+        overflow-y: auto;
+
+        .building {
+            cursor: pointer;
+
+            i.fa {
+                margin-right: 4px;
+            }
+        }
     }
 }
 
