@@ -138,6 +138,7 @@
             <h1>Centros involucrados</h1>
             <hr>
             <p>A continuación puedes ver los centros que ya utilizan la aplicación para realizar un seguimiento de la huella de carbono</p>
+            <ul class="buildings list-unstyled"></ul>
         </div>
         <div class="container-fluid px-0 mx-0" id="map">
             <noscript>
@@ -169,7 +170,9 @@
             },
             "geometry": {
                 "type": "Point",
-                "coordinates": [{{ $building->longitude }}, {{ $building->latitude}}]
+                "coordinates": [{{ $building->longitude }}, {{ $building->latitude}}],
+                "longitude": {{ $building->longitude }},
+                "latitude": {{ $building->latitude }}
             }
         },
         @endif
