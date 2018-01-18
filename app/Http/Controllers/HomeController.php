@@ -129,7 +129,6 @@ class HomeController extends Controller
       public function addBuilding(Request $request)
       {
           $validator = $this::buildingValidator($request->all());
-
           if ($validator->fails())
           {
               return redirect(route("building"))->withErrors($validator)->withInput();
@@ -144,7 +143,10 @@ class HomeController extends Controller
               'postcode' => $request->postcode,
               'address_with_number' => $request->address,
           ]);
-          $this->geocodeBuilding($building);
+
+          if ($request->input("updateCoords")) {
+              $this->geocodeBuilding($building);
+          }
 
           return redirect(route("building"));
       }
@@ -167,7 +169,9 @@ class HomeController extends Controller
           $building->address_with_number = $request->input("address");
           $building->save();
 
-          $this->geocodeBuilding($building);
+          if ($request->input("updateCoords")) {
+              $this->geocodeBuilding($building);
+          }
 
           return redirect(route("building"));
       }

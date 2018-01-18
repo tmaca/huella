@@ -65,6 +65,11 @@
         @endif
     </div>
 
+    <div class="form-check">
+        <input type="checkbox" name="updateCoords" value="1" class="form-check-input" id="updateCoords">
+        <label class="form-check-label" for="updateCoords">Obtener coordenadas de la dirección indicada</label>
+    </div>
+
     <button type="submit" class="btn btn-default">
         <div class="fa fa-pencil"></div>
         Guardar Cambios
