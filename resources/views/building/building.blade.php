@@ -6,7 +6,9 @@
     <div class="container">
         <h3>Lista de Edificios</h3>
         <hr>
-        <table class="table table-bordered table-striped">
+
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
             <thead>
                 <tr class="text-center">
                     <td class="d-none">#</td>
@@ -32,12 +34,16 @@
                         <td class="region" data-id="{{ $building->region_id }}">{{ $building->region->name }}</td>
                         <td class="postcode">{{ $building->postcode }}</td>
                         <td class="address">{{ $building->address_with_number }}</td>
-                        <td class="address">
+                        <td class="coordinates" data-latitude="{{ $building->latitude}}" data-longitude="{{ $building->longitude }}">
                             @if($building->latitude && $building->longitude)
                                 {{ $building->latitude. ", ". $building->longitude  }}
                             @else
-                                <span class="text-info">No encontrado <i class="fa fa-info" title="No se ha encontrado ningún resultado con la combinación de los parámetros indicados"></i></span>
+                                <span class="text-info">No establecido</span>
                             @endif
+                            <a href="javascript:" class="btn btn-link btn-block">
+                                <i class="fa fa-map-pin"></i>
+                                Establecer coordenadas
+                            </a>
                         </td>
                         <td>
                             <a class="btn btn-primary" href="{{ route('alcancesView', ['id' => $building->id]) }}" title="Calcular Alcance">
@@ -61,13 +67,14 @@
                     @endforeach
                 @else
                     <tr>
-                        <td colspan="8" class="text-center text-info">
+                        <td colspan="9" class="text-center text-info">
                             No has añadido ningún edificio
                         </td>
                     </tr>
                 @endif
             </tbody>
         </table>
+        </div>
 
         <button class="btn btn-default" type="button" data-toggle="modal" data-target="#addBuildingModal">
             Añadir edificio
@@ -97,6 +104,24 @@
                     </div>
                     <div class="modal-body">
                         @include("forms.building.editBuilding")
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" tabindex="-1" role="dialog" id="mapModal">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Establecer coordenadas</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar"><span   aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            Pulsa sobre el mapa para seleccionar la ubicación a guardar
+                        </p>
+                        <div id="map" style="min-height: 70vh;"></div>
+                        @include("forms.building.updateCoordinates")
                     </div>
                 </div>
             </div>
