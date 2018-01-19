@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
             icon: "{{ asset("assets/img/noAdb.png") }}",
             dangerMode: true,
             buttons: {
-                "confirm": "Lo de desactivado",
+                "confirm": "Lo he desactivado",
             }
         }).then(function () {
             location.reload();
