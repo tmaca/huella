@@ -69,5 +69,8 @@ function createBuilding(building) {
 }
 
 function moveOnMap() {
-    map.panTo(new mapboxgl.LngLat(this.getAttribute("data-longitude"), this.getAttribute("data-latitude")));
+    map.flyTo({
+        zoom: 15,
+        center: [this.getAttribute("data-longitude"), this.getAttribute("data-latitude")]
+    });
 }
