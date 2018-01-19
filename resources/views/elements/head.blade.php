@@ -21,6 +21,28 @@
     });
 </script>
 
+<script src="{{ url("assets/js/ads.js") }}"></script>
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function () {
+    if (typeof hasAdblock === "undefined") {
+        document.body.innerHTML = null;
+        document.body.className = "bg-danger";
+        swal({
+            title: "Adblock detectado",
+            text: "Hemos detectado que estás navegando con un bloqueador de publicidad, desactivalo para poder seguir navegando en la web.",
+            icon: "{{ asset("assets/img/noAdb.png") }}",
+            dangerMode: true,
+            buttons: {
+                "confirm": "Lo de desactivado",
+            }
+        }).then(function () {
+            location.reload();
+        });
+        document.querySelector(".swal-modal img").style.width = "25%";
+    }
+});
+</script>
+
 <link rel="stylesheet" href="{{ url("/assets/css/main.css") }}">
 <script src="{{ url("assets/js/smoothScroll.js") }}" defer></script>
 <script src="{{ url("assets/js/collapseNavbar.js") }}" defer></script>
