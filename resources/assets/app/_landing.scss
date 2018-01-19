@@ -62,12 +62,11 @@ header {
     position: relative;
     animation-iteration-count: infinite;
   }
-
-  width: 100px;
   height: 100px;
-
-
+  width: 100px;
+  text-decoration: none;
 }
+
 
 /* Safari 4.0 - 8.0 */
 @-webkit-keyframes example {

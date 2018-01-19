@@ -72,8 +72,8 @@
                     Huella de Carbono
                 </h2>
             </div>
-                <i class="fa fa-chevron-down fa-3x botonHeader whiteScroll" aria-hidden="true"></i>
 
+            <a class="fa fa-chevron-down fa-3x botonHeader whiteScroll" href="#queEs"></a>
         </div>
     </div>
 </header>
@@ -181,4 +181,10 @@
     }
 
     resolver.resolve(options, callback);
+</script>
+
+<script>
+    $(".botonHeader").on("click", function() {
+        smoothScroll(this);
+    });
 </script>
