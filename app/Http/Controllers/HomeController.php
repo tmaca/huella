@@ -230,6 +230,10 @@ class HomeController extends Controller
              'a3_factor_kwh_nm3' => $request->a3_factor_kwh_nm3,
          ]);
 
+         if ($request->input("submit") == "calculateStudy") {
+             $this->calculateStudy($alcances);
+         }
+
          return redirect(route("building"));
      }
 
@@ -237,16 +241,16 @@ class HomeController extends Controller
      {
          return Validator::make($data, [
              'id'=>'required',
-             'ano'=>'required|numeric|min:1950',
-             'a1_gas_natural_kwh'=>'required',
-             'a1_gas_natural_nm3'=>'required',
-             'a1_refrigerantes'=>'required',
-             'a1_recarga_gases_refrigerantes'=>'required',
-             'a2_electricidad_kwh' => 'required',
-             'a3_agua_potable_m3' => 'required',
-             'a3_papel_carton_consumo_kg' => 'required',
-             'a3_papel_carton_residuos_kg' => 'required',
-             'a3_factor_kwh_nm3' => 'required',
+             'ano'=>'required|numeric|min:1950|unique:studies,year',
+             'a1_gas_natural_kwh'=>'required|numeric',
+             'a1_gas_natural_nm3'=>'required|numeric',
+             'a1_refrigerantes'=>'required|numeric',
+             'a1_recarga_gases_refrigerantes'=>'required|numeric',
+             'a2_electricidad_kwh' => 'required|numeric',
+             'a3_agua_potable_m3' => 'required|numeric',
+             'a3_papel_carton_consumo_kg' => 'required|numeric',
+             'a3_papel_carton_residuos_kg' => 'required|numeric',
+             'a3_factor_kwh_nm3' => 'required|numeric',
          ]);
      }
 
@@ -255,25 +259,20 @@ class HomeController extends Controller
      * Calculo huella
      */
 
-     public function calculoHuella(Request $request)
-     {
-         $validator = $this::calculoHuellaValidator($request->all());
+     public function calculateStudy(Study $study) {
+         $formula =
+            $study->a1_gas_natural_kwh
+            + $study->a1_gas_natural_nm3
+            + $study->a1_refrigerantes
+            + $study->a1_recarga_gases_refrigerantes
+            + $study->a2_electricidad_kwh
+            + $study->a3_agua_potable_m3
+            + $study->a3_papel_carton_consumo_kg
+            + $study->a3_papel_carton_residuos_kg
+            + $study->a3_factor_kwh_nm3;
 
-         if ($validator->fails())
-         {
-             return redirect(route("landing"))->withErrors($validator)->withInput();
-         }
-
-         $calculoHuella = calculoHuella::create([
-            'calculo_huella' => $request->calculo_huella,
-         ]);
-     }
-
-     protected function calculoHuellaValidator(array $data)
-     {
-         return Validator::make($data, [
-             'calculo_huella' => 'required',
-         ]);
+         $study->carbon_footprint = $formula;
+         $study->save();
      }
 
      /*

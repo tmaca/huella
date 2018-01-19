@@ -179,7 +179,9 @@
         <!--factor-->
         </div><!--alc3-->
         <input type="hidden" name="id" value="{{$id}}"/>
-        <input type="submit" value="Guardar" class="btn btn-primary"/>
-        <input type="submit" value="Calcular Huella de Carbono" class="btn btn-primary"/>
+        <input type="submit" name="submit" value="Guardar" class="btn btn-primary"/>
+        <button type="submit" name="submit" value="calculateStudy" class="btn btn-primary">
+            Calcular Huella de Carbono
+        </button>
     </form>
 </div>
