@@ -68,6 +68,7 @@ Route::prefix('building')->group(function() {
     Route::post('edit', 'HomeController@editBuilding')->name('building.edit');
     Route::prefix("building/{id}")->group(function() {
         Route::post("delete", "HomeController@deleteBuilding")->name("building.delete");
+        Route::post("updateCoordinates", "HomeController@updateCoordinates")->name("building.updateCoordinates");
     });
 });
 
