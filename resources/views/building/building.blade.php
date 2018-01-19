@@ -36,7 +36,7 @@
                         <td class="address">{{ $building->address_with_number }}</td>
                         <td class="coordinates" data-latitude="{{ $building->latitude}}" data-longitude="{{ $building->longitude }}">
                             @if($building->latitude && $building->longitude)
-                                {{ $building->latitude. ", ". $building->longitude  }}
+                                {{ round($building->latitude, 3) . ", ". round($building->longitude, 3)  }}
                             @else
                                 <span class="text-info">No establecido</span>
                             @endif
