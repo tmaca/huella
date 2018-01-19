@@ -120,9 +120,7 @@ class HomeController extends Controller
           $lngLat = $mapbox->geocode($building);
 
           if (gettype($lngLat) == "array") {
-              $building->latitude = $lngLat[1];
-              $building->longitude = $lngLat[0];
-              $building->save();
+              $this->saveCoordinates($building, $lngLat);
           }
       }
 
@@ -183,6 +181,23 @@ class HomeController extends Controller
           return redirect(route("building"));
       }
 
+      public function updateCoordinates(Request $request, $id) {
+          $building = Building::findOrFail($id);
+
+          $lngLat = [
+              $request->input("longitude"),
+              $request->input("latitude")
+          ];
+
+          $this->saveCoordinates($building, $lngLat);
+          return redirect(route("building"));
+      }
+
+      private function saveCoordinates(Building $building, Array $lngLat) {
+          $building->latitude = $lngLat[1];
+          $building->longitude = $lngLat[0];
+          $building->save();
+      }
 
     /**
      * Alcances
