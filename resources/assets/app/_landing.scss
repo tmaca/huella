@@ -50,7 +50,7 @@ header {
   text-shadow: 0px 0px 10px black;
 }
 
-.botonHeader{
+a.botonHeader{
   &::before{
     color: $primary;
     -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
