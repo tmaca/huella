@@ -34,22 +34,26 @@
             <h1>Como funciona</h1>
             <hr>
 
+            <p class="text-justify">
+                Nunca había sido tan fácil realizar el calculo de la huella de carbono, una vez activada tu cuenta sigue los siguientes pasos.
+            </p>
+
             <div class="card-deck mb-2">
 
                 <div class="card bg-primary text-white">
                     <div class="card-header text-center">
-                        <i class="fa fa-user-plus fa-4x"></i>
+                        <i class="fa fa-building-o fa-4x"></i>
                     </div>
                     <div class="card-body text-center">
-                        Registrate y verifica tu e-mail
+                        Para comenzar has de registrar el edificio, símplemente indica un nombre y la dirección del mismo.
                     </div>
                 </div>
                 <div class="card bg-primary text-white">
                     <div class="card-header text-center">
-                        <i class="fa fa-check-square-o fa-4x"></i>
+                        <i class="fa fa-database fa-4x"></i>
                     </div>
                     <div class="card-body text-center">
-                        Completa los formularios
+                        Una vez hayas terminados con la inserción de los edificios inserta los datos requeridos*.
                     </div>
                 </div>
                 <div class="card bg-primary text-white">
@@ -57,79 +61,15 @@
                         <i class="fa fa-bar-chart fa-4x"></i>
                     </div>
                     <div class="card-body text-center">
-                        Ve estadísticas de tus emisiones e históricos
+                        Tras varias inserciones tendrás a tu disposición estadísticas respecto a otros años.
                     </div>
                 </div>
 
-            </div>
-
-            <p class="text-justify">
-                Para calcular la Huella de Carbono de tu centro debes seguir los siguientes pasos, es muy sencillo. Primero <a href="{{ route("register") }}">registras</a> el centro, una vez registrada la cuenta <a href="{{ route("login") }}">inicias sesión</a> y cumplimentas los formularios, para algunos de ellos necesitarás tener las facturas a mano. Una vez finalizado se realizará el cálculo de la emisión, estos datos serán almacenados para que puedar ir realizando comparaciones de la evolución, todos estos datos serán mostrados en gráficos.
-            </p>
-            <p class="text-justify">
-                A continuación te mostramos una simulación de la evolución de la evolución del consumo durante un año.
-            </p>
-
-            <div id="example-chart">
-                <canvas width="300" height="100"></canvas>
-
-                <script>
-                document.addEventListener("DOMContentLoaded", function () {
-                    var ctx = document.getElementById("example-chart").getElementsByTagName("canvas")[0].getContext('2d');
-                    var myChart = new Chart(ctx, {
-                        type: 'line',
-                        data: {
-                            labels: [
-                                "Enero",
-                                "Febrero",
-                                "Marzo",
-                                "Abril",
-                                "Mayo",
-                                "Junio",
-                                "Julio",
-                                "Agosto",
-                                "Septiembre",
-                                "Octubre",
-                                "Noviembre",
-                                "Diciembre",
-                            ],
-                            datasets: [{
-                                data: [
-                                    Math.random() *10,
-                                    Math.random() *10,
-                                    Math.random() *10,
-                                    Math.random() *10,
-                                    Math.random() *10,
-                                    Math.random() *10,
-                                    Math.random() *10,
-                                    Math.random() *10,
-                                    Math.random() *10,
-                                    Math.random() *10,
-                                    Math.random() *10,
-                                    Math.random() *10,
-                                ],
-                                backgroundColor: "rgba(60, 184, 62, 0.3)",
-                                borderColor: "#3cb83e",
-                                borderWidth: 3,
-                            }]
-                        },
-                        options: {
-                            legend: {
-                                display: false,
-                            },
-                            scales: {
-                                yAxes: [{
-                                    ticks: {
-                                        beginAtZero: true,
-                                    }
-                                }]
-                            }
-                        }
-                    });
-                });
-                </script>
 
             </div>
+            <p>
+                *Es posible que necesites tener las facturas a mano para poder completar de forma precisa los datos.
+            </p>
         </div>
     </section>
 

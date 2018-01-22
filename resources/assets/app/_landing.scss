@@ -117,12 +117,13 @@ a.botonHeader{
   background-color: rgba(167, 222, 55, 0.44);
 }
 
-#comoFunciona {
-  background-color: white;
+#comoFunciona,
+#centrosInvolucrados {
+    min-height: 50vh;
 }
 
 #centrosInvolucrados {
-    min-height: auto;
+    // min-height: auto;
     padding-bottom: 0px;
 
     #map {
