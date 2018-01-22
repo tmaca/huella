@@ -99,4 +99,6 @@ function callback() {
     }, 30000);
 }
 
-resolver.resolve(options, callback);
+if (location.pathname === "/") {
+    resolver.resolve(options, callback);
+}
