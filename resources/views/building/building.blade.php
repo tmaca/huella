@@ -126,6 +126,10 @@
                 </div>
             </div>
         </div>
+
+        @if (count(Auth::user()->buildings) == 0 || Request::session()->get("showTutorial") == true)
+            @include("building.tutorial")
+        @endif
     </div>
 
     <script src="assets/js/user/buildingManagement.js"></script>

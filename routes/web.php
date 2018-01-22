@@ -79,3 +79,5 @@ Route::prefix("profile")->group(function () {
     Route::get("/password", "HomeController@showChangePassword")->name("user.profile.changePassword");
     Route::post("/password", "HomeController@changePassword")->name("user.profile.changePassword");
 });
+
+Route::get("/tutorial", "HomeController@showTutorial")->name("user.tutorial");

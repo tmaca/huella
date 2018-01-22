@@ -94,6 +94,10 @@ class HomeController extends Controller
      /**
       * Buildings
       */
+      public function showTutorial() {
+          return redirect(route("building"))->with(["showTutorial" => true]);
+      }
+      
       public function building(Request $request)
       {
           // hacer query de los edificios

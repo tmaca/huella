@@ -11,16 +11,8 @@
 
 
             <li data-toggle="collapse" data-target="#service" class="collapsed">
-                <a href="{{ URL::route('building') }}"><i class="fa fa-globe fa-lg"></i> Edificios<!--<span class="arrow"></span>--></a>
+                <a href="{{ URL::route('building') }}"><i class="fa fa-globe fa-lg"></i> Edificios</a>
             </li>
-            <!--<ul class="sub-menu collapse{{ Request::url() == route("building") ? " show" : "" }}" id="service">
-                <li>Añadir edificio</li></a>
-                <li>Editar edificio</li>
-                <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist">
-                <li id="alcance1-tab" data-toggle="pill" href="#alcances" role="tab">Alcances</li>
-
-                </div>
-            </ul>-->
 
             <li data-toggle="collapse" data-target="#new" class="collapsed">
                 <a href="#"><i class="fa fa-bar-chart fa-lg"></i>  Estadísticas <span class="arrow"></span></a>
@@ -31,7 +23,14 @@
                 <li>Etapa 3</li>
             </ul>
 
-
+        </ul>
+        <ul class="bottom">
+            <li>
+                <a href="{{ route("user.tutorial") }}">
+                    <i class="fa fa-question-circle"></i>
+                    Tutorial
+                </a>
+            </li>
         </ul>
     </div>
 </nav>

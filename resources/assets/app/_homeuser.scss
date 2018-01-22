@@ -125,6 +125,12 @@
 
         }
     }
+
+    .bottom {
+        position: fixed;
+        bottom: 0px;
+        width: 200px;
+    }
 }
 
 @media (max-width: 767px) {
