@@ -47,3 +47,5 @@ document.addEventListener("DOMContentLoaded", function () {
 <script src="{{ url("assets/js/smoothScroll.js") }}" defer></script>
 <script src="{{ url("assets/js/collapseNavbar.js") }}" defer></script>
 <script src="{{ url("assets/js/navbarChangeColor.js") }}" defer></script>
+<script src="{{ url("assets/js/contactAJAX.js") }}" defer></script>
+<script src="{{ url("assets/js/titleAnimation.js") }}" defer></script>

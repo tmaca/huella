@@ -13,6 +13,10 @@ $(document).ready(function(){
         });
     }
 
+    $(".botonHeader").on("click", function() {
+        smoothScroll(this.hash);
+    });
+
 });
 
 function smoothScroll(nodeElement) {
