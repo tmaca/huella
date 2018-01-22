@@ -44,8 +44,8 @@ class User extends Authenticatable
     /**
      * Buildings
      */
-    public function building()
+    public function buildings()
     {
-        return $this->hasMany('App\Building');
+        return $this->hasMany('App\Models\Building');
     }
 }
