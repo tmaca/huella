@@ -4,7 +4,6 @@
 }
 
 #alcances-tabs, #alcances-content {
-    //font-size: em;
     text-align: left;
     margin-bottom: 40px;
 }
@@ -14,6 +13,10 @@
 }
 #alc{
     margin-bottom: 50px;
+}
+
+#userContent {
+    width:100%;
 }
 
 @mixin FontAwesome($code) {
@@ -164,7 +167,7 @@
 
 @media (min-width: 768px) {
     main > #userContent {
-        width: calc(100% - 300px);
+        width: $userhome-width;
         float: right;
     }
 
@@ -172,3 +175,12 @@
         display: block;
     }
 }
+
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    [class*="col-"] {
+        width: 100%;
+    }
+}
+

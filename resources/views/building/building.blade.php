@@ -13,10 +13,10 @@
                 <tr class="text-center">
                     <td class="d-none">#</td>
                     <td>Nombre</td>
-                    <td>Descripción</td>
-                    <td>Pais</td>
+                    <td class="d-none">Descripción</td>
+                    <td class="d-none">Pais</td>
                     <td>Provincia</td>
-                    <td>CP <i class="fa fa-info" title="Código postal"></i></td>
+                    <td class="d-none">CP <i class="fa fa-info" title="Código postal"></i></td>
                     <td>Dirección</td>
                     <td>Coordenadas (lat, lon)</td>
                     <td>Alcance</td>
@@ -29,10 +29,10 @@
                     <tr class="text-center">
                         <td class="id d-none">{{ $building->id }}</td>
                         <td class="name">{{ $building->name }}</td>
-                        <td class="description">{{ ($building->description) ? $building->description : "-" }}</td>
-                        <td class="country" data-id="{{ $building->country_id }}">{{ $building->country->name }}</td>
+                        <td class="description d-none">{{ ($building->description) ? $building->description : "-" }}</td>
+                        <td class="country d-none" data-id="{{ $building->country_id }}">{{ $building->country->name }}</td>
                         <td class="region" data-id="{{ $building->region_id }}">{{ $building->region->name }}</td>
-                        <td class="postcode">{{ $building->postcode }}</td>
+                        <td class="postcode d-none">{{ $building->postcode }}</td>
                         <td class="address">{{ $building->address_with_number }}</td>
                         <td class="coordinates" data-latitude="{{ $building->latitude}}" data-longitude="{{ $building->longitude }}">
                             @if($building->latitude && $building->longitude)
@@ -67,7 +67,7 @@
                     @endforeach
                 @else
                     <tr>
-                        <td colspan="9" class="text-center text-info">
+                        <td colspan="6" class="text-center text-info">
                             No has añadido ningún edificio
                         </td>
                     </tr>
