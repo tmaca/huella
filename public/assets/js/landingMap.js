@@ -20,7 +20,7 @@ function createMarkers(buildings) {
         createBuildingsList();
     }
 
-    buildings.forEach(function(building) {
+    buildings.forEach(function(building, index) {
         let markerElement = document.createElement("i");
         markerElement.className = "fa fa-3x fa-map-marker text-primary";
 
@@ -32,7 +32,11 @@ function createMarkers(buildings) {
         )
         .addTo(map);
 
-        createBuilding(building);
+        buildingElem = createBuilding(building);
+
+        if (index == 0) {
+            buildingElem.click();
+        }
     });
 }
 
@@ -66,6 +70,8 @@ function createBuilding(building) {
     buildingElement.insertAdjacentElement("afterbegin", icon);
 
     buildingElement.addEventListener("click", moveOnMap, false);
+
+    return buildingElement;
 }
 
 function moveOnMap() {
