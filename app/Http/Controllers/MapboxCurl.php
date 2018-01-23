@@ -8,6 +8,7 @@ use App\Models\Building;
 
 class MapboxCurl extends Controller
 {
+    private $LANG = "es";
     private $API_KEY;// = env("MAPBOX_TOKEN");
     private $API_URL = "https://api.mapbox.com";
     private $endpoint;
@@ -30,13 +31,14 @@ class MapboxCurl extends Controller
     }
 
     public function geocode(Building $building) {
-        $this->endpoint = "/geocoding/v5/mapbox.places/".
+        $this->endpoint = "/geocoding/v5/mapbox.places/" .
             urlencode($building->address_with_number) . ", " . urlencode($building->postcode) . ", " . urlencode($building->region->name) .
             ".json?" .
             "types=address&" .
-            "country=es&" . // " " . $building->country->name . "," .
+            "country=es&" .
             "region=" . $building->region->name . "&" .
-            "postcode=" . $building->postcode;
+            "postcode=" . $building->postcode . "&" .
+            "language=" . $this->LANG;
 
         $response = $this->query();
 
@@ -50,5 +52,14 @@ class MapboxCurl extends Controller
             }
         }
         return json_decode("{\"message\":\"Error on CURL request\"}");
+    }
+
+    public function reverseGeocode(String $latitude, String $longitude) {
+        $this->endpoint = "/geocoding/v5/mapbox.places/" .
+            $longitude . "," . $latitude .
+            ".json?language=" . $this->LANG;
+            $response = $this->query();
+
+            return json_decode($response);
     }
 }
