@@ -141,10 +141,10 @@ function addClickEvent(map) {
         marker.setLngLat([lng, lat]);
         swal({
             title: "¿Guardar posición seleccionada?",
-            text: "Seleccionado: " + lng + ", " + lat,
+            text: "Se actualizarán los otros datos de acorde con la posición seleccionada",
             icon: "info",
             buttons: {
-                confirm: "Guardar",
+                confirm: "Guardar y actualizar",
                 cancel: "Cancelar",
             }
         })

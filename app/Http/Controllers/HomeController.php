@@ -14,7 +14,9 @@ use Hash;
 use App\Http\Controllers\MapboxCurl;
 
 use App\Models\Building;
+use App\Models\Country;
 use App\Mail\ContactMailAdmin;
+use App\Models\Region;
 use App\Models\Study;
 use App\Models\User;
 
@@ -97,7 +99,7 @@ class HomeController extends Controller
       public function showTutorial() {
           return redirect(route("building"))->with(["showTutorial" => true]);
       }
-      
+
       public function building(Request $request)
       {
           // hacer query de los edificios
@@ -126,6 +128,18 @@ class HomeController extends Controller
           if (gettype($lngLat) == "array") {
               $this->saveCoordinates($building, $lngLat);
           }
+      }
+
+      public function reverseGeocode(String $latitude, String $longitude) {
+          $mapbox = new MapboxCurl();
+          $reverseGeocode = $mapbox->reverseGeocode($latitude, $longitude);
+          $geocode = Array();
+
+          foreach($reverseGeocode->features as $feature) {
+              $geocode[explode(".", $feature->id)[0]] = $feature->text;
+
+          }
+          return $geocode;
       }
 
       public function addBuilding(Request $request)
@@ -194,12 +208,46 @@ class HomeController extends Controller
           ];
 
           $this->saveCoordinates($building, $lngLat);
+          $this->setAddressFromCoordinates($lngLat, $building);
           return redirect(route("building"));
       }
 
       private function saveCoordinates(Building $building, Array $lngLat) {
           $building->latitude = $lngLat[1];
           $building->longitude = $lngLat[0];
+          $building->save();
+      }
+
+      private function setAddressFromCoordinates($lngLat, $building) {
+          foreach ($this->reverseGeocode($lngLat[1], $lngLat[0]) as $type => $value) {
+              switch ($type) {
+                  case "address":
+                      $building->address_with_number = $value;
+                      break;
+                      
+                  case "postcode":
+                      $building->postcode = $value;
+                      break;
+
+                  case "region":
+                      try {
+                          $region = Region::where("name", ucwords(strtolower($value)))->first();
+                          $building->region_id = $region->id;
+                      } catch (Exception $e) {
+                          $building->region_id = null;
+                      }
+                      break;
+
+                  case "country":
+                      try {
+                          $country = Country::where("name", ucwords(strtolower($value)))->first();
+                          $building->country_id = $country->id;
+                      } catch (Exception $e) {
+                          $building->country_id = null;
+                      }
+                  break;
+              }
+          }
           $building->save();
       }
 
