@@ -23,14 +23,14 @@
                 <li>Etapa 3</li>
             </ul>
 
-        </ul>
-        <ul class="bottom">
-            <li>
-                <a href="{{ route("user.tutorial") }}">
-                    <i class="fa fa-question-circle"></i>
-                    Tutorial
-                </a>
-            </li>
+            <ul>
+                <li class="bottom">
+                    <a href="{{ route("user.tutorial") }}">
+                        <i class="fa fa-question-circle"></i>
+                        Tutorial
+                    </a>
+                </li>
+            </ul>
         </ul>
     </div>
 </nav>

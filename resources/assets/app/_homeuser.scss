@@ -126,14 +126,14 @@
         }
     }
 
-    .bottom {
-        position: fixed;
-        bottom: 0px;
-        width: 200px;
-    }
+
 }
 
 @media (max-width: 767px) {
+    main {
+        margin-top: -73px;
+    }
+    
     .nav-side-menu {
         position: relative;
         width: 100%;
@@ -168,7 +168,15 @@
         float: right;
     }
 
-    .nav-side-menu .menu-list .menu-content {
+    .nav-side-menu {
+        .menu-list .menu-content {
         display: block;
+        }
+
+        .bottom {
+            position: fixed;
+            bottom: 0px;
+            width: 200px;
+        }
     }
 }
