@@ -224,7 +224,7 @@ class HomeController extends Controller
                   case "address":
                       $building->address_with_number = $value;
                       break;
-                      
+
                   case "postcode":
                       $building->postcode = $value;
                       break;
@@ -256,7 +256,7 @@ class HomeController extends Controller
      */
     public function alcancesView($id)
     {
-        return (view("user.alcances", ['id'=>$id]));
+        return (view("user.alcances", ['id'=>$id, "studies" => Building::find($id)->studies]));
     }
 
      public function alcances(Request $request)
