@@ -1,10 +1,10 @@
-<div class="container-fluid">
+<div class="container-fluid mb-3">
     <form action="{{ route('alcances') }}" method="POST">
         {{ csrf_field() }}
-        <!--GASES-->
-        <div id="alc">
-            <h3 id="alh2">Datos generales</h3>
+        <div class="alcance">
+            <h3 class="text-primary">Datos generales</h3>
             <hr>
+
             <div class="form-group row">
                 <label for="ano" class="col-form-label col-sm-4">Año </label>
                 <div class="col-sm-8">
@@ -20,29 +20,31 @@
             </div>
         </div>
 
-        <div id="alc">
-                <h3 id="alh2">Alcance 1</h3>
-                <hr>
-                <div class="form-group row">
-                    <label for="a1_gas_natural_kwh" class="col-form-label col-sm-4" >Gas natural</label>
-                    <div class="col-sm-8">
-                        <div class="input-group">
-                            <input {!! $study->year ? "readonly" : "id=\"a1_gas_natural_kwh\" name=\"a1_gas_natural_kwh\"" !!} class="form-control{{ !$study->year && $errors->has('a1_gas_natural_kwh') ? ' is-invalid' : '' }}" value="{{ $study->year ? $study->a1_gas_natural_kwh : old("a1_gas_natural_kwh")}}">
-                            <div class="input-group-append">
-                                <span class="input-group-text">kWh</span>
-                            </div>
-                            @if ($errors->has('a1_gas_natural_kwh'))
-                            <div class="invalid-feedback">
-                                <strong>{{ $errors->first('a1_gas_natural_kwh') }}</strong>
-                            </div>
-                            @endif
+        <div class="alcance">
+            <h3 class="text-primary">Alcance 1</h3>
+            <hr>
+
+            <div class="form-group row">
+                <label for="a1_gas_natural_kwh" class="col-form-label col-sm-4" >Gas natural</label>
+                <div class="col-sm-8">
+                    <div class="input-group">
+                        <input {!! $study->year ? "readonly" : "id=\"a1_gas_natural_kwh\" name=\"a1_gas_natural_kwh\"" !!} class="form-control{{ !$study->year && $errors->has('a1_gas_natural_kwh') ? ' is-invalid' : '' }}" value="{{ $study->year ? $study->a1_gas_natural_kwh : old("a1_gas_natural_kwh")}}">
+                        <div class="input-group-append">
+                            <span class="input-group-text">kWh</span>
                         </div>
+                        @if ($errors->has('a1_gas_natural_kwh'))
+                        <div class="invalid-feedback">
+                            <strong>{{ $errors->first('a1_gas_natural_kwh') }}</strong>
+                        </div>
+                        @endif
                     </div>
                 </div>
+            </div>
 
-                <div class="form-group row">
-                    <label for="a1_gas_natural_nm3" class="col-form-label col-sm-4">Gas natural</label>
-                    <div class="col-sm-8"><div class="input-group">
+            <div class="form-group row">
+                <label for="a1_gas_natural_nm3" class="col-form-label col-sm-4">Gas natural</label>
+                <div class="col-sm-8">
+                    <div class="input-group">
                         <input {!! $study->year ? "readonly" : "id=\"a1_gas_natural_nm3\" name=\"a1_gas_natural_nm3\"" !!} class="form-control{{ !$study->year && $errors->has('a1_gas_natural_nm3') ? ' is-invalid' : '' }}" value="{{ $study->year ? $study->a1_gas_natural_nm3 : old("a1_gas_natural_nm3") }}">
                         <div class="input-group-append">
                             <span class="input-group-text">Nm<sup>3</sup></span>
@@ -79,112 +81,106 @@
                     @endif
                 </div>
             </div>
-            <!--GASES-->
-        </div><!--alc1-->
+        </div>
 
-        <div id="alc">
-        <h3 id="alh2">Alcance 2</h3>
-        <hr>
-        <!--ELECTRICIDAD-->
-        <div class="form-group row" >
-            <label for="a2_electricidad_kwh" class="col-form-label col-sm-4">Electricidad</label>
-            <div class="col-sm-8">
-                <div class="input-group">
-                    <input {!! $study->year ? "readonly" : "id=\"a2_electricidad_kwh\" name=\"a2_electricidad_kwh\"" !!} class="form-control{{ !$study->year && $errors->has('a2_electricidad_kwh') ? ' is-invalid' : '' }}" value="{{ $study->year ? $study->a2_electricidad_kwh : old("a2_electricidad_kwh")}}">
-                    <div class="input-group-append">
-                        <span class="input-group-text">kWh</span>
+        <div class="alcance">
+            <h3 class="text-primary">Alcance 2</h3>
+            <hr>
+
+            <div class="form-group row" >
+                <label for="a2_electricidad_kwh" class="col-form-label col-sm-4">Electricidad</label>
+                <div class="col-sm-8">
+                    <div class="input-group">
+                        <input {!! $study->year ? "readonly" : "id=\"a2_electricidad_kwh\" name=\"a2_electricidad_kwh\"" !!} class="form-control{{ !$study->year && $errors->has('a2_electricidad_kwh') ? ' is-invalid' : '' }}" value="{{ $study->year ? $study->a2_electricidad_kwh : old("a2_electricidad_kwh")}}">
+                        <div class="input-group-append">
+                            <span class="input-group-text">kWh</span>
+                        </div>
+                        @if ($errors->has('a2_electricidad_kwh'))
+                        <div class="invalid-feedback">
+                            <strong>{{ $errors->first('a2_electricidad_kwh') }}</strong>
+                        </div>
+                        @endif
                     </div>
-                    @if ($errors->has('a2_electricidad_kwh'))
-                    <div class="invalid-feedback">
-                        <strong>{{ $errors->first('a2_electricidad_kwh') }}</strong>
-                    </div>
-                    @endif
                 </div>
             </div>
         </div>
-        <!--ELECTRICIDAD-->
-    </div><!--alc2-->
 
-        <div id="alc">
-            <h3 id="alh2">Alcance 3</h3>
+        <div class="alcance">
+            <h3 class="text-primary">Alcance 3</h3>
             <hr>
-            <!--agua-->
 
             <div class="form-group row" >
                 <label for="a3_agua_potable_m3" class="col-form-label col-sm-4">Agua potable</label>
                 <div class="col-sm-8">
                     <div class="input-group">
-                    <input {!! $study->year ? "readonly" : "id=\"a3_agua_potable_m3\" name=\"a3_agua_potable_m3\"" !!} class="form-control{{ !$study->year && $errors->has('a3_agua_potable_m3') ? ' is-invalid' : '' }}" value="{{ $study->year ? $study->a3_agua_potable_m3 : old("a3_agua_potable_m3")}}">
-                    <div class="input-group-append">
-                        <span class="input-group-text">m<sup>3</sup></span>
+                        <input {!! $study->year ? "readonly" : "id=\"a3_agua_potable_m3\" name=\"a3_agua_potable_m3\"" !!} class="form-control{{ !$study->year && $errors->has('a3_agua_potable_m3') ? ' is-invalid' : '' }}" value="{{ $study->year ? $study->a3_agua_potable_m3 : old("a3_agua_potable_m3")}}">
+                        <div class="input-group-append">
+                            <span class="input-group-text">m<sup>3</sup></span>
+                        </div>
+                        @if ($errors->has('a3_agua_potable_m3'))
+                        <div class="invalid-feedback">
+                            <strong>{{ $errors->first('a3_agua_potable_m3') }}</strong>
+                        </div>
+                        @endif
                     </div>
-                    @if ($errors->has('a3_agua_potable_m3'))
-                    <div class="invalid-feedback">
-                        <strong>{{ $errors->first('a3_agua_potable_m3') }}</strong>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="a3_papel_carton_consumo_kg" class="col-form-label col-sm-4">Papel y cartón</label>
+                <div class="col-sm-8">
+                    <div class="input-group">
+                        <input {!! $study->year ? "readonly" : "id=\"a3_papel_carton_consumo_kg\" name=\"a3_papel_carton_consumo_kg\"" !!} class="form-control{{ !$study->year && $errors->has('a3_papel_carton_consumo_kg') ? ' is-invalid' : '' }}" value="{{ $study->year ? $study->a3_papel_carton_consumo_kg : old("a3_papel_carton_consumo_kg") }}">
+                        <div class="input-group-append">
+                            <span class="input-group-text">consumo</span>
+                        </div>
+                        @if ($errors->has('a3_papel_carton_consumo_kg'))
+                        <div class="invalid-feedback">
+                            <strong>{{ $errors->first('a3_papel_carton_consumo_kg') }}</strong>
+                        </div>
+                        @endif
                     </div>
-                    @endif
                 </div>
             </div>
-        </div>
-        <!--agua-->
 
-        <!--papel y carton-->
-        <div class="form-group row">
-            <label for="a3_papel_carton_consumo_kg" class="col-form-label col-sm-4">Papel y cartón</label>
-            <div class="col-sm-8">
-                <div class="input-group">
-                <input {!! $study->year ? "readonly" : "id=\"a3_papel_carton_consumo_kg\" name=\"a3_papel_carton_consumo_kg\"" !!} class="form-control{{ !$study->year && $errors->has('a3_papel_carton_consumo_kg') ? ' is-invalid' : '' }}" value="{{ $study->year ? $study->a3_papel_carton_consumo_kg : old("a3_papel_carton_consumo_kg") }}">
-                <div class="input-group-append">
-                    <span class="input-group-text">consumo</span>
+            <div class="form-group row">
+                <label for="a3_papel_carton_residuos_kg" class="col-form-label col-sm-4">Papel y cartón</label>
+                <div class="col-sm-8">
+                    <div class="input-group">
+                        <input {!! $study->year ? "readonly" : "id=\"a3_papel_carton_residuos_kg\" name=\"a3_papel_carton_residuos_kg\"" !!} class="form-control{{ !$study->year && $errors->has('a3_papel_carton_residuos_kg') ? ' is-invalid' : '' }}" value="{{ $study->year ? $study->a3_papel_carton_residuos_kg : old("a3_papel_carton_residuos_kg")}}">
+                        <div class="input-group-append">
+                            <span class="input-group-text">residuos</span>
+                        </div>
+                        @if ($errors->has('a3_papel_carton_residuos_kg'))
+                        <div class="invalid-feedback">
+                            <strong>{{ $errors->first('a3_papel_carton_residuos_kg') }}</strong>
+                        </div>
+                        @endif
+                    </div>
                 </div>
-                @if ($errors->has('a3_papel_carton_consumo_kg'))
-                <div class="invalid-feedback">
-                    <strong>{{ $errors->first('a3_papel_carton_consumo_kg') }}</strong>
-                </div>
-                @endif
             </div>
-        </div>
-    </div>
-    <div class="form-group row">
-        <label for="a3_papel_carton_residuos_kg" class="col-form-label col-sm-4">Papel y cartón</label>
-        <div class="col-sm-8">
-            <div class="input-group">
-            <input {!! $study->year ? "readonly" : "id=\"a3_papel_carton_residuos_kg\" name=\"a3_papel_carton_residuos_kg\"" !!} class="form-control{{ !$study->year && $errors->has('a3_papel_carton_residuos_kg') ? ' is-invalid' : '' }}" value="{{ $study->year ? $study->a3_papel_carton_residuos_kg : old("a3_papel_carton_residuos_kg")}}">
-            <div class="input-group-append">
-                <span class="input-group-text">residuos</span>
-            </div>
-            @if ($errors->has('a3_papel_carton_residuos_kg'))
-            <div class="invalid-feedback">
-                <strong>{{ $errors->first('a3_papel_carton_residuos_kg') }}</strong>
-            </div>
-            @endif
-        </div>
-    </div>
-    </div>
-    <!--papel y carton-->
 
-    <!--factor-->
-    <div class="form-group row">
-        <label for="a3_factor_kwh_nm3" class="col-form-label col-sm-4">Factor</label>
-        <div class="col-sm-8"><div class="input-group">
-            <input {!! $study->year ? "readonly" : "id=\"a3_factor_kwh_nm3\" name=\"a3_factor_kwh_nm3\"" !!} class="form-control{{ !$study->year && $errors->has('a3_factor_kwh_nm3') ? ' is-invalid' : '' }}" value="{{ $study->year ? $study->a3_factor_kwh_nm3 : old("a3_factor_kwh_nm3")}}">
-            <div class="input-group-append">
-                <span class="input-group-text">kWh/Nm<sup>3</sup></span>
+            <div class="form-group row">
+                <label for="a3_factor_kwh_nm3" class="col-form-label col-sm-4">Factor</label>
+                <div class="col-sm-8">
+                    <div class="input-group">
+                        <input {!! $study->year ? "readonly" : "id=\"a3_factor_kwh_nm3\" name=\"a3_factor_kwh_nm3\"" !!} class="form-control{{ !$study->year && $errors->has('a3_factor_kwh_nm3') ? ' is-invalid' : '' }}" value="{{ $study->year ? $study->a3_factor_kwh_nm3 : old("a3_factor_kwh_nm3")}}">
+                        <div class="input-group-append">
+                            <span class="input-group-text">kWh/Nm<sup>3</sup></span>
+                        </div>
+                        @if ($errors->has('a3_factor_kwh_nm3'))
+                        <div class="invalid-feedback">
+                            <strong>{{ $errors->first('a3_factor_kwh_nm3') }}</strong>
+                        </div>
+                        @endif
+                    </div>
+                </div>
             </div>
-            @if ($errors->has('a3_factor_kwh_nm3'))
-            <div class="invalid-feedback">
-                <strong>{{ $errors->first('a3_factor_kwh_nm3') }}</strong>
-            </div>
-            @endif
         </div>
-    </div>
-    </div>
-    <!--factor-->
-    </div><!--alc3-->
-<input type="hidden" name="id" value="{{$id}}"/>
-<input type="submit" name="submit" value="Guardar" class="btn btn-primary"/>
-<button type="submit" name="submit" value="calculateStudy" class="btn btn-primary">
-    Calcular Huella de Carbono
-</button>
+        <input type="hidden" name="id" value="{{$id}}"/>
+        <input type="submit" name="submit" value="Guardar" class="btn btn-primary"/>
+        <button type="submit" name="submit" value="calculateStudy" class="btn btn-primary">
+            Calcular Huella de Carbono
+        </button>
+    </form>
 </div>
-</form>
