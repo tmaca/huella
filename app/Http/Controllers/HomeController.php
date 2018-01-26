@@ -256,7 +256,7 @@ class HomeController extends Controller
      */
     public function alcancesView($id)
     {
-        return (view("user.alcances", ['id'=>$id, "studies" => Building::find($id)->studies]));
+        return (view("user.alcances", ['id'=>$id, "studies" => Building::find($id)->studies()->orderBy("year", "asc")->get()]));
     }
 
      public function alcances(Request $request)
@@ -268,9 +268,10 @@ class HomeController extends Controller
              return redirect()->back()->withErrors($validator)->withInput();
          }
 
-         $alcances = Study::create([
-             'building_id' => $request->id,
-             'year' => $request->ano,
+         $alcances = Study::updateOrCreate([
+             'building_id' => $request->building_id,
+             'year' => $request->year,
+         ], [
              'a1_gas_natural_kwh' => $request->a1_gas_natural_kwh,
              'a1_gas_natural_nm3' => $request->a1_gas_natural_nm3,
              'a1_refrigerantes' => $request->a1_refrigerantes,
@@ -291,9 +292,13 @@ class HomeController extends Controller
 
      protected function alcancesValidator(array $data)
      {
-         return Validator::make($data, [
-             'id'=>'required',
-             'ano'=>'required|numeric|min:1950|unique:studies,year',
+         $validator = Validator::make($data, [
+             'building_id'=>'required',
+             'year' => [
+                 'required',
+                 'numeric',
+                 'min:' . (date("Y") - 20),
+             ],
              'a1_gas_natural_kwh'=>'required|numeric',
              'a1_gas_natural_nm3'=>'required|numeric',
              'a1_refrigerantes'=>'required|numeric',
@@ -304,6 +309,18 @@ class HomeController extends Controller
              'a3_papel_carton_residuos_kg' => 'required|numeric',
              'a3_factor_kwh_nm3' => 'required|numeric',
          ]);
+
+         // validate ano field (create)
+         $validator->sometimes('year', "unique:studies", function ($input) {
+             return empty($input->id);
+         });
+
+         // validate ano field (update)
+         $validator->sometimes('year', Rule::unique("studies")->ignore($data["id"], "id"), function ($input) {
+             return !empty($input->id);
+         });
+
+         return $validator;
      }
 
 
