@@ -34,7 +34,10 @@
                     <strong>¡Atención!</strong> no se ha realizado aún el calculo de la huella. Finalize la compleción de los datos y pulse sobre el botón "calcular huella de carbono". Una vez calculada la huella no podrá editar los campos.
                 </div>
                 @else
-                Valor de la huella: {{ $study->carbon_footprint }}
+                <div class="alert alert-info">
+                    <strong><i class="fa fa-paw"></i></strong> Valor de la huella, {{ $study->carbon_footprint }}
+
+                </div>
                 @endif
 
                 @include("forms.user.alcances", ["study" => $study])
