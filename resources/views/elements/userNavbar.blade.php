@@ -1,6 +1,26 @@
+<i class="fa fa-bars fa-2x toggle-btn" id="toggleNav"></i>
+<script type="text/javascript">
+    $(function (){
+        let $userNav = $(".nav-side-menu");
+        $("#toggleNav").on("click", function (e) {
+            $userNav.addClass("open");
+            e.stopPropagation();
+        });
+
+        $(document.body).click(function(event) {
+            if($userNav.hasClass("open")) {
+                if(event.target.closest('.nav-side-menu') === null) {
+                    $userNav.removeClass("open");
+                    console.log("remove");
+                }
+            }
+        });
+    });
+</script>
+
 <nav class="nav-side-menu">
     <div class="brand">{{ Auth::user()->name }}</div>
-    <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+    <i class="d-none fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
     <div class="menu-list">
         <ul id="menu-content" class="menu-content collapse out">
             <li>
@@ -23,14 +43,14 @@
                 <li>Etapa 3</li>
             </ul>
 
-            <ul>
-                <li class="bottom">
-                    <a href="{{ route("user.tutorial") }}">
-                        <i class="fa fa-question-circle"></i>
-                        Tutorial
-                    </a>
-                </li>
-            </ul>
+        </ul>
+        <ul class="menu-content bottom">
+            <li>
+                <a href="{{ route("user.tutorial") }}">
+                    <i class="fa fa-question-circle"></i>
+                    Tutorial
+                </a>
+            </li>
         </ul>
     </div>
 </nav>

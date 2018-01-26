@@ -24,6 +24,11 @@
     vertical-align: middle;
 }
 
+.nav-side-menu,
+.bottom {
+    width: 200px;
+}
+
 .nav-side-menu {
     overflow: auto;
     font-family: Roboto;
@@ -31,10 +36,12 @@
     font-weight: 200;
     background-color: #2e353d;
     position: fixed;
+    left: 0;
     top: 55px;
-    width: 200px;
     height: 100%;
     color: #e1ffff;
+    z-index: 10;
+    transition: left 1s;
 
     .brand {
         background-color: #23282e;
@@ -44,8 +51,18 @@
         font-size: 14px;
     }
 
-    .toggle-btn {
-        display: none;
+    .menu-list .menu-content {
+        display: block;
+    }
+
+    .bottom {
+        position: fixed;
+        bottom: 0px;
+
+        li {
+            border-top: 1px solid #23282e;
+            border-bottom: none;
+        }
     }
 
     ul,
@@ -124,40 +141,25 @@
 
         }
     }
-
-
 }
 
 @media (max-width: 767px) {
-    main {
-        margin-top: -73px;
+    .toggle-btn {
+        display: inline-block;
+        margin: 0px 10px;
+    }
+
+    .nav-side-menu,
+    .bottom {
+        min-width: 50%;
+        max-width: 250px;
     }
 
     .nav-side-menu {
-        position: relative;
-        width: 100%;
-        margin-bottom: 10px;
-
-        .brand {
-            text-align: left !important;
-            font-size: 22px;
-            padding-left: 20px;
-            line-height: 50px !important;
-        }
-
-        .toggle-btn {
-            display: block;
-            cursor: pointer;
-            position: absolute;
-            right: 10px;
-            top: 10px;
-            z-index: 10 !important;
-            padding: 3px;
-            background-color: #ffffff;
-            color: #000;
-            width: 40px;
-            text-align: center;
-        }
+        left: -50%;
+    }
+    .nav-side-menu.open {
+        left: 0;
     }
 }
 
@@ -167,23 +169,7 @@
         float: right;
     }
 
-    .nav-side-menu {
-        .menu-list .menu-content {
-        display: block;
-        }
-
-        .bottom {
-            position: fixed;
-            bottom: 0px;
-            width: 200px;
-        }
-    }
-}
-
-
-@media only screen and (max-width: 768px) {
-    /* For mobile phones: */
-    [class*="col-"] {
-        width: 100%;
+    .toggle-btn {
+        display: none;
     }
 }
