@@ -126,8 +126,12 @@ a.botonHeader{
     // min-height: auto;
     padding-bottom: 0px;
 
+    .container{
+      margin-bottom: 40px;
+    }
+
     #map {
-        min-height: 68vh;
+        min-height: 50vh;
 
         .fa-map-marker::before {
             text-shadow:
