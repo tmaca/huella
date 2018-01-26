@@ -8,7 +8,7 @@
         <ul class="nav nav-tabs mb-2" id="myTab" role="tablist">
             @foreach($studies as $study)
             <li class="nav-item">
-                <a class="nav-link" id="study-{{ $study->year }}-tab" data-toggle="tab" href="#study-{{ $study->year }}">
+                <a class="nav-link{{ $errors->first("inputYear") == $study->year ? " active" : "" }}" id="study-{{ $study->year }}-tab" data-toggle="tab" href="#study-{{ $study->year }}">
                     @if(!$study->carbon_footprint)
                     <i class="fa fa-exclamation-triangle text-warning" title="Huella no calculada"></i>
                     @endif
@@ -18,7 +18,7 @@
             @endforeach
 
             <li class="nav-item">
-                <a class="nav-link active" id="contact-tab" data-toggle="tab" href="#contact">
+                <a class="nav-link{{ empty($errors->first("inputYear")) == $study->year ? " active" : "" }}" id="contact-tab" data-toggle="tab" href="#contact">
                     <i class="fa fa-plus"></i>
                     Crear nuevo
                 </a>
@@ -26,7 +26,7 @@
         </ul>
         <div class="tab-content" id="myTabContent">
             @foreach($studies as $study)
-            <div class="tab-pane fade" id="study-{{ $study->year }}">
+            <div class="tab-pane fade{{ $errors->first("inputYear") == $study->year ? " show active" : "" }}" id="study-{{ $study->year }}">
 
                 @if(!$study->carbon_footprint)
                 <div class="alert alert-warning">
@@ -44,7 +44,7 @@
             </div>
             @endforeach
 
-            <div class="tab-pane fade show active" id="contact">
+            <div class="tab-pane fade{{ empty($errors->first("inputYear")) == $study->year ? " show active" : "" }}" id="contact">
                 @include("forms.user.alcances", ["study" => new App\Models\Study])
             </div>
         </div>

@@ -265,6 +265,7 @@ class HomeController extends Controller
 
          if ($validator->fails())
          {
+             $validator->errors()->add("inputYear", $request->year);
              return redirect()->back()->withErrors($validator)->withInput();
          }
 
