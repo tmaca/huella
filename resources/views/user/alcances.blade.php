@@ -9,7 +9,9 @@
             @foreach($studies as $study)
             <li class="nav-item">
                 <a class="nav-link{{ $errors->first("inputYear") == $study->year ? " active" : "" }}" id="study-{{ $study->year }}-tab" data-toggle="tab" href="#study-{{ $study->year }}">
-                    @if(!$study->carbon_footprint)
+                    @if($study->carbon_footprint)
+                    <i class="fa fa-paw" title="Huella calculada"></i>
+                    @else
                     <i class="fa fa-exclamation-triangle text-warning" title="Huella no calculada"></i>
                     @endif
                     {{ $study->year }}
@@ -36,7 +38,6 @@
                 @else
                 <div class="alert alert-info">
                     <strong><i class="fa fa-paw"></i></strong> Valor de la huella, {{ $study->carbon_footprint }}
-
                 </div>
                 @endif
 
