@@ -24,8 +24,8 @@ header {
             vertical-align: middle;
             height: 50vw;
 
-            @media screen and (max-width: 609px) {
-                height: 25vw;
+            @media screen and (max-width: 618px) {
+                height: 12.5vw;
 
             }
         }
@@ -48,9 +48,18 @@ header {
   color: #fff;
   font-family: 'Unica One', sans-serif;
   text-shadow: 0px 0px 10px black;
+
+  @media screen and (max-width: 772px) {
+      font-size: 80px;
+  }
 }
 
 a.botonHeader{
+  height: 200px;
+  width: 100px;
+  text-decoration: none;
+  cursor: pointer;
+  
   &::before{
     color: $primary;
     -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
@@ -61,10 +70,11 @@ a.botonHeader{
     animation-delay: 2s;
     position: relative;
     animation-iteration-count: infinite;
+
+    @media screen and (max-width: 613px) {
+        animation: none;
+    }
   }
-  height: 100px;
-  width: 100px;
-  text-decoration: none;
 }
 
 
