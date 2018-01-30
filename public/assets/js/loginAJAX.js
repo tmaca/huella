@@ -1,0 +1,43 @@
+$(document).ready(function() {
+    $("#loginForm").on("submit", function(e) {
+        e.preventDefault();
+
+        let post_url = $(this).attr("action");
+        let formData = $(this).serialize();
+
+        $.ajax({
+            url: post_url,
+            type: 'POST',
+            data: formData,
+
+            success: function(data) {
+                if (data.error) {
+                    let emailError, passwordError;
+
+                    for (let i = 0; i < data.error.length; i++) {
+                        console.log(data.error[i]);
+                        /*if (data.error[i].indexOf("email") > -1) {
+                            emailError = data.error[i];
+                        } else if (data.error[i].indexOf("password") > -1){
+                            passwordError = data.error[i];
+                        }*/
+                    }
+
+                    $(".ajaxError").remove();
+                    $("#email").removeClass("is-invalid");
+                    $("#password").removeClass("is-invalid");
+
+                    if (emailError !== undefined) {
+                        console.log("email");
+                        $("#loginForm #email").addClass("is-invalid").parent().append($("<div/>", {"class": "invalid-feedback ajaxError"}).append($("<strong/>", {text: emailError})));
+                    }
+
+                    if (passwordError !== undefined) {
+                        console.log("password");
+                        $("#password").addClass("is-invalid").parent().append($("<div/>", {"class": "invalid-feedback ajaxError"}).append($("<strong/>", {text: passwordError})));
+                    }
+                }
+            }
+        });
+    });
+});

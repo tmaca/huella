@@ -49,3 +49,4 @@ document.addEventListener("DOMContentLoaded", function () {
 <script src="{{ url("assets/js/navbarChangeColor.js") }}" defer></script>
 <script src="{{ url("assets/js/contactAJAX.js") }}" defer></script>
 <script src="{{ url("assets/js/titleAnimation.js") }}" defer></script>
+<script src="{{ url("assets/js/loginAJAX.js") }}" defer></script>
