@@ -11,7 +11,8 @@
             if($userNav.hasClass("open")) {
                 if(event.target.closest('.nav-side-menu') === null) {
                     $userNav.removeClass("open");
-                    console.log("remove");
+                } else if ($(event.target).attr("data-action") == "close-nav") {
+                    $userNav.removeClass("open");
                 }
             }
         });
@@ -50,6 +51,10 @@
                     <i class="fa fa-question-circle"></i>
                     Tutorial
                 </a>
+            </li>
+            <li class="text-right pr-3" data-action="close-nav">
+                Cerrar
+                <i class="fa fa-chevron-right"></i>
             </li>
         </ul>
     </div>
