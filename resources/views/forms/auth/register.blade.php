@@ -1,4 +1,4 @@
-<form method="POST" action="{{ route('register') }}" novalidate>
+<form id="registerForm" method="POST" action="{{ route('register') }}" novalidate>
     {{ csrf_field() }}
 
     <div class="form-group">
