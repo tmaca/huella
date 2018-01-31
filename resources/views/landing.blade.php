@@ -53,7 +53,7 @@
                         <i class="fa fa-database fa-4x"></i>
                     </div>
                     <div class="card-body text-center">
-                        Una vez hayas terminados con la inserción de los edificios inserta los datos requeridos*.
+                        Una vez hayas terminados con la inserción de los edificios inserta los datos requeridos. Es posible que necesites tener las facturas a mano para poder completar de forma precisa los datos.
                     </div>
                 </div>
                 <div class="card bg-primary text-white">
@@ -61,15 +61,10 @@
                         <i class="fa fa-bar-chart fa-4x"></i>
                     </div>
                     <div class="card-body text-center">
-                        Tras varias inserciones tendrás a tu disposición estadísticas respecto a otros años.
+                        Tras varias inserciones tendrás a tu disposición gráficos con opción de realizar comparativas respecto a valores de otros años.
                     </div>
                 </div>
-
-
             </div>
-            <p>
-                *Es posible que necesites tener las facturas a mano para poder completar de forma precisa los datos.
-            </p>
         </div>
     </section>
 
