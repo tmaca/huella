@@ -11,7 +11,10 @@ $(document).ready(function() {
             data: formData,
 
             success: function(data) {
-                if (data.error) {
+                if ($.isEmptyObject(data.error)) {
+                    location.reload();
+                } else {
+
                     let emailError, passwordError;
 
                     for (let i = 0; i < data.error.length; i++) {
@@ -20,6 +23,10 @@ $(document).ready(function() {
                         } else if (data.error[i].indexOf("password") > -1){
                             passwordError = data.error[i];
                         }
+                    }
+
+                    if(data.error.email) {
+                        emailError = data.error.email;
                     }
 
                     $(".ajaxError").remove();

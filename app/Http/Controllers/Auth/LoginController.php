@@ -78,11 +78,12 @@ class LoginController extends Controller
             // user has verified email
             if (!empty($user->email_code) && !$user->verified) {
                 Auth::logout();
-                if($request->ajax()){
-                    return redirect(route("landing"));
-                }
                 $request->session()->flash("emailVerified", false);
                 return redirect(route("landing"));
+            }
+
+            if($request->ajax()){
+                return response()->json(['success'=>'Login correcto.']);
             }
 
             return redirect()->intended($this::redirectPath());
