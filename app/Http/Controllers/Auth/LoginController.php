@@ -82,10 +82,6 @@ class LoginController extends Controller
                 return redirect(route("landing"));
             }
 
-            if($request->ajax()){
-                return response()->json(['success'=>'Login correcto.']);
-            }
-
             return redirect()->intended($this::redirectPath());
 
         } else {
