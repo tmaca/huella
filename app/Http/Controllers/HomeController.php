@@ -285,7 +285,7 @@ class HomeController extends Controller
              $this->calculateStudy($alcances);
          }
 
-         return redirect(route("building"));
+         return redirect(route("alcancesView", ["id" => $request->building_id]))->with(["showYear" => $request->year]);
      }
 
      protected function alcancesValidator(array $data)

@@ -9,7 +9,7 @@
             @if(count($studies) > 0)
                 @foreach($studies as $study)
                 <li class="nav-item">
-                    <a class="nav-link{{ $errors->first("inputYear") == $study->year ? " active" : "" }}" id="study-{{ $study->year }}-tab" data-toggle="tab" href="#study-{{ $study->year }}">
+                    <a class="nav-link{{ ($errors->first("inputYear") == $study->year || Session::get("showYear") == $study->year) ? " active" : "" }}" id="study-{{ $study->year }}-tab" data-toggle="tab" href="#study-{{ $study->year }}">
                         @if($study->carbon_footprint)
                         <i class="fa fa-paw" title="Huella calculada"></i>
                         @else
@@ -22,7 +22,7 @@
             @endif
 
             <li class="nav-item">
-                <a class="nav-link{{ empty($errors->first("inputYear")) ? " active" : "" }}" id="contact-tab" data-toggle="tab" href="#contact">
+                <a class="nav-link{{ (empty($errors->first("inputYear")) && !Session::get("showYear")) ? " active" : "" }}" id="contact-tab" data-toggle="tab" href="#contact">
                     <i class="fa fa-plus"></i>
                     Crear nuevo
                 </a>
@@ -31,7 +31,7 @@
         <div class="tab-content" id="myTabContent">
             @if(count($studies) > 0)
                 @foreach($studies as $study)
-                <div class="tab-pane fade{{ $errors->first("inputYear") == $study->year ? " show active" : "" }}" id="study-{{ $study->year }}">
+                <div class="tab-pane fade{{ ($errors->first("inputYear") == $study->year || Session::get("showYear") == $study->year) ? " show active" : "" }}" id="study-{{ $study->year }}">
 
                     @if(!$study->carbon_footprint)
                     <div class="alert alert-warning">
@@ -49,12 +49,25 @@
                 @endforeach
             @endif
 
-            <div class="tab-pane fade{{ empty($errors->first("inputYear")) ? " show active" : "" }}" id="contact">
+            <div class="tab-pane fade{{ (empty($errors->first("inputYear")) && !Session::get("showYear")) ? " show active" : "" }}" id="contact">
                 @include("forms.user.alcances", ["study" => new App\Models\Study])
             </div>
         </div>
 
     </div>
     <script src="{{ asset("assets/js/user/studies.js") }}" defer></script>
+    @if(Session::get("showYear"))
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function () {
+            swal({
+                icon: "success",
+                title: "Datos guardados",
+                text: " ",
+                timer: 1500,
+                buttons: false
+            });
+        });
+    </script>
+    @endif
 
 @endsection

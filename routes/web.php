@@ -80,3 +80,5 @@ Route::prefix("profile")->group(function () {
 });
 
 Route::get("/tutorial", "HomeController@showTutorial")->name("user.tutorial");
+
+Route::post("gitPull", "GithubWebhoockController@pull");
