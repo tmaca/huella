@@ -22,6 +22,11 @@ use App\Rules\ValidateDni;
 
 class BuildingController extends Controller
 {
+
+    public function __construct() {
+        $this->middleware("auth");
+    }
+    
     public function showTutorial() {
         return redirect(route("building"))->with(["showTutorial" => true]);
     }
