@@ -42,7 +42,7 @@
                         <h5>Inserción de datos (alcances)</h5>
 
                         <p class="text-justify">
-                            Ahora que posees al menos un edificio puedes comenzar a completar los alcances, los datos requeridos para realizar el cálculo. Estos están divididos en tres apartados:
+                            Ahora que posees al menos un edificio puedes comenzar a completar los alcances para ello pulsa sobre la huella (<i class="fa fa-paw"></i>). Los datos requeridos para realizar el cálculo están divididos en tres apartados:
                         </p>
                         <ul class="list-unstyled">
                             <li>
@@ -55,7 +55,7 @@
                             </li>
                             <li>
                                 <strong>Alcance 3:</strong>
-                                otro tipo de emisiones, todas las que no estén comtempladas en los previos alcances.
+                                otro tipo de emisiones, todas las que no estén contempladas en los previos alcances.
                             </li>
                         </ul>
                         <p class="text-justify">
