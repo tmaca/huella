@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     addRemoveEvent();
     addEditEvent();
-    addSetCoordinates();
 }, false);
 
 function addRemoveEvent() {
@@ -13,12 +12,6 @@ function addRemoveEvent() {
 function addEditEvent() {
     for (element of document.querySelectorAll("[data-action=\"edit\"]")) {
         element.addEventListener("click", editBuilding, false);
-    }
-}
-
-function addSetCoordinates() {
-    for (element of document.querySelectorAll(".coordinates > a")) {
-        element.addEventListener("click", setCoordinates, false);
     }
 }
 
@@ -68,31 +61,45 @@ function editBuilding() {
     }
     document.getElementById("postcode").value = row.getElementsByClassName("postcode")[0].innerText;
     document.getElementById("address").value = row.getElementsByClassName("address")[0].innerText;
+    let coordinates = row.getElementsByClassName("coordinates")[0];
+    document.getElementById("editLatitude").value = null;
+    document.getElementById("editLongitude").value = null;
+
+    showEditMap(coordinates.getAttribute("data-latitude"), coordinates.getAttribute("data-longitude"))
 
     $("#editBuildingModal").modal("show");
 }
 
-let map,
-    marker,
+let editMap,
+    editMarker,
+    newBuildingMap,
+    newBuildingMarker,
     building_id;
 
-function setCoordinates() {
-    let coordinates = this.parentNode;
-    let latitude = coordinates.getAttribute("data-latitude");
-    let longitude = coordinates.getAttribute("data-longitude");
-    building_id = coordinates.parentNode.getElementsByClassName("id")[0].innerText;
+$('#addBuildingModal').one('shown.bs.modal', function () {
+    let lat = 40.393;
+    let lng = -3.702;
+    let zoom = 5;
 
-    if (latitude && longitude) {
-        // center map on current coordinates with X zoom
-        showMap(latitude, longitude);
-    } else {
-        showMap();
-        // center map on country
-    }
+    newBuildingMap = createMap("createMap");
+    newBuildingMap.on("load", function () {
+        this.setCenter([lng, lat]);
+        this.setZoom(zoom);
+    });
 
-    $("#mapModal").modal("show");
-}
-function showMap(lat, lng) {
+    let markerElement = document.createElement("i");
+    markerElement.className = "fa fa-3x fa-map-marker text-primary";
+    newBuildingMarker = new mapboxgl.Marker(markerElement)
+    .setLngLat([lng, lat])
+    .addTo(newBuildingMap);
+
+    addClickEvent(newBuildingMap, newBuildingMarker, function (lngLat) {
+        document.getElementById("createLatitude").value = lngLat.lat;
+        document.getElementById("createLongitude").value = lngLat.lng;
+    });
+});
+
+function showEditMap(lat, lng) {
     let zoom = 15;
     if (!lat || !lng) {
         lat = 40.393;
@@ -100,70 +107,54 @@ function showMap(lat, lng) {
         zoom = 5;
     }
 
-    if (!map) {
-        $('#mapModal').one('shown.bs.modal', function () {
-            createMap();
-            map.on("load", function () {
+    if (!editMap) {
+        $('#editBuildingModal').one('shown.bs.modal', function () {
+            editMap = createMap("editMap");
+            editMap.on("load", function () {
                 this.setCenter([lng, lat]);
-                map.setZoom(zoom);
+                this.setZoom(zoom);
             });
 
             let markerElement = document.createElement("i");
             markerElement.className = "fa fa-3x fa-map-marker text-primary";
-            marker = new mapboxgl.Marker(markerElement)
+            editMarker = new mapboxgl.Marker(markerElement)
             .setLngLat([lng, lat])
-            .addTo(map);
+            .addTo(editMap);
 
-            addClickEvent(map);
-
+            addClickEvent(editMap, editMarker, function (lngLat) {
+                document.getElementById("editLatitude").value = lngLat.lat;
+                document.getElementById("editLongitude").value = lngLat.lng;
+            });
         });
 
     } else {
-        map.setCenter([lng, lat]);
-        map.setZoom(zoom);
-        marker.setLngLat([lng, lat]);
+        editMarker.setLngLat([lng, lat]);
+        editMap.flyTo({
+            zoom: zoom,
+            center: editMarker.getLngLat()
+        });
     }
 }
 
-function createMap() {
-    map = new mapboxgl.Map({
-        container: 'map',
+function createMap(mapId) {
+    return new mapboxgl.Map({
+        container: mapId,
         style: 'mapbox://styles/mapbox/streets-v9',
         zoom: 9
     });
 }
 
-function addClickEvent(map) {
+function addClickEvent(map, marker, callback) {
     map.on("click", function(e) {
         let lat = e.lngLat.lat;
         let lng = e.lngLat.lng;
 
         marker.setLngLat([lng, lat]);
-        swal({
-            title: "¿Guardar posición seleccionada?",
-            text: "Se actualizarán los otros datos de acorde con la posición seleccionada",
-            icon: "info",
-            buttons: {
-                confirm: "Guardar y actualizar",
-                cancel: "Cancelar",
-            }
-        })
-        .then(function (isConfirm) {
-            if (isConfirm) {
-                swal.close();
-                $("#mapModal").modal("hide");
-                savePosition(lat, lng);
-            }
-        });
-    });
-}
 
-function savePosition(lat, lng) {
-    let form = document.getElementById("updateCoordinatesForm");
-    form.action = form.action.replace("/id/", "/" + building_id + "/");
-    form.querySelector("[name=latitude]").value = lat;
-    form.querySelector("[name=longitude]").value = lng;
-    form.submit();
+        if (typeof callback === "function") {
+            callback(e.lngLat);
+        }
+    });
 }
 
 $(function () {

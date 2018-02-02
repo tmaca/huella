@@ -160,7 +160,12 @@ class HomeController extends Controller
               'address_with_number' => $request->address,
           ]);
 
-          if ($request->input("updateCoords")) {
+          if ($request->input("latitude")) {
+              $building->latitude = $request->input("latitude");
+              $building->longitude = $request->input("longitude");
+              $building->save();
+
+          } else {
               $this->geocodeBuilding($building);
           }
 
@@ -183,11 +188,17 @@ class HomeController extends Controller
           $building->region_id = $request->input("region_id");
           $building->postcode = $request->input("postcode");
           $building->address_with_number = $request->input("address");
-          $building->save();
 
-          if ($request->input("updateCoords")) {
-              $this->geocodeBuilding($building);
+          if ($request->input("latitude")) {
+              $building->latitude = $request->input("latitude");
+              $building->longitude = $request->input("longitude");
+
+              $this->setAddressFromCoordinates([
+                  $building->longitude = $request->input("longitude"),
+                  $building->latitude = $request->input("latitude")
+              ], $building);
           }
+          $building->save();
 
           return redirect(route("building"));
       }
@@ -196,19 +207,6 @@ class HomeController extends Controller
       {
           $building = Building::where("id", $id)->firstOrFail();
           $building->delete();
-          return redirect(route("building"));
-      }
-
-      public function updateCoordinates(Request $request, $id) {
-          $building = Building::findOrFail($id);
-
-          $lngLat = [
-              $request->input("longitude"),
-              $request->input("latitude")
-          ];
-
-          $this->saveCoordinates($building, $lngLat);
-          $this->setAddressFromCoordinates($lngLat, $building);
           return redirect(route("building"));
       }
 
@@ -248,7 +246,6 @@ class HomeController extends Controller
                   break;
               }
           }
-          $building->save();
       }
 
     /**
