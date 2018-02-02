@@ -61,13 +61,13 @@ Route::post('alcances', 'HomeController@alcances')->name('alcances');
 
 // building routes
 Route::prefix('building')->group(function() {
-    Route::get('/', 'HomeController@building')->name('building');
+    Route::get('/', 'BuildingController@showBuildings')->name('building');
 
     // building management
-    Route::post('add', 'HomeController@addBuilding')->name('building.add');
-    Route::post('edit', 'HomeController@editBuilding')->name('building.edit');
+    Route::post('add', 'BuildingController@addBuilding')->name('building.add');
+    Route::post('edit', 'BuildingController@editBuilding')->name('building.edit');
     Route::prefix("building/{id}")->group(function() {
-        Route::post("delete", "HomeController@deleteBuilding")->name("building.delete");
+        Route::post("delete", "BuildingController@deleteBuilding")->name("building.delete");
     });
 });
 
@@ -79,6 +79,6 @@ Route::prefix("profile")->group(function () {
     Route::post("/password", "HomeController@changePassword")->name("user.profile.changePassword");
 });
 
-Route::get("/tutorial", "HomeController@showTutorial")->name("user.tutorial");
+Route::get("/tutorial", "BuildingController@showTutorial")->name("user.tutorial");
 
 Route::post("gitPull", "GithubWebhoockController@pull");
