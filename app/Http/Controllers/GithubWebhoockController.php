@@ -20,7 +20,7 @@ class GithubWebhoockController extends Controller
     }
 
     private function validCall() {
-        return (!empty($this->secret) && !$this->verifySignature(file_get_contents("php://input")));
+        return (!empty($this->secret) && $this->verifySignature(file_get_contents("php://input")));
     }
 
     private function verifySignature($body) {
