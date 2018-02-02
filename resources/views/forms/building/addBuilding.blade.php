@@ -64,9 +64,17 @@
         @endif
     </div>
 
+    <style media="screen">
+        input[name="updateCoords"]not(:checked) + .locateOnMap {
+            display: none;
+        }
+    </style>
+
     <div class="form-check">
-        <input type="checkbox" name="updateCoords" value="1" class="form-check-input" id="updateCoords">
-        <label class="form-check-label" for="updateCoords">Obtener coordenadas de la dirección indicada</label>
+        <input type="hidden" name="latitude" id="createLatitude">
+        <input type="hidden" name="longitude" id="createLongitude">
+
+        <div id="createMap" style="min-height: 50vh;"></div>
     </div>
 
     <button type="submit" class="btn btn-default">

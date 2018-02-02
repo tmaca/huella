@@ -65,9 +65,15 @@
         @endif
     </div>
 
-    <div class="form-check">
-        <input type="checkbox" name="updateCoords" value="1" class="form-check-input" id="updateCoords">
-        <label class="form-check-label" for="updateCoords">Obtener coordenadas de la dirección indicada</label>
+    <div class="form-group">
+        <div class="alert alert-info">
+            <i class="fa fa-info"></i>
+            Nota: al seleccionar una nueva ubicación se actualizarán automaticamente los datos relacionados con la dirección del edificio.
+        </div>
+        <input type="hidden" name="latitude" id="editLatitude">
+        <input type="hidden" name="longitude" id="editLongitude">
+
+        <div id="editMap" style="min-height: 50vh;"></div>
     </div>
 
     <button type="submit" class="btn btn-default">
