@@ -47,9 +47,14 @@ function createBuildingsList() {
     document.getElementById("map").insertAdjacentElement("afterbegin", buildingsList);
 
     let title = document.createElement("h3");
-    title.innerText = "Edificios";
+    title.innerText = "Edificios ";
     title.className = "text-center";
     buildingsList.insertAdjacentElement("beforeend", title);
+
+    let img = document.createElement("img");
+    img.src = "/assets/img/building.png";
+    img.style.width = "2em";
+    title.insertAdjacentElement("beforeend", img);
 
     let list = document.createElement("ul");
     list.className = "list-unstyled px-2 text-capitalize";
