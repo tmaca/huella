@@ -81,6 +81,11 @@ class RegisterController extends Controller
         $validator = $this::validator($request->all());
 
         if ($validator->fails()) {
+
+            if($request->ajax()){
+                return response()->json(['error'=>$validator->errors()->all()]);
+            }
+
             $request->session()->flash("registerFailed", true);
             return redirect()->back()->withErrors($validator)->withInput();
         } else {

@@ -49,7 +49,7 @@ $(document).ready(function() {
         $("#message").removeClass("is-invalid");
 
         if (emailError !== undefined) {
-            $("#email").addClass("is-invalid").parent().append($("<div/>", {"class": "invalid-feedback ajaxError"}).append($("<strong/>", {text: emailError})));
+            $("#contactForm #email").addClass("is-invalid").parent().append($("<div/>", {"class": "invalid-feedback ajaxError"}).append($("<strong/>", {text: emailError})));
             buildSwalText(emailError);
         }
         if(subjectError !== undefined) {

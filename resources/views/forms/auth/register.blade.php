@@ -1,4 +1,4 @@
-<form method="POST" action="{{ route('register') }}" novalidate>
+<form id="registerForm" method="POST" action="{{ route('register') }}" novalidate>
     {{ csrf_field() }}
 
     <div class="form-group">
@@ -7,9 +7,9 @@
         <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
 
         @if ($errors->has('name'))
-        <span class="invalid-feedback">
+        <div class="invalid-feedback">
             <strong>{{ $errors->first('name') }}</strong>
-        </span>
+        </div>
         @endif
     </div>
 
@@ -19,9 +19,9 @@
         <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
 
         @if ($errors->has('email'))
-        <span class="invalid-feedback">
+        <div class="invalid-feedback">
             <strong>{{ $errors->first('email') }}</strong>
-        </span>
+        </div>
         @endif
     </div>
 
@@ -31,9 +31,9 @@
         <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
 
         @if ($errors->has('password'))
-        <span class="invalid-feedback">
+        <div class="invalid-feedback">
             <strong>{{ $errors->first('password') }}</strong>
-        </span>
+        </div>
         @endif
     </div>
 
@@ -43,18 +43,20 @@
     </div>
 
     <div class="form-check">
-        <label class="form-check-label">
+        <label id="terms" class="form-check-label">
             <input class="form-check-input" type="checkbox" name="terms" value="true" @if(old("terms")){{ 'checked' }}@endif>
                 He leido y acepto los <a href="{{ route("termsOfService") }}" target="_blank">Terminos del Servicio</a>
         </label>
 
         @if ($errors->has('terms'))
-        <span class="d-block invalid-feedback">
+        <div class="d-block invalid-feedback">
             <strong>{{ $errors->first('terms') }}</strong>
-        </span>
+        </div>
         @endif
     </div>
 
+    <br/>
+    
     <button type="submit" class="btn btn-primary">
         Register
     </button>

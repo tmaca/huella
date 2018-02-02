@@ -56,6 +56,11 @@ class LoginController extends Controller
         $validator = $this::validator($request->all());
 
         if ($validator->fails()) {
+
+            if($request->ajax()){
+                return response()->json(['error'=>$validator->errors()->all()]);
+            }
+
             $request->session()->flash("loginFailed", true);
             return redirect()->back()->withErrors($validator)->withInput();
         }
@@ -73,7 +78,6 @@ class LoginController extends Controller
             // user has verified email
             if (!empty($user->email_code) && !$user->verified) {
                 Auth::logout();
-
                 $request->session()->flash("emailVerified", false);
                 return redirect(route("landing"));
             }
@@ -83,6 +87,11 @@ class LoginController extends Controller
         } else {
             $request->session()->flash("loginFailed", true);
             $errors = [$this->username() => trans('auth.failed')];
+
+            if($request->ajax()){
+                return response()->json(['error'=> $errors]);
+            }
+
             return redirect()->back()->withErrors($errors)->withInput();
         }
 
