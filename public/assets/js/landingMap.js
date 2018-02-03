@@ -52,7 +52,7 @@ function createBuildingsList() {
     buildingsList.insertAdjacentElement("beforeend", title);
 
     let img = document.createElement("img");
-    img.src = "/assets/img/building.png";
+    img.src = "assets/img/building.png";
     img.style.width = "2em";
     title.insertAdjacentElement("beforeend", img);
 
