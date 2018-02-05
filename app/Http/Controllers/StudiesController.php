@@ -1,16 +1,12 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Hash;
-
 use App\Http\Controllers\MapboxCurl;
-
 use App\Mail\ContactMailUser;
 use App\Models\ContactoUsuario;
 use App\Models\Building;
@@ -19,33 +15,30 @@ use App\Mail\ContactMailAdmin;
 use App\Models\Region;
 use App\Models\Study;
 use App\Models\User;
-
 class StudiesController extends Controller
 {
     public function __construct() {
         $this->middleware("auth");
     }
 
-    public function viewAlcances($id)
+    public function alcancesView($id)
     {
-        return (view("user.viewAlcances", ['id'=>$id, "studies" => Building::find($id)->studies()->orderBy("year", "asc")->get()]));
+        return (view("user.alcances", ['id'=>$id, "studies" => Building::find($id)->studies()->orderBy("year", "asc")->get(), "action"=>"view"]));
     }
 
-    public function addAlcances($id)
+    public function alcancesCreate($id)
     {
-        return (view("user.addAlcances", ['id'=>$id, "studies" => Building::find($id)->studies()->orderBy("year", "asc")->get()]));
+        return (view("user.alcances", ['id'=>$id, "studies" => Building::find($id)->studies()->orderBy("year", "asc")->get(), "action"=>"create"]));
     }
 
      public function alcances(Request $request)
      {
          $validator = $this::alcancesValidator($request->all());
-
          if ($validator->fails())
          {
              $validator->errors()->add("inputYear", $request->year);
              return redirect()->back()->withErrors($validator)->withInput();
          }
-
          $alcances = Study::updateOrCreate([
              'building_id' => $request->building_id,
              'year' => $request->year,
@@ -60,14 +53,11 @@ class StudiesController extends Controller
              'a3_papel_carton_residuos_kg' => $request->a3_papel_carton_residuos_kg,
              'a3_factor_kwh_nm3' => $request->a3_factor_kwh_nm3,
          ]);
-
          if ($request->input("submit") == "calculateStudy") {
              $this->calculateStudy($alcances);
          }
-
          return redirect(route("alcancesView", ["id" => $request->building_id]))->with(["showYear" => $request->year]);
      }
-
      protected function alcancesValidator(array $data)
      {
          $validator = Validator::make($data, [
@@ -87,25 +77,19 @@ class StudiesController extends Controller
              'a3_papel_carton_residuos_kg' => 'required|numeric',
              'a3_factor_kwh_nm3' => 'required|numeric',
          ]);
-
          // validate ano field (create)
          $validator->sometimes('year', "unique:studies", function ($input) {
              return empty($input->id);
          });
-
          // validate ano field (update)
          $validator->sometimes('year', Rule::unique("studies")->ignore($data["id"], "id"), function ($input) {
              return !empty($input->id);
          });
-
          return $validator;
      }
-
-
     /**
      * Calculo huella
      */
-
      public function calculateStudy(Study $study) {
          $formula =
             $study->a1_gas_natural_kwh
@@ -117,9 +101,7 @@ class StudiesController extends Controller
             + $study->a3_papel_carton_consumo_kg
             + $study->a3_papel_carton_residuos_kg
             + $study->a3_factor_kwh_nm3;
-
          $study->carbon_footprint = $formula;
          $study->save();
      }
-
 }
