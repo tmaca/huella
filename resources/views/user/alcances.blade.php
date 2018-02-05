@@ -61,7 +61,7 @@
     </div>
     <script src="{{ asset("assets/js/user/studies.js") }}" defer></script>
 
-    @if($action == "create")
+    @if($action == "view")
     <script type="text/javascript">
         $(function () {
             $("#myTab .nav-item .nav-link").last().addClass("show active");
@@ -69,7 +69,7 @@
         });
     </script>
     @endif
-    
+
     @if(Session::get("showYear"))
     <script type="text/javascript">
         document.addEventListener("DOMContentLoaded", function () {
