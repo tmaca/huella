@@ -56,8 +56,11 @@ Route::get("terms-of-service", function () {
 Route::post('datoscontacto', 'HomeController@datoscontacto')->name('contact');
 
 //alcances
-Route::get('alcances/{id}', 'StudiesController@alcancesView')->name('alcancesView');
-Route::post('alcances', 'StudiesController@alcances')->name('alcances');
+Route::prefix("alcances")->group(function () {
+    Route::get('add/{id}', 'StudiesController@addAlcances')->name('alcances.add');
+    Route::get('view/{id}', 'StudiesController@viewAlcances')->name('alcances.view');
+    Route::post('alcances', 'StudiesController@alcances')->name('alcances');
+});
 
 // building routes
 Route::prefix('building')->group(function() {
