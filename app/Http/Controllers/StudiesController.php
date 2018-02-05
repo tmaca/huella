@@ -23,12 +23,12 @@ class StudiesController extends Controller
 
     public function alcancesView($id)
     {
-        return (view("user.alcances", ['id'=>$id, "studies" => Building::find($id)->studies()->orderBy("year", "asc")->get(), "action"=>"view"]));
+        return (view("user.alcances", ['id'=>$id, "studies" => Building::find($id)->studies()->whereNotNull("carbon_footprint")->orderBy("year", "asc")->get(), "action"=>"view"]));
     }
 
     public function alcancesCreate($id)
     {
-        return (view("user.alcances", ['id'=>$id, "studies" => Building::find($id)->studies()->orderBy("year", "asc")->get(), "action"=>"create"]));
+        return (view("user.alcances", ['id'=>$id, "studies" => Building::find($id)->studies()->whereNull("carbon_footprint")->orderBy("year", "asc")->get(), "action"=>"create"]));
     }
 
      public function alcances(Request $request)
@@ -55,8 +55,9 @@ class StudiesController extends Controller
          ]);
          if ($request->input("submit") == "calculateStudy") {
              $this->calculateStudy($alcances);
+             return redirect(route("alcancesView", ["id" => $request->building_id]))->with(["showYear" => $request->year]);
          }
-         return redirect(route("alcancesView", ["id" => $request->building_id]))->with(["showYear" => $request->year]);
+         return redirect(route("alcancesCreate", ["id" => $request->building_id]))->with(["showYear" => $request->year]);
      }
      protected function alcancesValidator(array $data)
      {
