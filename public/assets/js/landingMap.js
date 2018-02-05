@@ -43,7 +43,7 @@ function createMarkers(buildings) {
 function createBuildingsList() {
     let buildingsList = document.createElement("div");
     buildingsList.id = "buildings";
-    buildingsList.className = "py-3";
+    buildingsList.className = "d-none d-sm-block py-3";
     document.getElementById("map").insertAdjacentElement("afterbegin", buildingsList);
 
     let title = document.createElement("h3");
