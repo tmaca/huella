@@ -25,10 +25,15 @@ class StudiesController extends Controller
     public function __construct() {
         $this->middleware("auth");
     }
-    
-    public function alcancesView($id)
+
+    public function viewAlcances($id)
     {
-        return (view("user.alcances", ['id'=>$id, "studies" => Building::find($id)->studies()->orderBy("year", "asc")->get()]));
+        return (view("user.viewAlcances", ['id'=>$id, "studies" => Building::find($id)->studies()->orderBy("year", "asc")->get()]));
+    }
+
+    public function addAlcances($id)
+    {
+        return (view("user.addAlcances", ['id'=>$id, "studies" => Building::find($id)->studies()->orderBy("year", "asc")->get()]));
     }
 
      public function alcances(Request $request)
