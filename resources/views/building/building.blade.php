@@ -46,10 +46,10 @@
                             <td class="coordinates d-none" data-latitude="{{ $building->latitude}}" data-longitude="{{ $building->longitude }}"></td>
                             <td>
                                 <div class="btn-group">
-                                    <a class="btn btn-secondary" href="{{ route('alcances.view', ['id' => $building->id]) }}" title="Visualizar estudios">
+                                    <a class="btn btn-secondary" href="{{ route('alcancesView', ['id' => $building->id]) }}" title="Visualizar estudios">
                                         <fa class="fa fa-eye"></fa>
                                     </a>
-                                    <a class="btn btn-primary" href="{{ route('alcances.add', ['id' => $building->id]) }}" title="Gestionar Alcance">
+                                    <a class="btn btn-primary" href="{{ route('alcancesCreate', ['id' => $building->id]) }}" title="Gestionar alcances">
                                         <fa class="fa fa-paw"></fa>
                                     </a>
                                     <button class="btn btn-info" data-action="edit" title="Editar edificio">

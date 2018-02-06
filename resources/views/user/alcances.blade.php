@@ -20,6 +20,15 @@
                 </li>
                 @endforeach
             @endif
+
+            @if($action == "create")
+            <li class="nav-item">
+                <a class="nav-link{{ (empty($errors->first("inputYear")) && !Session::get("showYear")) ? " active" : "" }}" id="contact-tab" data-toggle="tab" href="#contact">
+                    <i class="fa fa-plus"></i>
+                    Crear nuevo
+                </a>
+            </li>
+            @endif
         </ul>
         <div class="tab-content" id="myTabContent">
             @if(count($studies) > 0)
@@ -41,16 +50,26 @@
                 </div>
                 @endforeach
             @endif
+
+            @if($action == "create")
+            <div class="tab-pane fade{{ (empty($errors->first("inputYear")) && !Session::get("showYear")) ? " show active" : "" }}" id="contact">
+                @include("forms.user.alcances", ["study" => new App\Models\Study])
+            </div>
+            @endif
         </div>
 
     </div>
     <script src="{{ asset("assets/js/user/studies.js") }}" defer></script>
+
+    @if($action == "view")
     <script type="text/javascript">
         $(function () {
             $("#myTab .nav-item .nav-link").last().addClass("show active");
             $("#myTabContent .tab-pane").last().addClass("show active");
         });
     </script>
+    @endif
+
     @if(Session::get("showYear"))
     <script type="text/javascript">
         document.addEventListener("DOMContentLoaded", function () {
