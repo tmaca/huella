@@ -76,7 +76,7 @@
         <div id="editMap" style="min-height: 50vh;"></div>
     </div>
 
-    <button type="submit" class="btn btn-default">
+    <button type="submit" class="btn btn-default topp">
         <div class="fa fa-pencil"></div>
         Guardar Cambios
     </button>
