@@ -167,7 +167,7 @@ class HomeController extends Controller
               $user->password = Hash::make($request->input("newPassword"));
               $user->save();
 
-              return redirect(route("user.changePassword"))->with("changed", true);
+              return redirect(route("user.profile.changePassword"))->with("changed", true);
               return $request->all();
 
           } else {
