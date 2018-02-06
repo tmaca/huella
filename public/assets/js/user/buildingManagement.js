@@ -18,7 +18,7 @@ function addEditEvent() {
 function deleteBuilding() {
     swal({
         title: "Eliminar edificio",
-        text: "Esta accción no puede ser revertida, ¿deseas continuar?",
+        text: "Esta acción no puede ser revertida, ¿deseas continuar?",
         icon: "warning",
         dangerMode: true,
         buttons: {

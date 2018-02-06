@@ -18,7 +18,7 @@ function addReplyEvent() {
 function deleteMail() {
     swal({
         title: "Eliminar correo",
-        text: "Esta accción no puede ser revertida, ¿deseas continuar?",
+        text: "Esta acción no puede ser revertida, ¿deseas continuar?",
         icon: "warning",
         dangerMode: true,
         buttons: {
