@@ -26,7 +26,7 @@ class BuildingController extends Controller
     public function __construct() {
         $this->middleware("auth");
     }
-    
+
     public function showTutorial() {
         return redirect(route("building"))->with(["showTutorial" => true]);
     }
@@ -177,5 +177,15 @@ class BuildingController extends Controller
                 break;
             }
         }
+    }
+
+    public function showStats($id = null) {
+        if (!$id) {
+            $buildings = Auth::user()->buildings;
+        } else {
+            $buildings = Auth::user()->buildings()->where("id", $id)->get();
+        }
+
+        return view("building.stats", ["buildings" => $buildings, "year" => date("Y")]);
     }
 }
