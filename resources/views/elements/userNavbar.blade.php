@@ -35,13 +35,18 @@
                 <a href="{{ URL::route('building') }}"><i class="fa fa-globe fa-lg"></i> Edificios</a>
             </li>
 
-            <li data-toggle="collapse" data-target="#new" class="collapsed">
+            <li data-toggle="collapse" data-target="#stats" class="collapsed">
                 <a href="#"><i class="fa fa-bar-chart fa-lg"></i>  Estadísticas <span class="arrow"></span></a>
             </li>
-            <ul class="sub-menu collapse" id="new">
-                <li>Etapa 1</li>
-                <li>Etapa 2</li>
-                <li>Etapa 3</li>
+            <ul class="sub-menu collapse" id="stats">
+                <a href="{{ route("building.stats") }}">
+                    <li>Todos los edificios</li>
+                </a>
+                @foreach(Auth::user()->buildings as $building)
+                <a href="{{ route("building.stats", ["id" => $building->id]) }}">
+                    <li>{{ $building->name }}</li>
+                </a>
+                @endforeach
             </ul>
 
         </ul>
