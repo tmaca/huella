@@ -76,10 +76,10 @@
         </div>
     </div>
 
-    <button type="submit" class="btn btn-primary">
+    <button type="submit" class="btn btn-primary topButtonProfile">
         Guardar cambios
     </button>
-    <a href="{{ route("user.profile.changePassword") }}" class="btn btn-default">
+    <a href="{{ route("user.profile.changePassword") }}" class="btn btn-default topButtonProfilePass">
         <i class="fa fa-key"></i>
         Cambiar contraseña
     </a>
