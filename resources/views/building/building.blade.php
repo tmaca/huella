@@ -76,7 +76,7 @@
             </table>
         </div>
 
-        <button class="btn btn-default" type="button" data-toggle="modal" data-target="#addBuildingModal">
+        <button class="btn btn-default topForMobile" type="button" data-toggle="modal" data-target="#addBuildingModal">
             Añadir edificio
             <i class="fa fa-plus"></i>
         </button>

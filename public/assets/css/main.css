@@ -388,6 +388,13 @@ a.botonHeader::before {
   transition: all 1s ease;
 }
 
+@media (max-width: 480px) {
+  .topForMobile {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+
 @media (max-width: 720px) {
   .toggle-btn {
     display: inline-block;
@@ -515,9 +522,13 @@ footer #textofooter {
   width: 700px;
 }
 
+.topp {
+  margin-top: 20px;
+}
+
 @media (max-width: 480px) {
   #loginModal .modal-dialog {
-    width: 250px;
+    width: 300px;
   }
   #registerModal .modal-dialog {
     width: 300px;
