@@ -52,7 +52,7 @@
                         <i class="fa fa-building-o fa-4x"></i>
                     </div>
                     <div class="card-body text-center">
-                        Para comenzar has de registrar el edificio, símplemente indica un nombre y la dirección del mismo.
+                        Para comenzar has de registrar el edificio, simplemente indica un nombre y la dirección del mismo.
                     </div>
                 </div>
                 <div class="card bg-primary text-white">

@@ -38,7 +38,7 @@
                     @if(!$study->carbon_footprint)
                     <div class="alert alert-warning">
                         <i class="fa fa-exclamation-triangle"></i>
-                        <strong>¡Atención!</strong> no se ha realizado aún el calculo de la huella. Finalize la compleción de los datos y pulse sobre el botón "calcular huella de carbono". Una vez calculada la huella no podrá editar los campos.
+                        <strong>¡Atención!</strong> no se ha realizado aún el cálculo de la huella. Finalice la introducción de los datos y pulse sobre el botón "calcular huella de carbono". Una vez calculada la huella NO podrá editar los campos.
                     </div>
                     @else
                     <div class="alert alert-info">

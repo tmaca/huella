@@ -14,7 +14,7 @@
                         <td class="d-none">#</td>
                         <td>Nombre</td>
                         <td class="d-none">Descripción</td>
-                        <td class="d-none">Pais</td>
+                        <td class="d-none">País</td>
                         <td>Provincia</td>
                         <td class="d-none">CP <i class="fa fa-info" title="Código postal"></i></td>
                         <td>Dirección</td>

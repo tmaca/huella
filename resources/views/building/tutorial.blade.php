@@ -10,7 +10,7 @@
                     <div class="step-0">
                         <h5>Introducción</h5>
                         <p class="text-justify">
-                            ¡Bienvenido y gracias por unirte! Ya queda menos para dar finalización al calculo de la huella, durante los siguientes minutos te vamos a explicar los pasos que has de seguir para poder dar finalización a la huella.
+                            ¡Bienvenido y gracias por unirte! Ya queda menos para dar finalización al cálculo de la huella, durante los siguientes minutos te vamos a explicar los pasos que has de seguir para poder dar finalización a la huella.
                         </p>
                         <p class="text-justify">
                             Vamos a resumirte brevemente lo que vamos a explicar por si no quieres leer todo esto y prefieres investigar por tu cuenta:
@@ -73,7 +73,7 @@
                         <h5>Visualización de estadísticas</h5>
 
                         <p class="text-justify">
-                            Una vez realizado el calculo final podrás ver comparaciones entre los edificios que has introducido y ver una comparativa respecto a otros centros registrados.
+                            Una vez realizado el cálculo final podrás ver comparaciones entre los edificios que has introducido y ver una comparativa respecto a otros centros registrados.
                         </p>
                     </div>
                 </div>
