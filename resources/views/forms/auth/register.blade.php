@@ -58,6 +58,6 @@
     <br/>
     
     <button type="submit" class="btn btn-primary">
-        Register
+        Registrarse
     </button>
 </form>
