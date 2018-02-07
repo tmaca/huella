@@ -61,3 +61,20 @@
 
 
 }
+
+@media (max-width: 579px) and (min-width: 481px) {
+
+  #loginModal .modal-dialog{
+    width:400px;
+  }
+
+  #registerModal .modal-dialog{
+    width:400px;
+  }
+
+  .modal-content{
+    width:400px;
+  }
+
+
+}
