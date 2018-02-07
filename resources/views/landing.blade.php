@@ -14,7 +14,7 @@
 
                 <div class="col-12 col-sm-8 order-1 order-sm-2 text-justify">
                     <p>
-                        El cambio climático, provocado por el aumento de la emisión de Gases de Efecto Invernadero(GEI) y en especial del CO<sub>2</sub>, es uno de los mayores problemas de nuestro tiempo y existen evidencias considerables de que la mayor parte de este aumento, ha sido causado por las actividades humanas. Hoy día, casi todas las actividades que realizamos y bienes que poseemos y utilizamos implican consumir materias primas como agua,  energía, combustibles fósiles...y además  una generación de residuos, contribuyendo a ese aumento de emisiones a la atmósfera.
+                        El cambio climático, provocado por el aumento de la emisión de Gases de Efecto Invernadero (GEI) y en especial del CO<sub>2</sub>, es uno de los mayores problemas de nuestro tiempo y existen evidencias considerables de que la mayor parte de este aumento, ha sido causado por las actividades humanas. Hoy día, casi todas las actividades que realizamos y bienes que poseemos y utilizamos implican consumir materias primas como agua, energía, combustibles fósiles... y además una generación de residuos, contribuyendo a ese aumento de emisiones a la atmósfera.
 
                         La Huella de Carbono se conoce como una medida de la totalidad de gases de efecto invernadero, también conocidos como GEI, emitidos por efecto directo (por el centro/organización) o indirecto (emitidos por terceros).
 
