@@ -1,8 +1,13 @@
-@extends("layouts.main")
-
-@section("title", "En mantenimiento")
-
-@section("content")
+<!DOCTYPE html>
+<html lang="{{ app()->getLocale() }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>En mantenimiento</title>
+    @include("elements.head")
+</head>
+<body class="bg-primary">
     <div class="container d-flex justify-content-center align-items-center error">
 
         <div>
@@ -14,8 +19,12 @@
                 <p class="text-center">
                     Disculpad la interrupción
                 </p>
+                <p class="text-center text-primary">
+                     <i class="fa fa-paw fa-2x"></i>
+                </p>
             </div>
         </div>
 
     </div>
-@endsection
+</body>
+</html>
