@@ -67,6 +67,7 @@ class StudiesController extends Controller
                  'required',
                  'numeric',
                  'min:' . (date("Y") - 20),
+                 'max:' . date("Y")
              ],
              'a1_gas_natural_kwh'=>'required|numeric',
              'a1_gas_natural_nm3'=>'required|numeric',
@@ -78,11 +79,11 @@ class StudiesController extends Controller
              'a3_papel_carton_residuos_kg' => 'required|numeric',
              'a3_factor_kwh_nm3' => 'required|numeric',
          ]);
-         // validate ano field (create)
-         $validator->sometimes('year', "unique:studies", function ($input) {
+         // validate year field (create)
+         $validator->sometimes('year', Rule::unique("studies")->where("building_id", $data["building_id"]), function ($input) {
              return empty($input->id);
          });
-         // validate ano field (update)
+         // validate year field (update)
          $validator->sometimes('year', Rule::unique("studies")->ignore($data["id"], "id"), function ($input) {
              return !empty($input->id);
          });
