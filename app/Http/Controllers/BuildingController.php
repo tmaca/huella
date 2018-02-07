@@ -184,6 +184,10 @@ class BuildingController extends Controller
             $buildings = Auth::user()->buildings;
         } else {
             $buildings = Auth::user()->buildings()->where("id", $id)->get();
+
+            if (count($buildings) == 0) {
+                abort(404);
+            }
         }
 
         return view("building.stats", ["buildings" => $buildings, "year" => date("Y")]);
