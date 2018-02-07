@@ -1,6 +1,6 @@
 @extends("layouts.userHome")
 
-@section("title", "Inicio")
+@section("title", (($action == "view") ? "Visualización" : "Gestión") . " de alcances")
 
 @section("userContent")
 
@@ -19,6 +19,13 @@
                     </a>
                 </li>
                 @endforeach
+            @elseif(count($studies) == 0 && $action == "view")
+            <li class="nav-item">
+                <a class="nav-link active">
+                    <i class="fa fa-exclamation-triangle text-warning" title="Huella no calculada"></i>
+                    Sin alcances
+                </a>
+            </li>
             @endif
 
             @if($action == "create")
@@ -49,6 +56,10 @@
                     @include("forms.user.alcances", ["study" => $study])
                 </div>
                 @endforeach
+            @elseif(count($studies) == 0 && $action == "view")
+            <p>
+                No se ha encontrado ningún alcance finalizado, <a href="{{ route("alcancesCreate", ["id" => $id]) }}">acceder al panel de gestión</a>.
+            </p>
             @endif
 
             @if($action == "create")
