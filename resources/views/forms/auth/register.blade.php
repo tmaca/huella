@@ -45,7 +45,7 @@
     <div class="form-check">
         <label id="terms" class="form-check-label">
             <input class="form-check-input" type="checkbox" name="terms" value="true" @if(old("terms")){{ 'checked' }}@endif>
-                He leido y acepto los <a href="{{ route("termsOfService") }}" target="_blank">Terminos del Servicio</a>
+                He leído y acepto los <a href="{{ route("termsOfService") }}" target="_blank">Términos del Servicio</a>
         </label>
 
         @if ($errors->has('terms'))
@@ -58,6 +58,6 @@
     <br/>
     
     <button type="submit" class="btn btn-primary">
-        Register
+        Registrarse
     </button>
 </form>

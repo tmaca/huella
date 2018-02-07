@@ -11,7 +11,7 @@
 <form id="contactForm" action="{{ route('contact') }}" method="POST">
     {{ csrf_field() }}
     <div class="form-group">
-        <label for="email">Email:</label>
+        <label for="email">E-mail:</label>
         <input id="email" name="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" value="{{ old("email") ? old("email") : !Auth::user() ? "" : Auth::user()->email }}">
 
         @if ($errors->has('email'))

@@ -68,7 +68,7 @@
     <div class="form-group">
         <div class="alert alert-info">
             <i class="fa fa-info"></i>
-            Nota: al seleccionar una nueva ubicación se actualizarán automaticamente los datos relacionados con la dirección del edificio.
+            Nota: al seleccionar una nueva ubicación se actualizarán automáticamente los datos relacionados con la dirección del edificio.
         </div>
         <input type="hidden" name="latitude" id="editLatitude">
         <input type="hidden" name="longitude" id="editLongitude">

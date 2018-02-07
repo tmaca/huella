@@ -23,7 +23,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ Request::url() == route("landing") ? "" : route("landing") }}#comoFunciona">
-                        Como funciona
+                        Cómo funciona
                     </a>
                 </li>
                 <li class="nav-item">
@@ -97,7 +97,7 @@
                       <div class="dropdown-divider"></div>
                       <a class="dropdown-item" href="{{ route("admin.logout") }}" onclick="event.preventDefault(); document.getElementById('adminlogout-form').submit();">
                           <i class="fa fa-sign-out"></i>
-                          Cerrar Sesion
+                          Cerrar Sesión
                       </a>
                       <form id="adminlogout-form" action="{{ route("admin.logout") }}" method="POST" style="display:none">
                           {{ csrf_field() }}

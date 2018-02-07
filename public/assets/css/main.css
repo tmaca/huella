@@ -168,6 +168,10 @@ a.botonHeader::before {
   background-color: rgba(167, 222, 55, 0.44);
 }
 
+#queEs p {
+  margin-top: 20px;
+}
+
 #comoFunciona,
 #centrosInvolucrados {
   min-height: 50vh;
@@ -245,7 +249,6 @@ a.botonHeader::before {
 
 .nav-side-menu {
   overflow: auto;
-  font-family: Roboto;
   font-size: 14px;
   font-weight: 200;
   background-color: #2e353d;
@@ -393,6 +396,14 @@ a.botonHeader::before {
     margin-top: 20px;
     margin-bottom: 20px;
   }
+  .topButtonProfile {
+    margin-top: 20px;
+  }
+  .topButtonProfilePass {
+    margin-top: 10px;
+    margin-left: -10px;
+    margin-bottom: 10px;
+  }
 }
 
 @media (max-width: 720px) {
@@ -535,6 +546,18 @@ footer #textofooter {
   }
   .modal-content {
     width: 300px;
+  }
+}
+
+@media (max-width: 579px) and (min-width: 481px) {
+  #loginModal .modal-dialog {
+    width: 400px;
+  }
+  #registerModal .modal-dialog {
+    width: 400px;
+  }
+  .modal-content {
+    width: 400px;
   }
 }
 

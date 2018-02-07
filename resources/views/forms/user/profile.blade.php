@@ -27,7 +27,7 @@
     </div>
 
     <div class="form-group row">
-        <label for="telephone" class="col-form-label col-sm-4" >Telefono</label>
+        <label for="telephone" class="col-form-label col-sm-4" >Teléfono</label>
         <div class="col-sm-8">
             <input id="telephone" name="telephone" class="form-control{{ $errors->has('telephone') ? ' is-invalid' : '' }}" value="{{ (old('telephone')) ? old('telephone') : Auth::user()->telephone }}">
 
@@ -76,10 +76,10 @@
         </div>
     </div>
 
-    <button type="submit" class="btn btn-primary">
+    <button type="submit" class="btn btn-primary topButtonProfile">
         Guardar cambios
     </button>
-    <a href="{{ route("user.profile.changePassword") }}" class="btn btn-default">
+    <a href="{{ route("user.profile.changePassword") }}" class="btn btn-default topButtonProfilePass">
         <i class="fa fa-key"></i>
         Cambiar contraseña
     </a>

@@ -33,7 +33,7 @@
         <label class="form-check-label">
             <input class="form-check-input" type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Mantener sesión iniciada
             <small class="form-text text-muted">
-                Marcando la siguiente casilla la sesión será conservada hasta cierres la sesión manualmente
+                Marcando la siguiente casilla la sesión será conservada hasta que cierres la sesión manualmente
             </small>
         </label>
     </div>

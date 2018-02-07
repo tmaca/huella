@@ -31,7 +31,6 @@
 
 .nav-side-menu {
     overflow: auto;
-    font-family: Roboto;
     font-size: 14px;
     font-weight: 200;
     background-color: #2e353d;
@@ -155,6 +154,15 @@
     .topForMobile{
         margin-top: 20px;
         margin-bottom: 20px;
+    }
+
+    .topButtonProfile{
+        margin-top: 20px;
+    }
+    .topButtonProfilePass{
+        margin-top: 10px;
+        margin-left: -10px;
+        margin-bottom: 10px;
     }
 
 }
