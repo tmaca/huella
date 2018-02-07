@@ -38,7 +38,7 @@
 
     <section class="container-fluid row mx-0" id="comoFunciona">
         <div class="container align-self-center">
-            <h1>Como funciona</h1>
+            <h1>Cómo funciona</h1>
             <hr>
 
             <p class="text-justify">
