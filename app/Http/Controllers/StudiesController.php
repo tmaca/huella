@@ -84,7 +84,7 @@ class StudiesController extends Controller
              return empty($input->id);
          });
          // validate year field (update)
-         $validator->sometimes('year', Rule::unique("studies")->ignore($data["id"], "id"), function ($input) {
+         $validator->sometimes('year', Rule::unique("studies")->where("building_id", $data["building_id"])->ignore($data["id"], "id"), function ($input) {
              return !empty($input->id);
          });
          return $validator;
