@@ -245,7 +245,6 @@ a.botonHeader::before {
 
 .nav-side-menu {
   overflow: auto;
-  font-family: Roboto;
   font-size: 14px;
   font-weight: 200;
   background-color: #2e353d;

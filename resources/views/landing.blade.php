@@ -14,15 +14,22 @@
 
                 <div class="col-12 col-sm-8 order-1 order-sm-2 text-justify">
                     <p>
-                        El cambio climático, provocado por la emisión de Gases de Efecto Invernadero y en especial del CO<sup>2</sup>, es uno de los mayores probleas de nuestro tiempo y existen evidencias considerables de que la mayor parte del calentamiento global ha sido causado por las actividades humanas. Hoy día, casi todas las actividades que realizamos y bienes que poseemos y utilizamos implican <strong>consumir energía</strong>, lo que significa <strong>contribuir a las emisiones a la atmósfera</strong>. La <strong>Huella de Carbono</strong> se conoce como la totalidad de gases de efecto invernadero, también conocidos como GEI, emitidos por efecto directo (por el centro/organización) o indirecto (emitidos por terceros).
+                        El cambio climático, provocado por el aumento de la emisión de Gases de Efecto Invernadero(GEI) y en especial del CO<sub>2</sub>, es uno de los mayores problemas de nuestro tiempo y existen evidencias considerables de que la mayor parte de este aumento, ha sido causado por las actividades humanas. Hoy día, casi todas las actividades que realizamos y bienes que poseemos y utilizamos implican consumir materias primas como agua,  energía, combustibles fósiles...y además  una generación de residuos, contribuyendo a ese aumento de emisiones a la atmósfera.
+
+                        La Huella de Carbono se conoce como una medida de la totalidad de gases de efecto invernadero, también conocidos como GEI, emitidos por efecto directo (por el centro/organización) o indirecto (emitidos por terceros).
+
                     </p>
                     <p class="d-none d-sm-block">
-                        Bajo este prisma, la Huella de Carbono, representa una medida para la contribución de las organizaciones a ser entidades socialmente responsables y un elemento más de concienciación para la asunción entre los ciudadanos de prácticas más sostenibles. Con esta iniciativa se pretende cuantificar la cantidad de emisiones de GEI, medidas en emisiones de CO2 equivalente, que son liberadas a la atmósfera debido a nuestras actividades cotidianas o a la comercialización de un producto. Este análisis abarca todas las actividades de su ciclo de vida (desde la adquisición de las materias primas hasta su gestión como residuo) permitiendo a los consumidores decidir qué alimentos comprar en base a la contaminación generada como resultado de los procesos por los que ha pasado.
+                        Bajo este prisma, la Huella de Carbono, representa una medida de la contribución de las organizaciones a dichas emisiones. Esto nos ayuda a ser entidades socialmente responsables y nos brinda una oportunidad más de concienciación para la divulgación entre los ciudadanos de prácticas más sostenibles con el objetivo de reducir nuestra contribución al cambio climático.
+                        Con esta iniciativa se pretende cuantificar la cantidad de emisiones de GEI, medidas en emisiones de CO<sub>2</sub> equivalente, que son liberadas a la atmósfera debido a  en las actividades cotidianas de  nuestra organización  incluyendo una visión del ciclo de vida de los productos que utilizamos diariamente, desde la adquisición de las materias primas hasta su gestión como residuo. Esto permite a los consumidores decidir qué  productos comprar.
+
                     </p>
                 </div>
 
                 <p class="d-block d-sm-none col-sm-8 order-3 text-justify">
-                    Bajo este prisma, la Huella de Carbono, representa una medida para la contribución de las organizaciones a ser entidades socialmente responsables y un elemento más de concienciación para la asunción entre los ciudadanos de prácticas más sostenibles. Con esta iniciativa se pretende cuantificar la cantidad de emisiones de GEI, medidas en emisiones de CO2 equivalente, que son liberadas a la atmósfera debido a nuestras actividades cotidianas o a la comercialización de un producto. Este análisis abarca todas las actividades de su ciclo de vida (desde la adquisición de las materias primas hasta su gestión como residuo) permitiendo a los consumidores decidir qué alimentos comprar en base a la contaminación generada como resultado de los procesos por los que ha pasado.
+                    Bajo este prisma, la Huella de Carbono, representa una medida de la contribución de las organizaciones a dichas emisiones. Esto nos ayuda a ser entidades socialmente responsables y nos brinda una oportunidad más de concienciación para la divulgación entre los ciudadanos de prácticas más sostenibles con el objetivo de reducir nuestra contribución al cambio climático.
+                    Con esta iniciativa se pretende cuantificar la cantidad de emisiones de GEI, medidas en emisiones de CO<sub>2</sub> equivalente, que son liberadas a la atmósfera debido a  en las actividades cotidianas de  nuestra organización  incluyendo una visión del ciclo de vida de los productos que utilizamos diariamente, desde la adquisición de las materias primas hasta su gestión como residuo. Esto permite a los consumidores decidir qué  productos comprar.
+
                 </p>
 
             </div>
@@ -35,7 +42,7 @@
             <hr>
 
             <p class="text-justify">
-                Nunca había sido tan fácil realizar el calculo de la huella de carbono, una vez activada tu cuenta sigue los siguientes pasos.
+                Nunca había sido tan fácil realizar el cálculo de la huella de carbono, una vez activada tu cuenta sigue los siguientes pasos.
             </p>
 
             <div class="card-deck mb-2">
@@ -53,7 +60,7 @@
                         <i class="fa fa-database fa-4x"></i>
                     </div>
                     <div class="card-body text-center">
-                        Una vez hayas terminados con la inserción de los edificios inserta los datos requeridos. Es posible que necesites tener las facturas a mano para poder completar de forma precisa los datos.
+                        Una vez hayas terminado con la inserción de los edificios inserta los datos requeridos. Es posible que necesites tener las facturas a mano para poder completar de forma precisa los datos.
                     </div>
                 </div>
                 <div class="card bg-primary text-white">
