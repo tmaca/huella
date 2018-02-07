@@ -84,4 +84,14 @@
     </script>
     @endif
 
+    @if($errors->has("year"))
+    <script type="text/javascript">
+        $(function () {
+            if (!!$("#myTab").find("li.active")) {
+                $("#myTab a").last().click();
+            }
+        });
+    </script>
+    @endif
+
 @endsection
