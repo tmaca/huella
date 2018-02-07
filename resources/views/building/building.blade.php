@@ -100,7 +100,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h4 class="modal-title">Editar Edificio</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar"><span   aria-hidden="true">&times;</span></button>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar"><span aria-hidden="true">&times;</span></button>
                     </div>
                     <div class="modal-body">
                         @include("forms.building.editBuilding")
@@ -108,6 +108,21 @@
                 </div>
             </div>
         </div>
+
+        @if(Session::get("showModal"))
+        <script type="text/javascript">
+            $(function () {
+                @switch (Session::get("showModal"))
+                    @case("create")
+                        $("#addBuildingModal").modal("show");
+                        @break
+                    @case("edit")
+                        $("#editBuildingModal").modal("show");
+                        @break
+                @endswitch
+            });
+        </script>
+        @endif
 
         @if (count(Auth::user()->buildings) == 0 || Request::session()->get("showTutorial") == true)
             @include("building.tutorial")

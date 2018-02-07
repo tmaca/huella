@@ -78,7 +78,7 @@ class BuildingController extends Controller
         $validator = $this::buildingValidator($request->all());
         if ($validator->fails())
         {
-            return redirect(route("building"))->withErrors($validator)->withInput();
+            return redirect(route("building"))->withErrors($validator)->withInput()->with(["showModal" => "create"]);
         }
 
         $building = Building::create([
@@ -109,7 +109,7 @@ class BuildingController extends Controller
 
         if ($validator->fails())
         {
-            return redirect(route("building"))->withErrors($validator)->withInput();
+            return redirect(route("building"))->withErrors($validator)->withInput()->with(["showModal" => "edit"]);
         }
 
         $building = Building::where("id", $request->id)->firstOrFail();
