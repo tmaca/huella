@@ -105,4 +105,23 @@ class RegisterController extends Controller
         $request->session()->flash("emailAddress", $user->email);
         return redirect(route("landing"));
     }
+
+    protected function registered(Request $request, $user)
+    {
+        $user->generateToken();
+
+        return response()->json(['data' => $user->toArray()], 201);
+    }
+
+    public function registerApi(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        $user = $this->create($request->all());
+
+        $this->guard()->login($user);
+
+        return $this->registered($request, $user)
+                        ?: redirect($this->redirectPath());
+    }
 }
