@@ -110,6 +110,8 @@ class LoginController extends Controller
             ]);
         }
 
+        // TODO verify email
+
         return $this->sendFailedLoginResponse($request);
     }
 

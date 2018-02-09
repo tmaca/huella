@@ -43,11 +43,9 @@ class ApiController extends Controller
 
    public function updateBuilding(Request $request, Building $building)
    {
-       if (Auth::user()->buildings()->find($building)) {
-           $building->update($request->all());
+       $building->update($request->all());
 
-           return response()->json($building, 200);
-       }
+       return response()->json($building, 200);
    }
 
    public function deleteBuilding(Building $building)
