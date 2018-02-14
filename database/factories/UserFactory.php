@@ -14,12 +14,12 @@ use Faker\Generator as Faker;
 */
 
 $factory->define(App\Models\User::class, function (Faker $faker) {
-    $password = password_hash("password", PASSWORD_DEFAULT);
+    $password = password_hash('password', PASSWORD_DEFAULT);
     $verified = false;
 
     return [
         'name' => $faker->name,
-        'nif' => strtoupper($faker->randomLetter) . $faker->randomNumber(8),
+        'nif' => strtoupper($faker->randomLetter).$faker->randomNumber(8),
         'telephone' => $faker->randomNumber(9),
         'email' => $faker->unique()->safeEmail,
         'password' => $password ? $password : bcrypt('secret'),

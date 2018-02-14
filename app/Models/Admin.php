@@ -34,8 +34,7 @@ class Admin extends Authenticatable
     /**
      * Send the password reset notification.
      *
-     * @param  string  $token
-     * @return void
+     * @param string $token
      */
     public function sendPasswordResetNotification($token)
     {

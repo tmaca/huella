@@ -13,15 +13,15 @@
 
 Route::get('/', function () {
     return view('landing');
-})->name("landing");
+})->name('landing');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 
-Route::get("/logout", "Auth\LoginController@logout");
+Route::get('/logout', "Auth\LoginController@logout");
 
-Route::get("/email/confim/{token}", "Auth\RegisterController@verifyEmail")->name("registerEmailConfirmation");
+Route::get('/email/confim/{token}', "Auth\RegisterController@verifyEmail")->name('registerEmailConfirmation');
 
 Route::prefix('admin')->group(function () {
     Route::get('/', 'AdminController@index')->name('admin.home');
@@ -35,22 +35,22 @@ Route::prefix('admin')->group(function () {
     Route::post('/password/reset', 'AuthAdmin\ResetPasswordController@reset');
 
     // user management
-    Route::post("user/edit", "AdminController@editUser")->name("admin.user.edit");
-    Route::prefix("user/{id}")->group(function () {
-        Route::post("delete", "AdminController@deleteUser")->name("admin.user.delete");
+    Route::post('user/edit', 'AdminController@editUser')->name('admin.user.edit');
+    Route::prefix('user/{id}')->group(function () {
+        Route::post('delete', 'AdminController@deleteUser')->name('admin.user.delete');
     });
 
     // messages management
-    Route::get('/mails', 'AdminController@showMessages')->name("admin.mails.show");
-    Route::prefix("mail/{id}")->group(function () {
-        Route::post("delete", "AdminController@deleteMail")->name("admin.mail.delete");
-        Route::post("reply", "AdminController@replyMail")->name("admin.mail.reply");
+    Route::get('/mails', 'AdminController@showMessages')->name('admin.mails.show');
+    Route::prefix('mail/{id}')->group(function () {
+        Route::post('delete', 'AdminController@deleteMail')->name('admin.mail.delete');
+        Route::post('reply', 'AdminController@replyMail')->name('admin.mail.reply');
     });
 });
 
-Route::get("terms-of-service", function () {
-    return view("tos");
-})->name("termsOfService");
+Route::get('terms-of-service', function () {
+    return view('tos');
+})->name('termsOfService');
 
 // Contact
 Route::post('datoscontacto', 'HomeController@datoscontacto')->name('contact');
@@ -68,19 +68,19 @@ Route::prefix('building')->group(function () {
     // building management
     Route::post('add', 'BuildingController@addBuilding')->name('building.add');
     Route::post('edit', 'BuildingController@editBuilding')->name('building.edit');
-    Route::prefix("building/{id}")->group(function () {
-        Route::post("delete", "BuildingController@deleteBuilding")->name("building.delete");
+    Route::prefix('building/{id}')->group(function () {
+        Route::post('delete', 'BuildingController@deleteBuilding')->name('building.delete');
     });
 });
 
-Route::prefix("profile")->group(function () {
-    Route::get("/", "HomeController@showProfile")->name("user.profile");
-    Route::post("/", "HomeController@saveProfile")->name("user.profile");
+Route::prefix('profile')->group(function () {
+    Route::get('/', 'HomeController@showProfile')->name('user.profile');
+    Route::post('/', 'HomeController@saveProfile')->name('user.profile');
 
-    Route::get("/password", "HomeController@showChangePassword")->name("user.profile.changePassword");
-    Route::post("/password", "HomeController@changePassword")->name("user.profile.changePassword");
+    Route::get('/password', 'HomeController@showChangePassword')->name('user.profile.changePassword');
+    Route::post('/password', 'HomeController@changePassword')->name('user.profile.changePassword');
 });
 
-Route::get("/tutorial", "BuildingController@showTutorial")->name("user.tutorial");
+Route::get('/tutorial', 'BuildingController@showTutorial')->name('user.tutorial');
 
-Route::post("gitPull", "GithubWebhoockController@pull");
+Route::post('gitPull', 'GithubWebhoockController@pull');

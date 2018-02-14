@@ -5,8 +5,6 @@ namespace App\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Contracts\Queue\ShouldQueue;
-
 use App\Models\ContactoUsuario;
 
 class ReplyContactMail extends Mailable
@@ -19,15 +17,13 @@ class ReplyContactMail extends Mailable
 
     /**
      * Create a new message instance.
-     *
-     * @return void
      */
     public function __construct(ContactoUsuario $mail, $reply)
     {
         $this->mail = $mail;
         $this->reply = $reply;
 
-        $this->subject = ((substr(strtoupper($this->mail->subject), 0, 3)) ? 'RE: ' : '') . $this->mail->subject;
+        $this->subject = ((substr(strtoupper($this->mail->subject), 0, 3)) ? 'RE: ' : '').$this->mail->subject;
     }
 
     /**
@@ -37,9 +33,9 @@ class ReplyContactMail extends Mailable
      */
     public function build()
     {
-        return $this->from(config("mail.from.address"))
-            ->bcc(config("mail.adminAddress"))
+        return $this->from(config('mail.from.address'))
+            ->bcc(config('mail.adminAddress'))
             ->subject($this->subject)
-            ->view("mails.replyMail");
+            ->view('mails.replyMail');
     }
 }

@@ -5,40 +5,30 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\Rule;
-
-use App\Mail\ContactMailUser;
-use App\Models\ContactoUsuario;
-
-use App\Http\Controllers\MapboxCurl;
-
 use App\Models\Building;
 use App\Models\Country;
 use App\Models\Region;
-use App\Models\Study;
 use App\Models\User;
-
-use App\Rules\ValidateDni;
 
 class BuildingController extends Controller
 {
     public function __construct()
     {
-        $this->middleware("auth");
+        $this->middleware('auth');
     }
 
     public function showTutorial()
     {
-        return redirect(route("building"))->with(["showTutorial" => true]);
+        return redirect(route('building'))->with(['showTutorial' => true]);
     }
 
     public function showBuildings(Request $request)
     {
         // hacer query de los edificios
-        $buildings = Building::where("user_id", Auth::id())->get();
+        $buildings = Building::where('user_id', Auth::id())->get();
 
         // devolver vista pasando los edificios
-        return view('building.building', ["buildings" => $buildings]);
+        return view('building.building', ['buildings' => $buildings]);
     }
 
     protected function buildingValidator(array $data)
@@ -58,7 +48,7 @@ class BuildingController extends Controller
         $mapbox = new MapboxCurl();
         $lngLat = $mapbox->geocode($building);
 
-        if (gettype($lngLat) == "array") {
+        if ('array' == gettype($lngLat)) {
             $this->saveCoordinates($building, $lngLat);
         }
     }
@@ -70,8 +60,9 @@ class BuildingController extends Controller
         $geocode = array();
 
         foreach ($reverseGeocode->features as $feature) {
-            $geocode[explode(".", $feature->id)[0]] = $feature->text;
+            $geocode[explode('.', $feature->id)[0]] = $feature->text;
         }
+
         return $geocode;
     }
 
@@ -79,7 +70,7 @@ class BuildingController extends Controller
     {
         $validator = $this::buildingValidator($request->all());
         if ($validator->fails()) {
-            return redirect(route("building"))->withErrors($validator)->withInput()->with(["showModal" => "create"]);
+            return redirect(route('building'))->withErrors($validator)->withInput()->with(['showModal' => 'create']);
         }
 
         $building = Building::create([
@@ -92,15 +83,15 @@ class BuildingController extends Controller
             'address_with_number' => $request->address,
         ]);
 
-        if ($request->input("latitude")) {
-            $building->latitude = $request->input("latitude");
-            $building->longitude = $request->input("longitude");
+        if ($request->input('latitude')) {
+            $building->latitude = $request->input('latitude');
+            $building->longitude = $request->input('longitude');
             $building->save();
         } else {
             $this->geocodeBuilding($building);
         }
 
-        return redirect(route("building"));
+        return redirect(route('building'));
     }
 
     public function editBuilding(Request $request)
@@ -108,36 +99,37 @@ class BuildingController extends Controller
         $validator = $this::buildingValidator($request->all());
 
         if ($validator->fails()) {
-            return redirect(route("building"))->withErrors($validator)->withInput()->with(["showModal" => "edit"]);
+            return redirect(route('building'))->withErrors($validator)->withInput()->with(['showModal' => 'edit']);
         }
 
-        $building = Building::where("id", $request->id)->firstOrFail();
-        $building->name = $request->input("name");
-        $building->description = $request->input("description");
-        $building->country_id = $request->input("country_id");
-        $building->region_id = $request->input("region_id");
-        $building->postcode = $request->input("postcode");
-        $building->address_with_number = $request->input("address");
+        $building = Building::where('id', $request->id)->firstOrFail();
+        $building->name = $request->input('name');
+        $building->description = $request->input('description');
+        $building->country_id = $request->input('country_id');
+        $building->region_id = $request->input('region_id');
+        $building->postcode = $request->input('postcode');
+        $building->address_with_number = $request->input('address');
 
-        if ($request->input("latitude")) {
-            $building->latitude = $request->input("latitude");
-            $building->longitude = $request->input("longitude");
+        if ($request->input('latitude')) {
+            $building->latitude = $request->input('latitude');
+            $building->longitude = $request->input('longitude');
 
             $this->setAddressFromCoordinates([
-                $building->longitude = $request->input("longitude"),
-                $building->latitude = $request->input("latitude")
+                $building->longitude = $request->input('longitude'),
+                $building->latitude = $request->input('latitude'),
             ], $building);
         }
         $building->save();
 
-        return redirect(route("building"));
+        return redirect(route('building'));
     }
 
     public function deleteBuilding(Request $request, $id)
     {
-        $building = Building::where("id", $id)->firstOrFail();
+        $building = Building::where('id', $id)->firstOrFail();
         $building->delete();
-        return redirect(route("building"));
+
+        return redirect(route('building'));
     }
 
     private function saveCoordinates(Building $building, array $lngLat)
@@ -151,26 +143,26 @@ class BuildingController extends Controller
     {
         foreach ($this->reverseGeocode($lngLat[1], $lngLat[0]) as $type => $value) {
             switch ($type) {
-                case "address":
+                case 'address':
                     $building->address_with_number = $value;
                     break;
 
-                case "postcode":
+                case 'postcode':
                     $building->postcode = $value;
                     break;
 
-                case "region":
+                case 'region':
                     try {
-                        $region = Region::where("name", ucwords(strtolower($value)))->first();
+                        $region = Region::where('name', ucwords(strtolower($value)))->first();
                         $building->region_id = $region->id;
                     } catch (Exception $e) {
                         $building->region_id = null;
                     }
                     break;
 
-                case "country":
+                case 'country':
                     try {
-                        $country = Country::where("name", ucwords(strtolower($value)))->first();
+                        $country = Country::where('name', ucwords(strtolower($value)))->first();
                         $building->country_id = $country->id;
                     } catch (Exception $e) {
                         $building->country_id = null;
@@ -185,13 +177,13 @@ class BuildingController extends Controller
         if (!$id) {
             $buildings = Auth::user()->buildings;
         } else {
-            $buildings = Auth::user()->buildings()->where("id", $id)->get();
+            $buildings = Auth::user()->buildings()->where('id', $id)->get();
 
-            if (count($buildings) == 0) {
+            if (0 == count($buildings)) {
                 abort(404);
             }
         }
 
-        return view("building.stats", ["buildings" => $buildings, "year" => date("Y")]);
+        return view('building.stats', ['buildings' => $buildings, 'year' => date('Y')]);
     }
 }

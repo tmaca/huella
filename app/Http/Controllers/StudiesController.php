@@ -1,19 +1,12 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
-use Hash;
-use App\Http\Controllers\MapboxCurl;
-use App\Mail\ContactMailUser;
-use App\Models\ContactoUsuario;
 use App\Models\Building;
-use App\Models\Country;
-use App\Mail\ContactMailAdmin;
-use App\Models\Region;
 use App\Models\Study;
 use App\Models\User;
 
@@ -21,24 +14,25 @@ class StudiesController extends Controller
 {
     public function __construct()
     {
-        $this->middleware("auth");
+        $this->middleware('auth');
     }
 
     public function alcancesView($id)
     {
-        return (view("user.alcances", ['id'=>$id, "studies" => Building::find($id)->studies()->whereNotNull("carbon_footprint")->orderBy("year", "asc")->get(), "action"=>"view"]));
+        return view('user.alcances', ['id' => $id, 'studies' => Building::find($id)->studies()->whereNotNull('carbon_footprint')->orderBy('year', 'asc')->get(), 'action' => 'view']);
     }
 
     public function alcancesCreate($id)
     {
-        return (view("user.alcances", ['id'=>$id, "studies" => Building::find($id)->studies()->whereNull("carbon_footprint")->orderBy("year", "asc")->get(), "action"=>"create"]));
+        return view('user.alcances', ['id' => $id, 'studies' => Building::find($id)->studies()->whereNull('carbon_footprint')->orderBy('year', 'asc')->get(), 'action' => 'create']);
     }
 
     public function alcances(Request $request)
     {
         $validator = $this::alcancesValidator($request->all());
         if ($validator->fails()) {
-            $validator->errors()->add("inputYear", $request->year);
+            $validator->errors()->add('inputYear', $request->year);
+
             return redirect()->back()->withErrors($validator)->withInput();
         }
         $alcances = Study::updateOrCreate([
@@ -55,26 +49,29 @@ class StudiesController extends Controller
              'a3_papel_carton_residuos_kg' => $request->a3_papel_carton_residuos_kg,
              'a3_factor_kwh_nm3' => $request->a3_factor_kwh_nm3,
          ]);
-        if ($request->input("submit") == "calculateStudy") {
+        if ('calculateStudy' == $request->input('submit')) {
             $this->calculateStudy($alcances);
-            return redirect(route("alcancesView", ["id" => $request->building_id]))->with(["showYear" => $request->year]);
+
+            return redirect(route('alcancesView', ['id' => $request->building_id]))->with(['showYear' => $request->year]);
         }
-        return redirect(route("alcancesCreate", ["id" => $request->building_id]))->with(["showYear" => $request->year]);
+
+        return redirect(route('alcancesCreate', ['id' => $request->building_id]))->with(['showYear' => $request->year]);
     }
+
     protected function alcancesValidator(array $data)
     {
         $validator = Validator::make($data, [
-             'building_id'=>'required',
+             'building_id' => 'required',
              'year' => [
                  'required',
                  'numeric',
-                 'min:' . (date("Y") - 20),
-                 'max:' . date("Y")
+                 'min:'.(date('Y') - 20),
+                 'max:'.date('Y'),
              ],
-             'a1_gas_natural_kwh'=>'required|numeric',
-             'a1_gas_natural_nm3'=>'required|numeric',
-             'a1_refrigerantes'=>'required|numeric',
-             'a1_recarga_gases_refrigerantes'=>'required|numeric',
+             'a1_gas_natural_kwh' => 'required|numeric',
+             'a1_gas_natural_nm3' => 'required|numeric',
+             'a1_refrigerantes' => 'required|numeric',
+             'a1_recarga_gases_refrigerantes' => 'required|numeric',
              'a2_electricidad_kwh' => 'required|numeric',
              'a3_agua_potable_m3' => 'required|numeric',
              'a3_papel_carton_consumo_kg' => 'required|numeric',
@@ -82,17 +79,19 @@ class StudiesController extends Controller
              'a3_factor_kwh_nm3' => 'required|numeric',
          ]);
         // validate year field (create)
-        $validator->sometimes('year', Rule::unique("studies")->where("building_id", $data["building_id"]), function ($input) {
+        $validator->sometimes('year', Rule::unique('studies')->where('building_id', $data['building_id']), function ($input) {
             return empty($input->id);
         });
         // validate year field (update)
-        $validator->sometimes('year', Rule::unique("studies")->where("building_id", $data["building_id"])->ignore($data["id"], "id"), function ($input) {
+        $validator->sometimes('year', Rule::unique('studies')->where('building_id', $data['building_id'])->ignore($data['id'], 'id'), function ($input) {
             return !empty($input->id);
         });
+
         return $validator;
     }
+
     /**
-     * Calculo huella
+     * Calculo huella.
      */
     public function calculateStudy(Study $study)
     {

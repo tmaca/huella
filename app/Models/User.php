@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
 use Illuminate\Support\Facades\Mail;
 use App\Mail\RegisterConfirmation;
 
@@ -18,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'nif', 'telephone', 'email', 'year', 'password', 'email_code', 'verified', 'publicViewable'
+        'name', 'nif', 'telephone', 'email', 'year', 'password', 'email_code', 'verified', 'publicViewable',
     ];
 
     /**
@@ -44,7 +43,7 @@ class User extends Authenticatable
     }
 
     /**
-     * Buildings
+     * Buildings.
      */
     public function buildings()
     {
@@ -52,7 +51,7 @@ class User extends Authenticatable
     }
 
     /**
-     * Api token
+     * Api token.
      */
     public function generateToken()
     {

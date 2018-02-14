@@ -8,23 +8,19 @@ class ContactoUsuarios extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
     public function up()
     {
-        Schema::create("contactoUsuarios", function (Blueprint $table) {
+        Schema::create('contactoUsuarios', function (Blueprint $table) {
             $table->increments('id');
-            $table->string("email");
-            $table->string("subject")->nullable();
-            $table->string("message");
+            $table->string('email');
+            $table->string('subject')->nullable();
+            $table->string('message');
         });
     }
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
     public function down()
     {

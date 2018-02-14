@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
 use App\Models\Building;
 use Auth;
 
@@ -11,9 +10,9 @@ class ApiController extends Controller
 {
     public function __construct()
     {
-        $this->middleware("checkOwner")->only([
-            "updateBuilding",
-            "deleteBuilding",
+        $this->middleware('checkOwner')->only([
+            'updateBuilding',
+            'deleteBuilding',
         ]);
     }
 
@@ -31,12 +30,12 @@ class ApiController extends Controller
     public function storeBuilding(Request $request)
     {
         $building = Building::create([
-            "user_id" => Auth::id(),
-            "name" => $request->name,
-            "country_id" => $request->country_id,
-            "region_id" => $request->region_id,
-            "postcode" => $request->postcode,
-            "address_with_number" => $request->address_with_number,
+            'user_id' => Auth::id(),
+            'name' => $request->name,
+            'country_id' => $request->country_id,
+            'region_id' => $request->region_id,
+            'postcode' => $request->postcode,
+            'address_with_number' => $request->address_with_number,
         ]);
 
         return response()->json($building, 201);

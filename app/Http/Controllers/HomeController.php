@@ -10,24 +10,15 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Hash;
-
-use App\Http\Controllers\MapboxCurl;
-
 use App\Models\Building;
-use App\Models\Country;
 use App\Mail\ContactMailAdmin;
-use App\Models\Region;
-use App\Models\Study;
 use App\Models\User;
-
 use App\Rules\ValidateDni;
 
 class HomeController extends Controller
 {
     /**
      * Create a new controller instance.
-     *
-     * @return void
      */
     public function __construct()
     {
@@ -41,29 +32,29 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return redirect(route("building"));
+        return redirect(route('building'));
     }
 
     /**
-     * Contact
+     * Contact.
      */
     public function datoscontacto(Request $request)
     {
         $validator = $this::contactValidator($request->all());
 
         if ($validator->fails()) {
-            $request->session()->flash("isContactValid", false);
+            $request->session()->flash('isContactValid', false);
 
             if ($request->ajax()) {
-                return response()->json(['error'=>$validator->errors()->all()]);
+                return response()->json(['error' => $validator->errors()->all()]);
             }
 
-            return redirect(route("landing") . "#contacto")->withErrors($validator)->withInput();
+            return redirect(route('landing').'#contacto')->withErrors($validator)->withInput();
         }
 
-        $email=$request->email;
-        $subject=$request->subject;
-        $message=$request->message;
+        $email = $request->email;
+        $subject = $request->subject;
+        $message = $request->message;
 
         $datoscontacto = ContactoUsuario::create([
              'email' => $email,
@@ -72,15 +63,15 @@ class HomeController extends Controller
          ]);
 
         Mail::to($email)->send(new ContactMailUser());
-        Mail::to(config("mail.adminAddress"))->send(new ContactMailAdmin());
+        Mail::to(config('mail.adminAddress'))->send(new ContactMailAdmin());
 
         if ($request->ajax()) {
-            return response()->json(['success'=>'Tu mensaje se ha enviado correctamente.']);
+            return response()->json(['success' => 'Tu mensaje se ha enviado correctamente.']);
         }
 
-        $request->session()->flash("isContactValid", true);
+        $request->session()->flash('isContactValid', true);
 
-        return redirect(route("landing") . "#contacto");
+        return redirect(route('landing').'#contacto');
     }
 
     protected function contactValidator(array $data)
@@ -104,7 +95,7 @@ class HomeController extends Controller
                   'nullable',
                   'alpha_num',
                   'max:9',
-                  new ValidateDni
+                  new ValidateDni(),
               ],
               'email' => [
                   'required',
@@ -114,7 +105,7 @@ class HomeController extends Controller
                   Rule::unique('users')->ignore(Auth::id()),
               ],
               'telephone' => 'nullable|numeric|min:100000000|max:999999999',
-              'publicViewable' => 'required|boolean'
+              'publicViewable' => 'required|boolean',
           ]);
 
         return $validator;
@@ -122,7 +113,7 @@ class HomeController extends Controller
 
     public function showProfile(Request $request)
     {
-        return view("user.profile");
+        return view('user.profile');
     }
 
     public function saveProfile(Request $request)
@@ -130,23 +121,23 @@ class HomeController extends Controller
         $validator = $this->validateProfile($request);
 
         if ($validator->fails()) {
-            return redirect(route("user.profile"))->withErrors($validator)->withInput();
+            return redirect(route('user.profile'))->withErrors($validator)->withInput();
         }
 
         $user = Auth::user();
-        $user->name = $request->input("name");
-        $user->nif = strtoupper($request->input("nif"));
-        $user->telephone = $request->input("telephone");
-        $user->email = $request->input("email");
-        $user->publicViewable = $request->input("publicViewable");
+        $user->name = $request->input('name');
+        $user->nif = strtoupper($request->input('nif'));
+        $user->telephone = $request->input('telephone');
+        $user->email = $request->input('email');
+        $user->publicViewable = $request->input('publicViewable');
         $user->save();
 
-        return redirect(route("user.profile"));
+        return redirect(route('user.profile'));
     }
 
     public function showChangePassword()
     {
-        return view("user.changePassword");
+        return view('user.changePassword');
     }
 
     private function validateChangePassword($request)
@@ -165,18 +156,20 @@ class HomeController extends Controller
         $user = Auth::user();
 
         if ($validator->fails()) {
-            return redirect(route("user.profile.changePassword"))->withErrors($validator);
+            return redirect(route('user.profile.changePassword'))->withErrors($validator);
         }
 
-        if (Hash::check($request->input("currentPassword"), $user->password)) {
-            $user->password = Hash::make($request->input("newPassword"));
+        if (Hash::check($request->input('currentPassword'), $user->password)) {
+            $user->password = Hash::make($request->input('newPassword'));
             $user->save();
 
-            return redirect(route("user.profile.changePassword"))->with("changed", true);
+            return redirect(route('user.profile.changePassword'))->with('changed', true);
+
             return $request->all();
         } else {
-            $validator->errors()->add("currentPassword", trans("auth.failed"));
-            return redirect(route("user.profile.changePassword"))->withErrors($validator);
+            $validator->errors()->add('currentPassword', trans('auth.failed'));
+
+            return redirect(route('user.profile.changePassword'))->withErrors($validator);
         }
     }
 }

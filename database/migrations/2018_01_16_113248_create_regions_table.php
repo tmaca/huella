@@ -8,24 +8,20 @@ class CreateRegionsTable extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
     public function up()
     {
         Schema::create('regions', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer("country_id")->unsigned();
-            $table->foreign("country_id")->references("id")->on("countries")->onUpdate("cascade")->onDelete("cascade");
-            $table->string("name")->unique();
+            $table->integer('country_id')->unsigned();
+            $table->foreign('country_id')->references('id')->on('countries')->onUpdate('cascade')->onDelete('cascade');
+            $table->string('name')->unique();
             $table->timestamps();
         });
     }
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
     public function down()
     {

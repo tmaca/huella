@@ -9,8 +9,9 @@ class CheckOwner
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
+     * @param \Illuminate\Http\Request $request
+     * @param \Closure                 $next
+     *
      * @return mixed
      */
     public function handle($request, Closure $next)
@@ -20,8 +21,8 @@ class CheckOwner
         }
 
         return response()->json([
-            "errorCode" => 403,
-            "error" => "Not allowed"
+            'errorCode' => 403,
+            'error' => 'Not allowed',
         ], 403);
     }
 }

@@ -32,8 +32,6 @@ class RegisterController extends Controller
 
     /**
      * Create a new controller instance.
-     *
-     * @return void
      */
     public function __construct()
     {
@@ -43,7 +41,8 @@ class RegisterController extends Controller
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array  $data
+     * @param array $data
+     *
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
@@ -52,14 +51,15 @@ class RegisterController extends Controller
             'name' => 'required|string|min:5|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
-            'terms' => 'accepted'
+            'terms' => 'accepted',
         ]);
     }
 
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
+     * @param array $data
+     *
      * @return \App\Models\User
      */
     protected function create(array $data)
@@ -68,8 +68,8 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
-            "email_code" => str_random(75),
-            "verified" => false,
+            'email_code' => str_random(75),
+            'verified' => false,
         ]);
 
         $user->sendVerifyEmail();
@@ -83,28 +83,31 @@ class RegisterController extends Controller
 
         if ($validator->fails()) {
             if ($request->ajax()) {
-                return response()->json(['error'=>$validator->errors()->all()]);
+                return response()->json(['error' => $validator->errors()->all()]);
             }
 
-            $request->session()->flash("registerFailed", true);
+            $request->session()->flash('registerFailed', true);
+
             return redirect()->back()->withErrors($validator)->withInput();
         } else {
             $this::create($request->all());
         }
 
-        $request->session()->flash("postRegister", true);
-        $request->session()->flash("emailAddress", $request->input("email"));
-        return redirect(route("landing"));
+        $request->session()->flash('postRegister', true);
+        $request->session()->flash('emailAddress', $request->input('email'));
+
+        return redirect(route('landing'));
     }
 
     public function verifyEmail(Request $request, $token)
     {
-        $user = User::where("email_code", $token)->firstOrFail();
+        $user = User::where('email_code', $token)->firstOrFail();
         $user->verify();
 
-        $request->session()->flash("accountActivated", true);
-        $request->session()->flash("emailAddress", $user->email);
-        return redirect(route("landing"));
+        $request->session()->flash('accountActivated', true);
+        $request->session()->flash('emailAddress', $user->email);
+
+        return redirect(route('landing'));
     }
 
     protected function registered(Request $request, $user)

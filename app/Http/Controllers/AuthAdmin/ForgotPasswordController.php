@@ -24,8 +24,6 @@ class ForgotPasswordController extends Controller
 
     /**
      * Create a new controller instance.
-     *
-     * @return void
      */
     public function __construct()
     {
@@ -36,7 +34,6 @@ class ForgotPasswordController extends Controller
     {
         return Password::broker('admins');
     }
-
 
     /**
      * Display the form to request a password reset link.
@@ -51,7 +48,8 @@ class ForgotPasswordController extends Controller
     /**
      * Send a reset link to the given user.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\RedirectResponse
      */
     public function sendResetLinkEmail(Request $request)
@@ -65,7 +63,7 @@ class ForgotPasswordController extends Controller
             $request->only('email')
         );
 
-        return $response == Password::RESET_LINK_SENT
+        return Password::RESET_LINK_SENT == $response
             ? $this->sendResetLinkResponse($response)
             : $this->sendResetLinkFailedResponse($request, $response);
     }

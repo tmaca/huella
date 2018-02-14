@@ -21,8 +21,6 @@ class LoginController extends Controller
 
     /**
      * Create a new controller instance.
-     *
-     * @return void
      */
     public function __construct()
     {
@@ -42,36 +40,39 @@ class LoginController extends Controller
     /**
      * Handle a login request to the application.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Http\JsonResponse
      */
     public function login(Request $request)
     {
         $this->validate($request, [
             'code' => 'required|integer|min:10000000',
-            'password' => 'required|min:6'
+            'password' => 'required|min:6',
         ]);
 
         $credential = [
             'code' => $request->code,
-            'password' => $request->password
+            'password' => $request->password,
         ];
 
         // Attempt to log the user in
-        if (Auth::guard('admin')->attempt($credential, $request->input("inputremember"))) {
+        if (Auth::guard('admin')->attempt($credential, $request->input('inputremember'))) {
             // If login succesful, then redirect to their intended location
             return redirect()->intended(route('admin.home'));
         }
 
         // If Unsuccessful, then redirect back to the login with the form data
         $invalidCredentials = trans('auth.failed');
-        return view("authAdmin.login", ["invalidCredentials" => $invalidCredentials]);
+
+        return view('authAdmin.login', ['invalidCredentials' => $invalidCredentials]);
     }
 
     /**
      * Log the user out of the application.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function logout(Request $request)
