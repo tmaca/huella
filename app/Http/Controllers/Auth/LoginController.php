@@ -52,12 +52,12 @@ class LoginController extends Controller
         ]);
     }
 
-    public function login(Request $request) {
+    public function login(Request $request)
+    {
         $validator = $this::validator($request->all());
 
         if ($validator->fails()) {
-
-            if($request->ajax()){
+            if ($request->ajax()) {
                 return response()->json(['error'=>$validator->errors()->all()]);
             }
 
@@ -72,7 +72,6 @@ class LoginController extends Controller
         }
 
         if (Auth::attempt(["email" => $request->email, "password" => $request->password], $remember)) {
-
             $user = Auth::user();
 
             // user has verified email
@@ -83,18 +82,16 @@ class LoginController extends Controller
             }
 
             return redirect()->intended($this::redirectPath());
-
         } else {
             $request->session()->flash("loginFailed", true);
             $errors = [$this->username() => trans('auth.failed')];
 
-            if($request->ajax()){
+            if ($request->ajax()) {
                 return response()->json(['error'=> $errors]);
             }
 
             return redirect()->back()->withErrors($errors)->withInput();
         }
-
     }
 
     public function loginApi(Request $request)

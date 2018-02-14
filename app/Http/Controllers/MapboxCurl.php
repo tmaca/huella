@@ -13,11 +13,13 @@ class MapboxCurl extends Controller
     private $API_URL = "https://api.mapbox.com";
     private $endpoint;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->API_KEY = env("MAPBOX_TOKEN");
     }
 
-    private function query() {
+    private function query()
+    {
         $url = $this->API_URL . $this->endpoint . "&access_token=" . $this->API_KEY;
         $curl = curl_init();
         curl_setopt_array($curl, [
@@ -30,7 +32,8 @@ class MapboxCurl extends Controller
         return $response;
     }
 
-    public function geocode(Building $building) {
+    public function geocode(Building $building)
+    {
         $this->endpoint = "/geocoding/v5/mapbox.places/" .
             urlencode($building->address_with_number) . ", " . urlencode($building->postcode) . ", " . urlencode($building->region->name) .
             ".json?" .
@@ -54,12 +57,13 @@ class MapboxCurl extends Controller
         return json_decode("{\"message\":\"Error on CURL request\"}");
     }
 
-    public function reverseGeocode(String $latitude, String $longitude) {
+    public function reverseGeocode(String $latitude, String $longitude)
+    {
         $this->endpoint = "/geocoding/v5/mapbox.places/" .
             $longitude . "," . $latitude .
             ".json?language=" . $this->LANG;
-            $response = $this->query();
+        $response = $this->query();
 
-            return json_decode($response);
+        return json_decode($response);
     }
 }

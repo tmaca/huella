@@ -9,7 +9,8 @@ use Auth;
 
 class ApiController extends Controller
 {
-    public function __construct() {
+    public function __construct()
+    {
         $this->middleware("checkOwner")->only([
             "updateBuilding",
             "deleteBuilding",
@@ -18,17 +19,17 @@ class ApiController extends Controller
 
     // Buildings
     public function showAllBuildings()
-   {
-       return Auth::user()->buildings;
-   }
+    {
+        return Auth::user()->buildings;
+    }
 
-   public function showBuilding(Building $building)
-   {
-       return Auth::user()->buildings()->find($building);
-   }
+    public function showBuilding(Building $building)
+    {
+        return Auth::user()->buildings()->find($building);
+    }
 
-   public function storeBuilding(Request $request)
-   {
+    public function storeBuilding(Request $request)
+    {
         $building = Building::create([
             "user_id" => Auth::id(),
             "name" => $request->name,
@@ -39,19 +40,19 @@ class ApiController extends Controller
         ]);
 
         return response()->json($building, 201);
-   }
+    }
 
-   public function updateBuilding(Request $request, Building $building)
-   {
-       $building->update($request->all());
+    public function updateBuilding(Request $request, Building $building)
+    {
+        $building->update($request->all());
 
-       return response()->json($building, 200);
-   }
+        return response()->json($building, 200);
+    }
 
-   public function deleteBuilding(Building $building)
-   {
-       $building->delete();
+    public function deleteBuilding(Building $building)
+    {
+        $building->delete();
 
-       return response()->json(null, 204);
-   }
+        return response()->json(null, 204);
+    }
 }

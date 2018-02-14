@@ -22,15 +22,18 @@ class Building extends Model
         return $this->hasMany('App\Models\Study');
     }
 
-    public function user() {
+    public function user()
+    {
         return $this->hasOne('App\Models\User', 'id', 'user_id');
     }
 
-    public function country() {
+    public function country()
+    {
         return $this->hasOne('App\Models\Country', 'id', 'country_id');
     }
 
-    public function region() {
+    public function region()
+    {
         return $this->hasOne('App\Models\Region', 'id', 'region_id');
     }
 }

@@ -1,5 +1,6 @@
 <?php
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -15,9 +16,11 @@ use App\Mail\ContactMailAdmin;
 use App\Models\Region;
 use App\Models\Study;
 use App\Models\User;
+
 class StudiesController extends Controller
 {
-    public function __construct() {
+    public function __construct()
+    {
         $this->middleware("auth");
     }
 
@@ -31,15 +34,14 @@ class StudiesController extends Controller
         return (view("user.alcances", ['id'=>$id, "studies" => Building::find($id)->studies()->whereNull("carbon_footprint")->orderBy("year", "asc")->get(), "action"=>"create"]));
     }
 
-     public function alcances(Request $request)
-     {
-         $validator = $this::alcancesValidator($request->all());
-         if ($validator->fails())
-         {
-             $validator->errors()->add("inputYear", $request->year);
-             return redirect()->back()->withErrors($validator)->withInput();
-         }
-         $alcances = Study::updateOrCreate([
+    public function alcances(Request $request)
+    {
+        $validator = $this::alcancesValidator($request->all());
+        if ($validator->fails()) {
+            $validator->errors()->add("inputYear", $request->year);
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+        $alcances = Study::updateOrCreate([
              'building_id' => $request->building_id,
              'year' => $request->year,
          ], [
@@ -53,15 +55,15 @@ class StudiesController extends Controller
              'a3_papel_carton_residuos_kg' => $request->a3_papel_carton_residuos_kg,
              'a3_factor_kwh_nm3' => $request->a3_factor_kwh_nm3,
          ]);
-         if ($request->input("submit") == "calculateStudy") {
-             $this->calculateStudy($alcances);
-             return redirect(route("alcancesView", ["id" => $request->building_id]))->with(["showYear" => $request->year]);
-         }
-         return redirect(route("alcancesCreate", ["id" => $request->building_id]))->with(["showYear" => $request->year]);
-     }
-     protected function alcancesValidator(array $data)
-     {
-         $validator = Validator::make($data, [
+        if ($request->input("submit") == "calculateStudy") {
+            $this->calculateStudy($alcances);
+            return redirect(route("alcancesView", ["id" => $request->building_id]))->with(["showYear" => $request->year]);
+        }
+        return redirect(route("alcancesCreate", ["id" => $request->building_id]))->with(["showYear" => $request->year]);
+    }
+    protected function alcancesValidator(array $data)
+    {
+        $validator = Validator::make($data, [
              'building_id'=>'required',
              'year' => [
                  'required',
@@ -79,21 +81,22 @@ class StudiesController extends Controller
              'a3_papel_carton_residuos_kg' => 'required|numeric',
              'a3_factor_kwh_nm3' => 'required|numeric',
          ]);
-         // validate year field (create)
-         $validator->sometimes('year', Rule::unique("studies")->where("building_id", $data["building_id"]), function ($input) {
-             return empty($input->id);
-         });
-         // validate year field (update)
-         $validator->sometimes('year', Rule::unique("studies")->where("building_id", $data["building_id"])->ignore($data["id"], "id"), function ($input) {
-             return !empty($input->id);
-         });
-         return $validator;
-     }
+        // validate year field (create)
+        $validator->sometimes('year', Rule::unique("studies")->where("building_id", $data["building_id"]), function ($input) {
+            return empty($input->id);
+        });
+        // validate year field (update)
+        $validator->sometimes('year', Rule::unique("studies")->where("building_id", $data["building_id"])->ignore($data["id"], "id"), function ($input) {
+            return !empty($input->id);
+        });
+        return $validator;
+    }
     /**
      * Calculo huella
      */
-     public function calculateStudy(Study $study) {
-         $formula =
+    public function calculateStudy(Study $study)
+    {
+        $formula =
             $study->a1_gas_natural_kwh
             + $study->a1_gas_natural_nm3
             + $study->a1_refrigerantes
@@ -103,7 +106,7 @@ class StudiesController extends Controller
             + $study->a3_papel_carton_consumo_kg
             + $study->a3_papel_carton_residuos_kg
             + $study->a3_factor_kwh_nm3;
-         $study->carbon_footprint = $formula;
-         $study->save();
-     }
+        $study->carbon_footprint = $formula;
+        $study->save();
+    }
 }

@@ -22,12 +22,13 @@ use App\Rules\ValidateDni;
 
 class BuildingController extends Controller
 {
-
-    public function __construct() {
+    public function __construct()
+    {
         $this->middleware("auth");
     }
 
-    public function showTutorial() {
+    public function showTutorial()
+    {
         return redirect(route("building"))->with(["showTutorial" => true]);
     }
 
@@ -52,7 +53,8 @@ class BuildingController extends Controller
         ]);
     }
 
-    public function geocodeBuilding(Building $building) {
+    public function geocodeBuilding(Building $building)
+    {
         $mapbox = new MapboxCurl();
         $lngLat = $mapbox->geocode($building);
 
@@ -61,14 +63,14 @@ class BuildingController extends Controller
         }
     }
 
-    public function reverseGeocode(String $latitude, String $longitude) {
+    public function reverseGeocode(String $latitude, String $longitude)
+    {
         $mapbox = new MapboxCurl();
         $reverseGeocode = $mapbox->reverseGeocode($latitude, $longitude);
-        $geocode = Array();
+        $geocode = array();
 
-        foreach($reverseGeocode->features as $feature) {
+        foreach ($reverseGeocode->features as $feature) {
             $geocode[explode(".", $feature->id)[0]] = $feature->text;
-
         }
         return $geocode;
     }
@@ -76,8 +78,7 @@ class BuildingController extends Controller
     public function addBuilding(Request $request)
     {
         $validator = $this::buildingValidator($request->all());
-        if ($validator->fails())
-        {
+        if ($validator->fails()) {
             return redirect(route("building"))->withErrors($validator)->withInput()->with(["showModal" => "create"]);
         }
 
@@ -95,7 +96,6 @@ class BuildingController extends Controller
             $building->latitude = $request->input("latitude");
             $building->longitude = $request->input("longitude");
             $building->save();
-
         } else {
             $this->geocodeBuilding($building);
         }
@@ -107,8 +107,7 @@ class BuildingController extends Controller
     {
         $validator = $this::buildingValidator($request->all());
 
-        if ($validator->fails())
-        {
+        if ($validator->fails()) {
             return redirect(route("building"))->withErrors($validator)->withInput()->with(["showModal" => "edit"]);
         }
 
@@ -141,13 +140,15 @@ class BuildingController extends Controller
         return redirect(route("building"));
     }
 
-    private function saveCoordinates(Building $building, Array $lngLat) {
+    private function saveCoordinates(Building $building, array $lngLat)
+    {
         $building->latitude = $lngLat[1];
         $building->longitude = $lngLat[0];
         $building->save();
     }
 
-    private function setAddressFromCoordinates($lngLat, $building) {
+    private function setAddressFromCoordinates($lngLat, $building)
+    {
         foreach ($this->reverseGeocode($lngLat[1], $lngLat[0]) as $type => $value) {
             switch ($type) {
                 case "address":
@@ -179,7 +180,8 @@ class BuildingController extends Controller
         }
     }
 
-    public function showStats($id = null) {
+    public function showStats($id = null)
+    {
         if (!$id) {
             $buildings = Auth::user()->buildings;
         } else {

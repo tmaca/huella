@@ -30,14 +30,16 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function verify() {
+    public function verify()
+    {
         $this->verified = true;
         $this->email_code = null;
 
         $this->save();
     }
 
-    public function sendVerifyEmail() {
+    public function sendVerifyEmail()
+    {
         Mail::to($this->email)->send(new RegisterConfirmation($this));
     }
 

@@ -77,12 +77,12 @@ class RegisterController extends Controller
         return $user;
     }
 
-    public function register(Request $request) {
+    public function register(Request $request)
+    {
         $validator = $this::validator($request->all());
 
         if ($validator->fails()) {
-
-            if($request->ajax()){
+            if ($request->ajax()) {
                 return response()->json(['error'=>$validator->errors()->all()]);
             }
 
@@ -97,7 +97,8 @@ class RegisterController extends Controller
         return redirect(route("landing"));
     }
 
-    public function verifyEmail(Request $request, $token) {
+    public function verifyEmail(Request $request, $token)
+    {
         $user = User::where("email_code", $token)->firstOrFail();
         $user->verify();
 

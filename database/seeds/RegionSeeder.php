@@ -67,7 +67,7 @@ class RegionSeeder extends Seeder
             "Zaragoza",
         ];
 
-        foreach($regions as $regionName) {
+        foreach ($regions as $regionName) {
             $region = new Region;
             $region->country_id = $countryId;
             $region->name = $regionName;

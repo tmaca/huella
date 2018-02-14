@@ -16,8 +16,6 @@ class ContactMailAdmin extends Mailable
 
     public function __construct()
     {
-
-
     }
 
 

@@ -17,6 +17,5 @@ class AdminTableSeeder extends Seeder
         $admin->code = "1234567890";
         $admin->password = bcrypt('password');
         $admin->save();
-
     }
 }

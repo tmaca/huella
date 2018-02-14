@@ -23,7 +23,7 @@ Route::get("/logout", "Auth\LoginController@logout");
 
 Route::get("/email/confim/{token}", "Auth\RegisterController@verifyEmail")->name("registerEmailConfirmation");
 
-Route::prefix('admin')->group(function() {
+Route::prefix('admin')->group(function () {
     Route::get('/', 'AdminController@index')->name('admin.home');
 
     Route::get('/login', 'AuthAdmin\LoginController@showLoginForm')->name('admin.login');
@@ -36,13 +36,13 @@ Route::prefix('admin')->group(function() {
 
     // user management
     Route::post("user/edit", "AdminController@editUser")->name("admin.user.edit");
-    Route::prefix("user/{id}")->group(function() {
+    Route::prefix("user/{id}")->group(function () {
         Route::post("delete", "AdminController@deleteUser")->name("admin.user.delete");
     });
 
     // messages management
     Route::get('/mails', 'AdminController@showMessages')->name("admin.mails.show");
-    Route::prefix("mail/{id}")->group(function() {
+    Route::prefix("mail/{id}")->group(function () {
         Route::post("delete", "AdminController@deleteMail")->name("admin.mail.delete");
         Route::post("reply", "AdminController@replyMail")->name("admin.mail.reply");
     });
@@ -61,14 +61,14 @@ Route::get('alcancesCreate/{id}', 'StudiesController@alcancesCreate')->name('alc
 Route::post('alcances', 'StudiesController@alcances')->name('alcances');
 
 // building routes
-Route::prefix('building')->group(function() {
+Route::prefix('building')->group(function () {
     Route::get('/', 'BuildingController@showBuildings')->name('building');
     Route::get('stats/{id?}', 'BuildingController@showStats')->name('building.stats');
 
     // building management
     Route::post('add', 'BuildingController@addBuilding')->name('building.add');
     Route::post('edit', 'BuildingController@editBuilding')->name('building.edit');
-    Route::prefix("building/{id}")->group(function() {
+    Route::prefix("building/{id}")->group(function () {
         Route::post("delete", "BuildingController@deleteBuilding")->name("building.delete");
     });
 });

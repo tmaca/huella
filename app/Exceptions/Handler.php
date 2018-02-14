@@ -1,11 +1,13 @@
 <?php
 namespace App\Exceptions;
+
 use Exception;
 use Request;
 use Response;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+
 class Handler extends ExceptionHandler
 {
     /**
@@ -44,20 +46,19 @@ class Handler extends ExceptionHandler
      * @param  \Exception  $exception
      * @return \Illuminate\Http\Response
      */
-     public function render($request, Exception $exception)
-     {
-         // This will replace our 404 response with
-         // a JSON response.
-         if ($exception instanceof ModelNotFoundException &&
-             $request->wantsJson())
-         {
-             return response()->json([
+    public function render($request, Exception $exception)
+    {
+        // This will replace our 404 response with
+        // a JSON response.
+        if ($exception instanceof ModelNotFoundException &&
+             $request->wantsJson()) {
+            return response()->json([
                  'data' => 'Resource not found'
              ], 404);
-         }
+        }
 
-         return parent::render($request, $exception);
-     }
+        return parent::render($request, $exception);
+    }
     /**
      * Convert an authentication exception into a response.
      *
@@ -80,8 +81,5 @@ class Handler extends ExceptionHandler
                 break;
         }
         return redirect()->guest(route($login));
-
     }
-
-
 }

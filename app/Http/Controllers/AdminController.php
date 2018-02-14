@@ -35,13 +35,15 @@ class AdminController extends Controller
         return view('admin.home', ["users" => $users]);
     }
 
-    public function deleteUser(Request $request, $id) {
+    public function deleteUser(Request $request, $id)
+    {
         $user = User::where("id", $id)->firstOrFail();
         $user->delete();
         return redirect(route("admin.home"));
     }
 
-    public function editUser(Request $request) {
+    public function editUser(Request $request)
+    {
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|min:5|max:255',
             'nif' => 'nullable|alpha_num|size:9',
@@ -66,18 +68,21 @@ class AdminController extends Controller
     }
 
 
-    public function showMessages() {
+    public function showMessages()
+    {
         $mails = ContactoUsuario::all();
         return view('admin.datoscontactoadmin', ["mails" => $mails]);
     }
 
-    public function deleteMail(Request $request, $id) {
+    public function deleteMail(Request $request, $id)
+    {
         $mail = ContactoUsuario::where("id", $id)->firstOrFail();
         $mail->delete();
         return redirect(route("admin.mails.show"));
     }
 
-    public function replyMail(Request $request, $id) {
+    public function replyMail(Request $request, $id)
+    {
         $for = $request->input("for");
         $reply = $request->input("reply");
 

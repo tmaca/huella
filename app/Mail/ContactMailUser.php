@@ -20,7 +20,6 @@ class ContactMailUser extends Mailable
      */
     public function __construct()
     {
-
     }
 
     /**

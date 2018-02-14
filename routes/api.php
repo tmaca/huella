@@ -23,7 +23,7 @@ Route::post("login", "Auth\LoginController@loginApi");
 Route::post('logout', 'Auth\LoginController@logout');
 
 // Building routes
-Route::group(['middleware' => 'auth:api'], function() {
+Route::group(['middleware' => 'auth:api'], function () {
     Route::get("buildings", "ApiController@showAllBuildings");
     Route::get("buildings/{building}", "ApiController@showBuilding");
     Route::post('buildings', 'ApiController@storeBuilding');
