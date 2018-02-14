@@ -5,6 +5,10 @@ $(function () {
         e.preventDefault();
         removeErrors();
 
+        let $submitBtn = $(this).children("[type=\"submit\"]");
+        $submitBtn.attr("disabled", "disabled");
+
+        return;
         let post_url = $(this).attr("action");
         let formId = $(this).attr("id");
         let data = $(this).serialize();
@@ -20,6 +24,9 @@ $(function () {
                 } else {
                     validationPassed(formId, data.error);
                 }
+            },
+            complete: function() {
+                $submitBtn.removeAttr("disabled");
             }
         });
     });
