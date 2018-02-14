@@ -1,14 +1,13 @@
 $(function () {
-    let nameError, emailError, passwordError, termsError, subjectError, messageError;
+    let nameError, emailError, passwordError, termsError, subjectError, messageError, $submitBtn;
 
     $("#loginForm, #registerForm, #contactForm").on("submit", function(e) {
         e.preventDefault();
         removeErrors();
 
-        let $submitBtn = $(this).children("[type=\"submit\"]");
+        $submitBtn = $(this).children("[type=\"submit\"]");
         $submitBtn.attr("disabled", "disabled");
 
-        return;
         let post_url = $(this).attr("action");
         let formId = $(this).attr("id");
         let data = $(this).serialize();
@@ -25,7 +24,7 @@ $(function () {
                     validationPassed(formId, data.error);
                 }
             },
-            complete: function() {
+            complete: function () {
                 $submitBtn.removeAttr("disabled");
             }
         });
@@ -75,8 +74,12 @@ $(function () {
     }
 
     function validationPassed(formId) {
-        if (formId === "loginForm" || formId === "registerForm") {
+        if (formId === "loginForm") {
             location.reload();
+
+        } else if (formId == "registerForm") {
+            $("#" + formId).find("input").value(null);
+
         } else {
             removeErrors();
 
