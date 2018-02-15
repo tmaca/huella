@@ -18,13 +18,14 @@ $(function () {
             data: data,
 
             success: function(data) {
+                $submitBtn.removeAttr("disabled");
                 if (data.error) {
                     validationFailed(formId, data.error);
                 } else {
                     validationPassed(formId, data.error);
                 }
             },
-            complete: function () {
+            always: function () {
                 $submitBtn.removeAttr("disabled");
             }
         });
@@ -78,7 +79,8 @@ $(function () {
             location.reload();
 
         } else if (formId == "registerForm") {
-            $("#" + formId).find("input").value(null);
+            $("#registerModal").modal("hide");
+            swal("Activación de cuenta", "Te ha sido enviado un email para confirmar la cuenta, no podrás iniciar sesión hasta que esta quede activada", "info")
 
         } else {
             removeErrors();
