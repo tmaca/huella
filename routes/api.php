@@ -14,19 +14,23 @@ use App\Models\Building;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::group(['middleware' => 'enableCors'], function () {
 
-Route::post('register', "Auth\RegisterController@registerApi");
-Route::post('login', "Auth\LoginController@loginApi");
-Route::post('logout', 'Auth\LoginController@logout');
+    Route::middleware('auth:api')->get('/user', function (Request $request) {
+        return $request->user();
+    });
 
-// Building routes
-Route::group(['middleware' => 'auth:api'], function () {
-    Route::get('buildings', 'ApiController@showAllBuildings');
-    Route::get('buildings/{building}', 'ApiController@showBuilding');
-    Route::post('buildings', 'ApiController@storeBuilding');
-    Route::post('buildings/{building}', 'ApiController@updateBuilding');
-    Route::delete('buildings/{building}', 'ApiController@deleteBuilding');
+    Route::post('register', "Auth\RegisterController@registerApi");
+    Route::post('login', "Auth\LoginController@loginApi");
+    Route::post('logout', 'Auth\LoginController@logout');
+
+    // Building routes
+    Route::group(['middleware' => 'auth:api'], function () {
+        Route::get('buildings', 'ApiController@showAllBuildings');
+        Route::get('buildings/{building}', 'ApiController@showBuilding');
+        Route::post('buildings', 'ApiController@storeBuilding');
+        Route::post('buildings/{building}', 'ApiController@updateBuilding');
+        Route::delete('buildings/{building}', 'ApiController@deleteBuilding');
+    });
+    
 });
